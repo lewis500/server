@@ -1,0 +1,25 @@
+body {
+    font-family:'Open Sans', sans-serif;
+}
+.axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+.container {
+    margin-left: 5px;
+}
+
+.line {
+	fill: none;
+	stroke-width: 2px;
+}
+
+.scatterDot circle{
+	stroke: none;
+	fill: 'crimson';
+}
+
+body{
+	padding-top: 25px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- ============== CSS ===================== -->
+    <title>Simulation</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+
+<!-- ============== BODY =================== -->
+
+<body ng-app="mainApp" ng-controller="mainCtrl">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10">
+                <div line-chart></div>
+                <div line-chart-second></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!-- ============== LIBRARIES =================== -->
+<script src="libraries/angular.min.js"></script>
+<script src="libraries/underscore.min.js"></script>
+<script src="libraries/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="libraries/angular-slider.js"></script>
+
+<!-- ============== SCRIPTS =================== -->
+
+<script type="text/javascript">
+var app = angular.module('mainApp', ['ui.slider']);
+
+app.run(['$rootScope', // inject the ParseAngular services made by our friends on the internet
+    function($rootScope) {
+
+        window.onresize = function() { // Browser onresize event
+            $rootScope.$broadcast('windowResize');
+        };
+
+    }
+]);
+</script>
+
+
+<!-- ============== MY STUFF =================== -->
+<script src="scripts/DataService.js"></script>
+<!-- <script src="scripts/objects.js"></script> -->
+<script src="scripts/controller.js"></script>
+<script src="scripts/lineChart.js"></script>
+<script src="scripts/lineChart2.js"></script>
+
+
+</html>

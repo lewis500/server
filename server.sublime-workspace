@@ -1,0 +1,888 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"queue",
+				"queueTime"
+			],
+			[
+				"del",
+				"deltaLeft"
+			],
+			[
+				"selec",
+				"selectAll"
+			],
+			[
+				"direction",
+				"directionsService"
+			],
+			[
+				"plo",
+				"plotit"
+			],
+			[
+				"lat",
+				"LatLng"
+			],
+			[
+				"exit",
+				"exitStats"
+			],
+			[
+				"add",
+				"addRate"
+			],
+			[
+				"fd",
+				"fdi	function(d, i) { return d; }"
+			],
+			[
+				"y",
+				"yAxis"
+			],
+			[
+				"ma",
+				"margin	margin convention"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"num",
+				"numCars"
+			],
+			[
+				"con",
+				"controller	AngularJS"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 1176,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/objects.js",
+			"settings":
+			{
+				"buffer_size": 5318,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/controller.js",
+			"settings":
+			{
+				"buffer_size": 730,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/lewis/github/MFD/scripts/controller.js",
+			"settings":
+			{
+				"buffer_size": 1493,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/lewis/github/MFD/scripts/dataService.js",
+			"settings":
+			{
+				"buffer_size": 4451,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 285.0,
+		"selected_items":
+		[
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"pret",
+				"HTMLPrettify"
+			],
+			[
+				"pretty",
+				"HTMLPrettify: Set Prettify Preferences"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"pre",
+				"Preferences: Settings - User"
+			],
+			[
+				"rett",
+				"HTMLPrettify"
+			],
+			[
+				"snippet",
+				"Snippet: function(d, i) { return d; }"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/lewis/github/server/server.sublime-project",
+		"/home/lewis/github/bottleneck/pics/C.svg",
+		"/home/lewis/github/bottleneck/simulation/styles/main.css",
+		"/home/lewis/github/bottleneck/images/overall.svg",
+		"/home/lewis/github/bottleneck/simulation/scripts/example.js",
+		"/home/lewis/github/bottleneck/simulation/scripts/test.js",
+		"/home/lewis/github/bottleneck/bottleneck2.lyx",
+		"/home/lewis/github/bottleneck/pics/example.svg",
+		"/home/lewis/github/bottleneck/aea/AEA-LaTeX-StyleInstallation.txt",
+		"/home/lewis/github/bottleneck/pics/E.svg",
+		"/home/lewis/github/bottleneck/simulation/scripts/load.js",
+		"/home/lewis/github/sf-maps/pages/showsvg.js",
+		"/home/lewis/github/bottleneck/simulation/load.html",
+		"/home/lewis/github/bottleneck/images/lu.svg",
+		"/home/lewis/github/sf-maps/zillow/zillow_hoods.geojson",
+		"/home/lewis/github/sf-maps/zillow/ZillowNeighborhoods-CA.shp",
+		"/home/lewis/github/sf-maps/json/neighborhoods.json",
+		"/home/lewis/github/sf-maps/arterials/arterial.geojson",
+		"/home/lewis/github/sf-maps/streets/result.json",
+		"/home/lewis/github/sf-maps/json/rectangle.json",
+		"/home/lewis/github/sf-maps/bay_area/bay.geojson",
+		"/home/lewis/github/sf-maps/bay/bay2.json",
+		"/home/lewis/github/sf-maps/bay/bay.json",
+		"/home/lewis/github/sf-maps/neighborhoods/input-fixed.shx",
+		"/home/lewis/github/sf-maps/bay/result.json",
+		"/home/lewis/github/sf-maps/baycounties/result.json",
+		"/home/lewis/github/sf-maps/scripts",
+		"/home/lewis/github/sf-maps/streets/stclines.prj",
+		"/home/lewis/github/sf-maps/streets/streets.json",
+		"/home/lewis/github/sf-maps/pages/stamen.html",
+		"/home/lewis/github/sf-maps/streets/streets3.json",
+		"/home/lewis/github/sf-maps/pages/index.html",
+		"/home/lewis/github/sf-maps/streets/streets2.geojson",
+		"/home/lewis/github/sf-maps/streets/streets.geojson",
+		"/home/lewis/github/sf-maps/streets/outptput.json",
+		"/home/lewis/github/sf-maps/coastline/ne_10m_coastline.VERSION.txt",
+		"/home/lewis/github/sf-maps/coastline/ne_10m_coastline.README.html",
+		"/home/lewis/github/sf-maps/json/counties.json",
+		"/home/lewis/github/sf-maps/pages/cleanshipping.js",
+		"/home/lewis/github/sf-maps/pages/gmaps.html",
+		"/home/lewis/github/sf-maps/json/bay_land.json",
+		"/home/lewis/Desktop/to do/bottleneck todo",
+		"/home/lewis/.config/inkscape/keys/default.xml",
+		"/home/lewis/github/sf-maps/libs/plotter.js",
+		"/home/lewis/github/sf-maps/libs/angular.js",
+		"/home/lewis/github/sf-maps/neighborhoods/planning_neighborhoods.dbf",
+		"/home/lewis/Desktop/to do/luxe todo",
+		"/home/lewis/Desktop/to do/simulation mfd todo",
+		"/home/lewis/github/sf-maps/json/new.json",
+		"/home/lewis/github/sf-maps/fips",
+		"/home/lewis/github/sf-maps/README.md",
+		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/home/lewis/github/sf-maps/libs/topojson.v1.min.js",
+		"/home/lewis/github/sf-maps/counties/tl_2013_us_county.shp.xml",
+		"/home/lewis/github/sf-maps/libs/d3.v3.min.js",
+		"/home/lewis/github/sf-maps/libs/queue.min.js",
+		"/home/lewis/github/sf-maps/neighborhoods/neighborhoods.json",
+		"/home/lewis/github/sf-maps/counties.json",
+		"/home/lewis/Desktop/luxe todo",
+		"/usr/share/applications/defaults.list",
+		"/home/lewis/github/housing/housing graphs.ipynb",
+		"/home/lewis/github/MFD/styles/slider.css",
+		"/home/lewis/github/MFD/libraries/slider.js",
+		"/home/lewis/github/MFD/slider.js",
+		"/home/lewis/github/MFD/scripts/scatter.js",
+		"/home/lewis/github/MFD/libraries/underscore.min.js",
+		"/home/lewis/github/MFD/scripts/car.js",
+		"/home/lewis/github/MFD/scripts/bar.js",
+		"/home/lewis/github/MFD/scripts/controller.js",
+		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/Main.sublime-menu",
+		"/home/lewis/github/MFD/styles/style.css",
+		"/home/lewis/github/MFD/index.html",
+		"/home/lewis/github/MFD/scripts/infrastructure.js",
+		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/lewis/github/MFD/libraries/sticker.js",
+		"/home/lewis/github/MFD/mfd.sublime-project",
+		"/home/lewis/github/MFD/todo.txt",
+		"/home/lewis/github/MFD/libraries/angular-slider.js",
+		"/home/lewis/github/MFD/styles/jquery-ui.css",
+		"/home/lewis/github/MFD/libraries/jquery.min.js",
+		"/home/lewis/github/MFD/scripts/draw.js",
+		"/home/lewis/github/MFD/libraries/buttons.js",
+		"/home/lewis/github/MFD/libraries/angular.min.js",
+		"/home/lewis/github/MFD/indexprev.html",
+		"/home/lewis/github/MFD/README.md",
+		"/home/lewis/github/MFD/scripts/carold.js",
+		"/home/lewis/github/MFD/scripts/car2.js",
+		"/home/lewis/github/MFD/LICENSE",
+		"/home/lewis/github/MFD/scripts/carwithbounce.js",
+		"/home/lewis/Documents/housing/housing graphs.ipynb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"getvel",
+			"vel",
+			"lower",
+			"pace",
+			"setTime",
+			"next",
+			"pTime",
+			"cost",
+			"costs",
+			"new",
+			"getnext",
+			"queue",
+			"acceptExtras",
+			"subtractDel",
+			"hisft",
+			"unshift",
+			"push",
+			"Time",
+			"pCost",
+			"max",
+			"getE",
+			"travel",
+			"penalty",
+			"delta",
+			"evalcost",
+			"E",
+			",",
+			"agent(",
+			"new agent",
+			"F.",
+			"a =",
+			"agentizer",
+			"agent",
+			"choose()",
+			"a:",
+			"a =",
+			"increment",
+			"deltaleft",
+			"choose",
+			"emaker",
+			"var E =",
+			"getE",
+			"num",
+			"lastW",
+			".pi",
+			"pi ",
+			"totalcost",
+			"m.",
+			"penalty",
+			"alpha",
+			"alpha =",
+			"ttravel",
+			"A.",
+			"choose",
+			"startfind",
+			"choose",
+			"choose()",
+			"var num",
+			"choose",
+			"numcars",
+			"findtoll",
+			"beta ",
+			"choose()",
+			"num =",
+			"agents",
+			"choose",
+			"startfind =",
+			"startfind=",
+			"findtoll",
+			"startfind =",
+			"times",
+			"shuffle",
+			"findtoll",
+			"num =",
+			"startfind",
+			"startfind =",
+			"startfind",
+			"toll",
+			"startFind",
+			"choose",
+			"findtoll",
+			"interval",
+			"toll",
+			"findtoll",
+			"cumDL",
+			"startfind",
+			"this",
+			"A.d =",
+			"timeRange",
+			"newtimes",
+			"times =",
+			"for(",
+			"A.a",
+			"A.travel",
+			"a.w",
+			"toll",
+			"w",
+			"findToll",
+			"step()",
+			"process",
+			"setinterval",
+			"penalty",
+			"gamma",
+			"penalty",
+			"gamma",
+			"putAgentsTo",
+			"evalcost",
+			"redraw",
+			"times =",
+			"pathD",
+			"var pathA",
+			"redraw",
+			"process()",
+			"newtime",
+			"newTimes",
+			"setinterva",
+			"wishtime",
+			"num =",
+			"var num",
+			"process",
+			"cchart",
+			"agents",
+			"var times",
+			"startFind",
+			"chart",
+			"tollChart",
+			"s",
+			"load"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"setPatch",
+			";",
+			"",
+			"delta",
+			"A.des",
+			"wishTime",
+			"delta",
+			"A",
+			")",
+			"(",
+			"sublime_text",
+			"md",
+			"500",
+			"400",
+			"col-xs",
+			"θ",
+			"ϕ.",
+			"ϕ",
+			"θ",
+			"tickRate",
+			"addRate",
+			"pickExit",
+			"tick"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1176,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								440,
+								440
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scripts/objects.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5318,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3926,
+								3926
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2124.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "scripts/controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 730,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								133,
+								133
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/lewis/github/MFD/scripts/controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1493,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								270,
+								270
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/lewis/github/MFD/scripts/dataService.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4451,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								495,
+								495
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "server.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"object",
+				"scripts/objects.js"
+			],
+			[
+				"objects",
+				"scripts/objects.js"
+			],
+			[
+				"controll",
+				"scripts/controller.js"
+			],
+			[
+				"todo",
+				"todo.txt"
+			],
+			[
+				"control",
+				"simulation/scripts/controller.js"
+			],
+			[
+				"example.js",
+				"simulation/scripts/example.js"
+			],
+			[
+				"example",
+				"pics/example.svg"
+			],
+			[
+				"load.js",
+				"simulation/scripts/load.js"
+			],
+			[
+				"load",
+				"simulation/load.html"
+			],
+			[
+				"zillow",
+				"sf-maps/zillow/zillow_hoods.json"
+			],
+			[
+				"zil",
+				"sf-maps/zillow/ZillowNeighborhoods-CA.shp"
+			],
+			[
+				"ne",
+				"sf-maps/json/neighborhoods.json"
+			],
+			[
+				"art",
+				"sf-maps/arterials/arterial.json"
+			],
+			[
+				"bay.geojson",
+				"sf-maps/bay_area/bay.geojson"
+			],
+			[
+				"bay.geo",
+				"sf-maps/bay_area/bay.geojson"
+			],
+			[
+				"bay.json",
+				"sf-maps/bay_area/bay.json"
+			],
+			[
+				"script",
+				"sf-maps/scripts"
+			],
+			[
+				"result",
+				"sf-maps/bay/result.json"
+			],
+			[
+				"street",
+				"sf-maps/streets/stclines.prj"
+			],
+			[
+				"scripts",
+				"sf-maps/scripts"
+			],
+			[
+				"index",
+				"sf-maps/pages/index.html"
+			],
+			[
+				"results",
+				"sf-maps/streets/result.json"
+			],
+			[
+				"streets3",
+				"sf-maps/streets/streets3.json"
+			],
+			[
+				"scrip",
+				"sf-maps/scripts"
+			],
+			[
+				"streets2",
+				"sf-maps/streets/streets2.geojson"
+			],
+			[
+				"streets",
+				"sf-maps/streets/streets.geojson"
+			],
+			[
+				"output",
+				"sf-maps/streets/outptput.json"
+			],
+			[
+				"bay2",
+				"sf-maps/bay/bay2.json"
+			],
+			[
+				"scr",
+				"sf-maps/scripts"
+			],
+			[
+				"resul",
+				"sf-maps/baycounties/result.json"
+			],
+			[
+				"bay",
+				"sf-maps/json/bay_land.json"
+			],
+			[
+				"stame",
+				"sf-maps/pages/stamen.html"
+			],
+			[
+				"rectangl",
+				"sf-maps/json/rectangle.json"
+			],
+			[
+				"infra",
+				"scripts/infrastructure.js"
+			],
+			[
+				"scat",
+				"scripts/scatter.js"
+			],
+			[
+				"bar",
+				"scripts/bar.js"
+			],
+			[
+				"scatter",
+				"scripts/scatter.js"
+			],
+			[
+				"bar.js",
+				"scripts/bar.js"
+			],
+			[
+				"slid",
+				"libraries/angular-slider.js"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"contr",
+				"scripts/controller.js"
+			],
+			[
+				"style.css",
+				"styles/style.css"
+			],
+			[
+				"scatt",
+				"scripts/scatter.js"
+			],
+			[
+				"style",
+				"styles/style.css"
+			],
+			[
+				"ifnra",
+				"scripts/infrastructure.js"
+			],
+			[
+				"infrastr",
+				"scripts/infrastructure.js"
+			],
+			[
+				"fra",
+				"scripts/infrastructure.js"
+			],
+			[
+				"infras",
+				"scripts/infrastructure.js"
+			],
+			[
+				"car",
+				"scripts/car.js"
+			],
+			[
+				"draw",
+				"scripts/draw.js"
+			],
+			[
+				"car.js",
+				"scripts/car.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/github/valet-analytics/valet.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 287.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

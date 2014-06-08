@@ -87,7 +87,7 @@ app.directive('lineChart', function() {
                     .attr("y", 6)
                     .attr("dy", ".71em")
                     .style("text-anchor", "end")
-                    .text("Number Counted");
+                    .text("Cumulative miles served");
 
                 var c = svg.append("path")
                     .datum(data)

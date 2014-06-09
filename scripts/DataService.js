@@ -8,7 +8,8 @@ app.factory('DataService', function() {
         beta = 0.5,
         gamma = 1.5,
         numClass = 100,
-        timeRange = d3.range(0, numPatches);
+        timeRange = d3.range(0, numPatches),
+        tolling = true;
 
     reset();
 
@@ -59,14 +60,15 @@ app.factory('DataService', function() {
                     T: d.time,
                     patch: d
                 };
+                d.reset();
                 return res;
             });
 
-        patches.forEach(function(d) {
-            d.reset();
-        });
+        // patches.forEach(function(d) {
 
-        _.sample(cars, 2)
+        // });
+
+        _.sample(cars, 1)
             .forEach(function(d) {
                 d.choose(XT);
             });
@@ -151,6 +153,7 @@ app.factory('DataService', function() {
         };
     }
 
+
     function Car(delta, w) {
         var C = this;
         var aT = wishTime;
@@ -166,6 +169,14 @@ app.factory('DataService', function() {
 
         reset();
 
+        function evalToll(t) {
+            if (tolling === false) return 0;
+
+            var SD = wishTime - t;
+            var P = d3.max([beta * SD, -gamma * SD]);
+            return d3.max([(w * beta * gamma) / ((beta + gamma)) - P, 0]);
+            // return 0;
+        }
 
         function reset() {
             delLeft = delta;
@@ -180,16 +191,12 @@ app.factory('DataService', function() {
                 SP: (cost.SP),
                 w: (w),
                 delta: delta,
-                SD: wishTime - dT
+                SD: wishTime - dT,
+                netCost: cost.travel + cost.SP
             };
         }
 
-        function evalToll(t) {
-            var SD = wishTime - t;
-            var P = d3.max([beta * SD, -gamma * SD]);
-            return d3.max([(w * beta * gamma) / ((beta + gamma)) - P, 0]);
-            // return 0;
-        }
+
 
         function setDT(dTn) {
             dT = dTn;
@@ -210,7 +217,7 @@ app.factory('DataService', function() {
             var Q = {
                 travel: travelTime * alpha,
                 SP: d3.max([beta * SD, -gamma * SD]),
-                toll: evalToll(aTn)
+                toll: evalToll(dTn)
             }
             Q.total = Q.travel + Q.SP + Q.toll;
             return Q;
@@ -257,10 +264,7 @@ app.factory('DataService', function() {
             setDT: setDT,
             getDel: getDel,
             subtractDel: subtractDel,
-            reset: reset,
-            getAt: getAt,
-            getCost: getCost,
-            getTotalCost: getTotalCost
+            reset: reset
         });
 
         return C;
@@ -278,6 +282,10 @@ app.factory('DataService', function() {
         return cars;
     }
 
+    function setTolling(newVal) {
+        return tolling = newVal;
+    }
+
 
     return {
         getPatches: getPatches,
@@ -285,7 +293,7 @@ app.factory('DataService', function() {
         tick: tick,
         reset: reset,
         getCars: getCars,
-        // getTotalCost: getTotalCost
+        setTolling: setTolling
     };
 
 });

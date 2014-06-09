@@ -2,8 +2,8 @@ TO DO
 make tooltip (for this, need to put all the stats you show in a special stats object)
 
 
+
 fix the scales
-draw the served line
 add tolls
 make sure you are adding up cumulative load arrived correctly. i dont think you are.
 

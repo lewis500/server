@@ -1,7 +1,9 @@
 app.directive('lineChart', function() {
 
+    var width = 450;
+
     var y = d3.scale.linear();
-    var x = d3.scale.linear().domain([0, 180]);
+    var x = d3.scale.linear().domain([0, 200]).range([0, width])
 
     var margin = {
         top: 20,
@@ -10,7 +12,7 @@ app.directive('lineChart', function() {
         left: 45
     };
 
-    var height = 250 - margin.top - margin.bottom;
+    var height = 250;
 
     var color = d3.scale.category10();
 
@@ -37,7 +39,7 @@ app.directive('lineChart', function() {
 
             var svg = d3.select(el[0])
                 .append("svg")
-                .style('width', 450)
+                .style('width', width + margin.left + margin.right)
                 .style("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -46,10 +48,7 @@ app.directive('lineChart', function() {
 
             scope.$on('tickEvent', updateData);
 
-            x.range([0, 450]);
-
             y.range([height, 0]);
-
 
             y.domain([0, 125]);
             yAxis.scale(y);

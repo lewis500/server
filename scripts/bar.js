@@ -79,6 +79,7 @@ app.directive('barChart', function() {
                     x.domain(data.map(function(d) {
                         return d.w;
                     }));
+                    gXAxis.call(xAxis);
                 }
 
                 var b = d3.extent(data, function(d) {
@@ -87,10 +88,8 @@ app.directive('barChart', function() {
 
                 y.domain([d3.min([b[0], 0]), d3.max([b[1], 0])])
 
-                gXAxis
-                    .call(xAxis);
 
-                gYAxis
+                gYAxis.transition().duration(250).ease('cubic')
                     .call(yAxis);
 
                 var bar = svg.selectAll(".bar")
@@ -104,6 +103,9 @@ app.directive('barChart', function() {
                 bar.transition()
                     .duration(300)
                     .ease('cubic')
+                    .delay(function(d, i) {
+                        return 3 * i;
+                    })
                     .attr("x", function(d) {
                         return x(d.w);
                     })
@@ -118,14 +120,18 @@ app.directive('barChart', function() {
 
             function updateData() {
                 if (!scope.cars) return;
+                var total = 0;
                 var data = scope.cars
                     .map(function(d) {
+                        var s = d.info[scope.whichStatistic];
+                        total += s;
                         return {
                             w: d.delta,
-                            val: d.info[scope.whichStatistic],
+                            val: s,
                             info: d.info
                         }
                     });
+                scope.setSummary(total);
                 draw(data);
             }
         } //end link function

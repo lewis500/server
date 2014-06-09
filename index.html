@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/main.css">
-
-
 </head>
 
 <!-- ============== BODY =================== -->
@@ -22,13 +20,14 @@
             <div class="col-sm-9">
                 <div ng-init="isCollapsed1 = true;">
                     <button class="btn btn-primary" ng-click="isCollapsed1=!isCollapsed1" style="margin-bottom: 3px; width: 100%;">
-                       cumulative served diagram
+                        cumulative served diagram
                     </button>
                     <div collapse="isCollapsed1" class="tableDiv">
                         <div line-chart></div>
                     </div>
                 </div>
                 <div ng-init="isCollapsed2=true;">
+
                     <button class="btn btn-primary" ng-click="isCollapsed2=!isCollapsed2" style="margin-bottom: 3px; width: 100%;">
                         XT Diagram
                     </button>
@@ -39,6 +38,7 @@
 
                 <div bar-chart>
                     <h3>Car Statistics</h3>
+                    <h4>Summary Stat: {{summary}}</h4>
                     <div class="btn-group">
                         <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'total'">total cost</label>
                         <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'toll'">toll</label>
@@ -46,14 +46,15 @@
                         <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'SP'">schedule penalty</label>
                         <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'aT'">arrival time</label>
                         <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'dT'">departure time</label>
+                        <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'netCost'">net cost</label>
 
-                        <!-- <label class="btn btn-primary" ng-model="whichFunction" btn-radio="'Right'">Right</label> -->
                     </div>
-
                 </div>
             </div>
-            <!--             <div class="col-sm-5">
-            </div> -->
+            <div class="col-sm-3">
+                <button class="btn btn-med {{ tolling ? 'btn-success' : 'btn-warning' }}" ng-click="tolling = !tolling">{{tolling ? "Yes" : "No"}}</button>
+                <button class="btn btn-med {{ paused ? 'btn-success' : 'btn-warning' }}" ng-click="paused = !paused">{{paused ? "Play" : "Pause"}}</button>
+            </div>
         </div>
     </div>
 
@@ -62,7 +63,7 @@
 <!-- ============== LIBRARIES =================== -->
 <script src="libraries/angular.min.js"></script>
 <script src="libraries/underscore.min.js"></script>
-<script src="libraries/jquery-1.10.2" charset="utf-8"></script>
+<script src="libraries/jquery-1.10.2.js" charset="utf-8"></script>
 <script src="libraries/d3.v3.min.js" charset="utf-8"></script>
 
 <script type="text/javascript" src="libraries/angular-slider.js"></script>

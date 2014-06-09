@@ -2,13 +2,15 @@ app.controller('mainCtrl', ['$scope', 'DataService',
     function(s, DS) {
         s.tickPace = 100;
         s.drawPace = 10;
+        s.paused = true;
+
         var timer = runnerGen(function() {
             DS.tick();
             drawer.step();
             s.patches = DS.getPatches();
             s.XT = DS.getXT();
             s.$broadcast('tickEvent');
-        }, s.tickPace).pause(false);
+        }, s.tickPace);
 
         var drawer = stepperGen(function() {
             s.cars = DS.getCars();
@@ -19,10 +21,23 @@ app.controller('mainCtrl', ['$scope', 'DataService',
 
         s.form = d3.format('.3r');
 
+        s.$watch('paused', timer.pause);
+
+        s.summary = 0;
+
+        s.setSummary = function(newVal) {
+            s.summary = s.form(newVal);
+            s.$apply();
+        }
+
         s.tooltipper = function(d) {
             s.info = d;
             s.$apply();
         }
+
+        s.tolling = true;
+
+        s.$watch('tolling', DS.setTolling)
 
     } //end of cotnroller
 ]); //end of

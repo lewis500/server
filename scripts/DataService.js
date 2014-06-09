@@ -187,7 +187,7 @@ app.factory('DataService', function() {
         function evalToll(t) {
             var SD = wishTime - t;
             var P = d3.max([beta * SD, -gamma * SD]);
-            return d3.max([(w * beta * gamma) / ((beta + gamma)) - P, 0]);
+            return d3.max([(100 * beta * gamma) / ((beta + gamma)) - P, 0]);
             // return 0;
         }
 

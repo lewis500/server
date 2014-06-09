@@ -1,9 +1,9 @@
 app.factory('DataService', function() {
     var patches, cars, pop, deltas, XT;
 
-    var numPatches = 300,
+    var numPatches = 200,
         numCars = 100,
-        wishTime = 125,
+        wishTime = 100,
         alpha = 1,
         beta = 0.5,
         gamma = 1.5,
@@ -66,7 +66,7 @@ app.factory('DataService', function() {
             d.reset();
         });
 
-        _.sample(cars, 20)
+        _.sample(cars, 2)
             .forEach(function(d) {
                 d.choose(XT);
             });
@@ -134,7 +134,7 @@ app.factory('DataService', function() {
 
         function evalCum() {
             queueLoad = d3.sum(queue, function(d) {
-                return d.delta;
+                return d.getDel();
             });
             cumLoad = !getPrev() ? 0 : getPrev().getCum() + queueLoad;
         }
@@ -151,23 +151,49 @@ app.factory('DataService', function() {
         };
     }
 
-    function Car(delta, index) {
+    function Car(delta, w) {
         var C = this;
         var aT = wishTime;
 
         var delLeft, dT, patch;
 
+        var cost = {
+            total: 0,
+            toll: 0,
+            travel: 0,
+            SP: 0
+        };
+
         reset();
+
 
         function reset() {
             delLeft = delta;
-            dT = null;
             patch = patches[aT];
             patch.receive([C]);
+            C.info = {
+                aT: aT,
+                dT: dT,
+                toll: (cost.toll),
+                total: (cost.total),
+                travel: (cost.travel),
+                SP: (cost.SP),
+                w: (w),
+                delta: delta,
+                SD: wishTime - dT
+            };
+        }
+
+        function evalToll(t) {
+            var SD = wishTime - t;
+            var P = d3.max([beta * SD, -gamma * SD]);
+            return d3.max([(w * beta * gamma) / ((beta + gamma)) - P, 0]);
+            // return 0;
         }
 
         function setDT(dTn) {
             dT = dTn;
+            cost = evalCost(aT, dT);
         }
 
         function getDel() {
@@ -181,38 +207,60 @@ app.factory('DataService', function() {
         function evalCost(aTn, dTn) {
             var travelTime = dTn - aTn;
             var SD = wishTime - dTn;
-            return d3.max([beta * SD, -gamma * SD]) + travelTime * alpha;
+            var Q = {
+                travel: travelTime * alpha,
+                SP: d3.max([beta * SD, -gamma * SD]),
+                toll: evalToll(aTn)
+            }
+            Q.total = Q.travel + Q.SP + Q.toll;
+            return Q;
         }
 
         function choose(XT) {
-            var cost = evalCost(aT, dT);
             var XTn = _.clone(XT);
+            var costn = _.clone(cost);
 
             XTn.forEach(function(d) {
                 var could = _.find(XTn, function(v) {
-                    v.T >= d.T + delta;
+                    return (v.X >= d.X + delta);
                 });
                 d.D = (could) ? could.T : d.T + delta;
             });
 
             XTn.forEach(function(d) {
                 var pCost = evalCost(d.T, d.D);
-                if (pCost <= cost) {
-                    cost = pCost;
+                if (pCost.total <= costn.total) {
+                    costn = pCost;
                     aT = d.T;
                     patch = patches[d.patch.time];
                 }
             });
         }
 
+        function getAt() {
+            return aT;
+        }
+
+        function getCost() {
+            return cost;
+        }
+
+
+        function getTotalCost() {
+            return cost.total;
+        }
+
         C = _.extend(C, {
-            index: index,
+            w: w,
             delta: delta,
             choose: choose,
             setDT: setDT,
             getDel: getDel,
             subtractDel: subtractDel,
-            reset: reset
+            reset: reset,
+            getAt: getAt,
+            getCost: getCost,
+            getTotalCost: getTotalCost
         });
 
         return C;
@@ -226,11 +274,18 @@ app.factory('DataService', function() {
         return XT;
     }
 
+    function getCars() {
+        return cars;
+    }
+
+
     return {
         getPatches: getPatches,
         getXT: getXT,
         tick: tick,
         reset: reset,
+        getCars: getCars,
+        // getTotalCost: getTotalCost
     };
 
 });

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"eval",
+				"evalQueueLoad"
+			],
+			[
 				"for",
 				"for	for (…) {…}"
 			],
@@ -68,42 +72,18 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "scripts/lineChart.js",
 			"settings":
 			{
-				"buffer_size": 1176,
+				"buffer_size": 2687,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "scripts/objects.js",
+			"file": "scripts/DataService.js",
 			"settings":
 			{
-				"buffer_size": 5318,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/controller.js",
-			"settings":
-			{
-				"buffer_size": 730,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/lewis/github/MFD/scripts/controller.js",
-			"settings":
-			{
-				"buffer_size": 1493,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/lewis/github/MFD/scripts/dataService.js",
-			"settings":
-			{
-				"buffer_size": 4451,
+				"buffer_size": 5432,
 				"line_ending": "Unix"
 			}
 		}
@@ -123,16 +103,16 @@
 				"HTMLPrettify"
 			],
 			[
+				"pre",
+				"Preferences: Settings - User"
+			],
+			[
 				"pretty",
 				"HTMLPrettify: Set Prettify Preferences"
 			],
 			[
 				"brow",
 				"Preferences: Browse Packages"
-			],
-			[
-				"pre",
-				"Preferences: Settings - User"
 			],
 			[
 				"rett",
@@ -147,7 +127,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 530.0
+		"width": 474.0
 	},
 	"console":
 	{
@@ -168,7 +148,23 @@
 	},
 	"file_history":
 	[
+		"/home/lewis/github/server/todo server",
+		"/home/lewis/github/server/scripts/lineChart2.js",
+		"/home/lewis/github/server/scripts/lineChart.js",
+		"/home/lewis/github/server/scripts/DataService.js",
+		"/home/lewis/github/server/scripts/controller.js",
+		"/home/lewis/github/server/styles/main.css",
+		"/home/lewis/github/server/index.html",
 		"/home/lewis/github/server/server.sublime-project",
+		"/home/lewis/github/server/README.md",
+		"/home/lewis/github/server/scripts/objects.js",
+		"/home/lewis/github/server/libraries/angular-slider.js",
+		"/home/lewis/github/server/libraries/sticker.js",
+		"/home/lewis/github/server/libraries/d3.v3.js",
+		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/lewis/github/server/libraries/buttons.js",
+		"/home/lewis/github/MFD/scripts/controller.js",
+		"/home/lewis/github/MFD/scripts/dataService.js",
 		"/home/lewis/github/bottleneck/pics/C.svg",
 		"/home/lewis/github/bottleneck/simulation/styles/main.css",
 		"/home/lewis/github/bottleneck/images/overall.svg",
@@ -236,13 +232,11 @@
 		"/home/lewis/github/MFD/libraries/underscore.min.js",
 		"/home/lewis/github/MFD/scripts/car.js",
 		"/home/lewis/github/MFD/scripts/bar.js",
-		"/home/lewis/github/MFD/scripts/controller.js",
 		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
 		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/Main.sublime-menu",
 		"/home/lewis/github/MFD/styles/style.css",
 		"/home/lewis/github/MFD/index.html",
 		"/home/lewis/github/MFD/scripts/infrastructure.js",
-		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/lewis/github/MFD/libraries/sticker.js",
 		"/home/lewis/github/MFD/mfd.sublime-project",
 		"/home/lewis/github/MFD/todo.txt",
@@ -276,134 +270,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"getvel",
-			"vel",
-			"lower",
-			"pace",
-			"setTime",
-			"next",
-			"pTime",
-			"cost",
-			"costs",
-			"new",
-			"getnext",
-			"queue",
-			"acceptExtras",
-			"subtractDel",
-			"hisft",
-			"unshift",
+			".sum",
+			".delta",
+			"100",
+			"patches",
+			"drawLines",
+			"choose",
+			"receive",
+			"getqueue",
+			"isempty",
 			"push",
-			"Time",
-			"pCost",
-			"max",
-			"getE",
-			"travel",
-			"penalty",
-			"delta",
-			"evalcost",
-			"E",
-			",",
-			"agent(",
-			"new agent",
-			"F.",
-			"a =",
-			"agentizer",
-			"agent",
-			"choose()",
-			"a:",
-			"a =",
-			"increment",
-			"deltaleft",
+			"getqueue",
+			"evalX",
+			"get",
+			"evalcum",
+			"getCumLoad",
+			"patcher",
+			"subtractdel",
+			"setDel",
+			"diff",
+			"var",
+			"Car(",
+			"erve()",
+			"evalqueueload",
+			"getcumload",
+			"250",
+			"time",
+			"reset",
+			"getqueue",
+			"next",
+			"prev",
+			"getprev",
+			"set",
+			"getnext",
+			"getprev",
+			"prev",
+			"setPrev",
+			"setNext",
+			"setPrev",
+			"queueload",
+			"evalx",
+			"debugg",
+			"map",
+			"debugg",
+			"queue =",
+			"X =",
+			"queue ",
+			"push",
+			"cost =",
+			"aT",
+			"vel",
+			"x =",
+			"getX",
+			"xtn",
+			"getX",
+			"evalX",
+			"cost",
 			"choose",
-			"emaker",
-			"var E =",
-			"getE",
-			"num",
-			"lastW",
-			".pi",
-			"pi ",
-			"totalcost",
-			"m.",
-			"penalty",
-			"alpha",
-			"alpha =",
-			"ttravel",
-			"A.",
-			"choose",
-			"startfind",
-			"choose",
-			"choose()",
-			"var num",
-			"choose",
-			"numcars",
-			"findtoll",
-			"beta ",
-			"choose()",
-			"num =",
-			"agents",
-			"choose",
-			"startfind =",
-			"startfind=",
-			"findtoll",
-			"startfind =",
-			"times",
-			"shuffle",
-			"findtoll",
-			"num =",
-			"startfind",
-			"startfind =",
-			"startfind",
-			"toll",
-			"startFind",
-			"choose",
-			"findtoll",
-			"interval",
-			"toll",
-			"findtoll",
-			"cumDL",
-			"startfind",
-			"this",
-			"A.d =",
-			"timeRange",
-			"newtimes",
-			"times =",
-			"for(",
-			"A.a",
-			"A.travel",
-			"a.w",
-			"toll",
-			"w",
-			"findToll",
-			"step()",
-			"process",
-			"setinterval",
-			"penalty",
-			"gamma",
-			"penalty",
-			"gamma",
-			"putAgentsTo",
-			"evalcost",
-			"redraw",
-			"times =",
-			"pathD",
-			"var pathA",
-			"redraw",
-			"process()",
-			"newtime",
-			"newTimes",
-			"setinterva",
-			"wishtime",
-			"num =",
-			"var num",
-			"process",
-			"cchart",
-			"agents",
-			"var times",
-			"startFind",
+			"evalqueueload",
+			"line",
+			"getcumload",
+			"evalque",
+			"evalX",
+			"delta:",
+			"cumload",
+			"500",
+			"tick",
+			"cumload",
+			"500",
+			"1000",
+			"300",
+			"reset",
+			"evalqueueload",
+			"tick",
+			"getcumload",
+			"cumload",
+			"resize",
+			"width",
+			"hasresize",
+			"drawlines",
 			"chart",
-			"tollChart",
-			"s",
-			"load"
+			"firing",
+			"tickevent",
+			"height",
+			"getcumload",
+			"5001",
+			"500",
+			"cars",
+			"getpatches",
+			"200",
+			"dataservice",
+			"queueload",
+			"evalX",
+			"evalcumload",
+			"cumload",
+			"cumLoad",
+			"getx",
+			"scale",
+			"controller",
+			"iAttrs",
+			"iElm",
+			"getcars",
+			"var",
+			"style",
+			"objects",
+			"reset",
+			"could",
+			"choose",
+			"reset",
+			"choose",
+			"evalX",
+			"getx()",
+			"null",
+			"getx",
+			"vel =",
+			"getx",
+			"var",
+			"numcars",
+			"foreach",
+			"car",
+			"wishtime",
+			"setDT",
+			"serve",
+			"timerange",
+			"numpatches",
+			"1000",
+			"2500",
+			"receive",
+			"cosnole"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -444,157 +438,75 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "scripts/lineChart.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1176,
+						"buffer_size": 2687,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								440,
-								440
+								116,
+								116
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "scripts/objects.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5318,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3926,
-								3926
-							]
-						],
-						"settings":
-						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2124.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 2,
-					"file": "scripts/controller.js",
+					"buffer": 1,
+					"file": "scripts/DataService.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 730,
+						"buffer_size": 5432,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								133,
-								133
+								2729,
+								2729
 							]
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1435.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/lewis/github/MFD/scripts/controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1493,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								270,
-								270
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/lewis/github/MFD/scripts/dataService.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4451,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								495,
-								495
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -617,11 +529,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -647,7 +566,67 @@
 		"selected_items":
 		[
 			[
-				"object",
+				"data",
+				"scripts/DataService.js"
+			],
+			[
+				"line",
+				"scripts/lineChart2.js"
+			],
+			[
+				"todo",
+				"todo server"
+			],
+			[
+				"control",
+				"scripts/controller.js"
+			],
+			[
+				"linechart",
+				"scripts/lineChart.js"
+			],
+			[
+				"linech",
+				"scripts/lineChart.js"
+			],
+			[
+				"style",
+				"styles/main.css"
+			],
+			[
+				"linec",
+				"scripts/lineChart.js"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"contr",
+				"scripts/controller.js"
+			],
+			[
+				"datas",
+				"scripts/DataService.js"
+			],
+			[
+				"ind",
+				"index.html"
+			],
+			[
+				"controll",
+				"scripts/controller.js"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"obje",
+				"scripts/objects.js"
+			],
+			[
+				"obj",
 				"scripts/objects.js"
 			],
 			[
@@ -655,16 +634,12 @@
 				"scripts/objects.js"
 			],
 			[
-				"controll",
+				"contro",
 				"scripts/controller.js"
 			],
 			[
-				"todo",
-				"todo.txt"
-			],
-			[
-				"control",
-				"simulation/scripts/controller.js"
+				"object",
+				"scripts/objects.js"
 			],
 			[
 				"example.js",
@@ -725,10 +700,6 @@
 			[
 				"scripts",
 				"sf-maps/scripts"
-			],
-			[
-				"index",
-				"sf-maps/pages/index.html"
 			],
 			[
 				"results",
@@ -803,24 +774,12 @@
 				"libraries/angular-slider.js"
 			],
 			[
-				"inde",
-				"index.html"
-			],
-			[
-				"contr",
-				"scripts/controller.js"
-			],
-			[
 				"style.css",
 				"styles/style.css"
 			],
 			[
 				"scatt",
 				"scripts/scatter.js"
-			],
-			[
-				"style",
-				"styles/style.css"
 			],
 			[
 				"ifnra",
@@ -880,7 +839,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 287.0,
+	"side_bar_width": 92.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -1,6 +1,6 @@
 app.directive('lineChartSecond', function() {
     var y = d3.scale.linear();
-    var x = d3.scale.linear().domain([0, 310]);
+    var x = d3.scale.linear().domain([0, 180]);
 
     var margin = {
         top: 20,
@@ -36,7 +36,7 @@ app.directive('lineChartSecond', function() {
 
             var svg = d3.select(el[0])
                 .append("svg")
-                .style('width', 650)
+                .style('width', 450)
                 .style("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -49,11 +49,11 @@ app.directive('lineChartSecond', function() {
 
             scope.$on('tickEvent', updateData);
 
-            x.range([0, 650]);
+            x.range([0, 450]);
 
             y.range([height, 0]);
 
-            y.domain([0, 350]);
+            y.domain([0, 100]);
             yAxis.scale(y);
             // render();
 

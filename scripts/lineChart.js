@@ -1,7 +1,7 @@
 app.directive('lineChart', function() {
 
     var y = d3.scale.linear();
-    var x = d3.scale.linear().domain([0, 310]);
+    var x = d3.scale.linear().domain([0, 180]);
 
     var margin = {
         top: 20,
@@ -37,43 +37,40 @@ app.directive('lineChart', function() {
 
             var svg = d3.select(el[0])
                 .append("svg")
-                .style('width', 650)
+                .style('width', 450)
                 .style("height", height + margin.top + margin.bottom)
                 .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            var data, width;
-
-            var firing = false;
+            var myLine, drawn = false;
 
             scope.$on('tickEvent', updateData);
 
-            x.range([0, 650]);
+            x.range([0, 450]);
 
             y.range([height, 0]);
+
 
             y.domain([0, 125]);
             yAxis.scale(y);
             // render();
 
-            function render() {
-                svg.selectAll('*').remove();
-
-                if (firing) drawLines();
-            }
-
-
-
             function updateData() {
-                data = scope.patches;
-
-                firing = true;
-
-                render();
-
+                var newVal = scope.patches;
+                if (!drawn) drawFirstTime(newVal);
+                else updateLine(newVal)
             }
 
-            function drawLines() {
+            function updateLine(data) {
+                myLine.datum(data)
+                    .transition().duration(scope.tickPace)
+                    .ease('linear')
+                    .attr("d", line);
+            }
+
+            function drawFirstTime(data) {
+                drawn = true;
+
                 svg.append("g")
                     .attr("class", "x axis")
                     .attr("transform", "translate(0," + height + ")")
@@ -89,12 +86,12 @@ app.directive('lineChart', function() {
                     .style("text-anchor", "end")
                     .text("Cumulative miles served");
 
-                var c = svg.append("path")
+                myLine = svg.append("path")
                     .datum(data)
                     .attr("class", "line")
                     .attr("d", line)
                     .attr("stroke-width", "2px")
-                    .attr("stroke", "crimson")
+                    .attr("stroke", "crimson");
 
             } //end drawlines
 

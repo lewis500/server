@@ -1,14 +1,28 @@
 app.controller('mainCtrl', ['$scope', 'DataService',
     function(s, DS) {
-        s.tickPace = 500;
-        var preVal = s.tickPace;
+        s.tickPace = 100;
+        s.drawPace = 10;
         var timer = runnerGen(function() {
             DS.tick();
+            drawer.step();
             s.patches = DS.getPatches();
             s.XT = DS.getXT();
-            QQQ = s.patches;
             s.$broadcast('tickEvent');
         }, s.tickPace).pause(false);
+
+        var drawer = stepperGen(function() {
+            s.cars = DS.getCars();
+            s.$broadcast('drawEvent')
+        }, s.drawPace);
+
+        s.whichStatistic = 'aT';
+
+        s.form = d3.format('.3r');
+
+        s.tooltipper = function(d) {
+            s.info = d;
+            s.$apply();
+        }
 
     } //end of cotnroller
 ]); //end of
@@ -33,7 +47,6 @@ function runnerGen(fun, pace) {
     };
 
     function start() {
-
         var t = 0,
             timeSinceCall = 0,
             last = 0;
@@ -59,6 +72,33 @@ function runnerGen(fun, pace) {
         pause: pause,
         setPace: setPace,
         getPace: getPace
+    };
+
+}
+
+
+function stepperGen(fun, pace) {
+    var steps = 0;
+
+    function reset() {
+        steps = 0;
+    }
+
+    function step() {
+        steps++;
+        if (steps < pace) return;
+        steps = 0;
+        fun();
+    }
+
+    function setPace(newPace) {
+        pace = newPace;
+    }
+
+    return {
+        setPace: setPace,
+        step: step,
+        reset: reset
     };
 
 }

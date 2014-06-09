@@ -1,5 +1,9 @@
 body {
     font-family:'Open Sans', sans-serif;
+    padding-bottom: 100px;
+}
+.bar {
+    fill: steelblue;
 }
 .axis path, .axis line {
     fill: none;
@@ -9,17 +13,29 @@ body {
 .container {
     margin-left: 5px;
 }
-
 .line {
-	fill: none;
-	stroke-width: 2px;
+    fill: none;
+    stroke-width: 2px;
 }
-
-.scatterDot circle{
-	stroke: none;
-	fill: 'crimson';
+.scatterDot circle {
+    stroke: none;
+    fill:'crimson';
 }
-
-body{
-	padding-top: 25px;
+.barChart.x.axis text {
+    fill: none;
+}
+.tip {
+    color: white;
+    background-color: #222;
+    pointer-events: none;
+    opacity: 0.0;
+    padding: 8px;
+    position: absolute;
+    font-size: 13px;
+    border: 0px;
+    border-radius: 2px;
+    z-index: 1000;
+}
+.tip table {
+    margin-bottom: 0px;
 }

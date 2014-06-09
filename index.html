@@ -10,18 +10,50 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/main.css">
 
+
 </head>
 
 <!-- ============== BODY =================== -->
 
 <body ng-app="mainApp" ng-controller="mainCtrl">
-
+    <ng-include src="'tooltip.html'"></ng-include>
     <div class="container">
         <div class="row">
-            <div class="col-sm-10">
-                <div line-chart></div>
-                <div line-chart-second></div>
+            <div class="col-sm-9">
+                <div ng-init="isCollapsed1 = true;">
+                    <button class="btn btn-primary" ng-click="isCollapsed1=!isCollapsed1" style="margin-bottom: 3px; width: 100%;">
+                       cumulative served diagram
+                    </button>
+                    <div collapse="isCollapsed1" class="tableDiv">
+                        <div line-chart></div>
+                    </div>
+                </div>
+                <div ng-init="isCollapsed2=true;">
+                    <button class="btn btn-primary" ng-click="isCollapsed2=!isCollapsed2" style="margin-bottom: 3px; width: 100%;">
+                        XT Diagram
+                    </button>
+                    <div collapse="isCollapsed2" class="tableDiv">
+                        <div line-chart-second></div>
+                    </div>
+                </div>
+
+                <div bar-chart>
+                    <h3>Car Statistics</h3>
+                    <div class="btn-group">
+                        <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'total'">total cost</label>
+                        <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'toll'">toll</label>
+                        <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'travel'">travel time</label>
+                        <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'SP'">schedule penalty</label>
+                        <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'aT'">arrival time</label>
+                        <label class="btn btn-primary" ng-model="whichStatistic" btn-radio="'dT'">departure time</label>
+
+                        <!-- <label class="btn btn-primary" ng-model="whichFunction" btn-radio="'Right'">Right</label> -->
+                    </div>
+
+                </div>
             </div>
+            <!--             <div class="col-sm-5">
+            </div> -->
         </div>
     </div>
 
@@ -30,13 +62,18 @@
 <!-- ============== LIBRARIES =================== -->
 <script src="libraries/angular.min.js"></script>
 <script src="libraries/underscore.min.js"></script>
+<script src="libraries/jquery-1.10.2" charset="utf-8"></script>
 <script src="libraries/d3.v3.min.js" charset="utf-8"></script>
+
 <script type="text/javascript" src="libraries/angular-slider.js"></script>
+<script src="libraries/buttons.js"></script>
+<script type="text/javascript" src="libraries/ui-bootstrap-custom-tpls-0.10.0.js"></script>
+
 
 <!-- ============== SCRIPTS =================== -->
 
 <script type="text/javascript">
-var app = angular.module('mainApp', ['ui.slider']);
+var app = angular.module('mainApp', ['ui.bootstrap', 'ui.slider']);
 
 app.run(['$rootScope', // inject the ParseAngular services made by our friends on the internet
     function($rootScope) {
@@ -56,6 +93,8 @@ app.run(['$rootScope', // inject the ParseAngular services made by our friends o
 <script src="scripts/controller.js"></script>
 <script src="scripts/lineChart.js"></script>
 <script src="scripts/lineChart2.js"></script>
+<script src="scripts/bar.js"></script>
+
 
 
 </html>

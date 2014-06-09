@@ -1,11 +1,10 @@
 TO DO
-
-put everything in a service
-add up cumulative served
+make tooltip (for this, need to put all the stats you show in a special stats object)
 
 
-
-
-LATER
+fix the scales
+draw the served line
 add tolls
+make sure you are adding up cumulative load arrived correctly. i dont think you are.
 
+make a bar chart with all of the cars' costs

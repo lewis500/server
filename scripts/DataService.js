@@ -1,5 +1,5 @@
 app.factory('DataService', function() {
-    var patches, cars, pop, deltas, XT;
+    var patches, cars, pop, deltas, XT, tolling;
 
     var numPatches = 200,
         numCars = 100,
@@ -8,8 +8,7 @@ app.factory('DataService', function() {
         beta = 0.5,
         gamma = 1.5,
         numClass = 100,
-        timeRange = d3.range(0, numPatches),
-        tolling = true;
+        timeRange = d3.range(0, numPatches);
 
     reset();
 
@@ -22,7 +21,6 @@ app.factory('DataService', function() {
             return d / numClass * 2;
         });
 
-        var XT = [];
         var lastW = 0;
 
         pop = deltas.map(function(d) {
@@ -47,6 +45,7 @@ app.factory('DataService', function() {
         });
     }
 
+
     function tick() {
         patches.forEach(function(d) {
             d.serve();
@@ -58,7 +57,8 @@ app.factory('DataService', function() {
                 var res = {
                     X: d.getX(),
                     T: d.time,
-                    patch: d
+                    patch: d,
+                    vel: d.getVel()
                 };
                 d.reset();
                 return res;
@@ -122,6 +122,10 @@ app.factory('DataService', function() {
             return cumLoad;
         }
 
+        function getVel() {
+            return vel;
+        }
+
         function evalX() {
             X = !getPrev() ? 1 : getPrev().getX() + vel;
         }
@@ -149,7 +153,8 @@ app.factory('DataService', function() {
             getX: getX,
             evalCum: evalCum,
             getCum: getCum,
-            receive: receive
+            receive: receive,
+            getVel: getVel
         };
     }
 
@@ -170,12 +175,11 @@ app.factory('DataService', function() {
         reset();
 
         function evalToll(t) {
-            if (tolling === false) return 0;
-
+            if (tolling === "none") return 0;
             var SD = wishTime - t;
             var P = d3.max([beta * SD, -gamma * SD]);
-            return d3.max([(w * beta * gamma) / ((beta + gamma)) - P, 0]);
-            // return 0;
+            var phi = (tolling == "vickrey") ? 100 : w;
+            return d3.max([(phi * beta * gamma) / ((beta + gamma)) - P, 0]);
         }
 
         function reset() {
@@ -186,7 +190,7 @@ app.factory('DataService', function() {
                 aT: aT,
                 dT: dT,
                 toll: (cost.toll),
-                total: (cost.total),
+                user: (cost.total),
                 travel: (cost.travel),
                 SP: (cost.SP),
                 w: (w),
@@ -195,8 +199,6 @@ app.factory('DataService', function() {
                 netCost: cost.travel + cost.SP
             };
         }
-
-
 
         function setDT(dTn) {
             dT = dTn;
@@ -236,7 +238,7 @@ app.factory('DataService', function() {
 
             XTn.forEach(function(d) {
                 var pCost = evalCost(d.T, d.D);
-                if (pCost.total <= costn.total) {
+                if (pCost.total < costn.total + .1) {
                     costn = pCost;
                     aT = d.T;
                     patch = patches[d.patch.time];
@@ -283,7 +285,8 @@ app.factory('DataService', function() {
     }
 
     function setTolling(newVal) {
-        return tolling = newVal;
+        console.log(newVal);
+        tolling = newVal;
     }
 
 

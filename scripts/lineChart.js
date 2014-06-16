@@ -1,6 +1,6 @@
 app.directive('lineChart', function() {
 
-    var width = 450;
+    var width = 650;
 
     var y = d3.scale.linear();
     var x = d3.scale.linear().domain([0, 200]).range([0, width])
@@ -46,7 +46,7 @@ app.directive('lineChart', function() {
 
             var myLine, drawn = false;
 
-            scope.$on('tickEvent', updateData);
+            scope.$on('drawEvent', updateData);
 
             y.range([height, 0]);
 
@@ -83,7 +83,7 @@ app.directive('lineChart', function() {
                     .attr("y", 6)
                     .attr("dy", ".71em")
                     .style("text-anchor", "end")
-                    .text("Cumulative miles served");
+                    .text("Cumulative miles arrived");
 
                 myLine = svg.append("path")
                     .datum(data)

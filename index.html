@@ -17,7 +17,7 @@
     <ng-include src="'tooltip.html'"></ng-include>
     <div class="container">
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-4">
                 <div ng-init="isCollapsed1 = true;">
                     <button class="btn btn-primary" ng-click="isCollapsed1=!isCollapsed1" style="margin-bottom: 3px; width: 100%;">
                         cumulative arrived diagram
@@ -34,6 +34,8 @@
                         <div line-chart-second></div>
                     </div>
                 </div>
+            </div>
+            <div class="col-sm-4">
                 <div ng-init="isCollapsed3=true;">
                     <button class="btn btn-primary" ng-click="isCollapsed3=!isCollapsed3" style="margin-bottom: 3px; width: 100%;">
                         Velocity Diagram
@@ -42,7 +44,6 @@
                         <div line-chart-fourth></div>
                     </div>
                 </div>
-
                 <div ng-init="isCollapsed4=true;">
                     <button class="btn btn-primary" ng-click="isCollapsed4=!isCollapsed4" style="margin-bottom: 3px; width: 100%;">
                         Statistics
@@ -59,16 +60,13 @@
                             <label class="btn btn-danger" ng-model="whichStatistic" btn-radio="'dT'">departure time</label>
                         </div>
                         <div bar-chart>
-                          <h5>Cars as Bars...distance increasing</h5>
+                            <h5>Cars as Bars...distance increasing</h5>
                         </div>
                         <div line-chart-third></div>
                     </div>
                 </div>
-
-
-
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-1">
 
                 <div class="btn-group-vertical">
                     <label class="btn btn-primary" ng-model="tolling" btn-radio="'none'">None</label>

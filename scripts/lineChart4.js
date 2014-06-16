@@ -1,5 +1,5 @@
 app.directive('lineChartFourth', function() {
-    var width = 650;
+    var width = 300;
 
     var y = d3.scale.linear();
     var x = d3.scale.linear().domain([0, 200]).range([0, width])
@@ -11,7 +11,7 @@ app.directive('lineChartFourth', function() {
         left: 45
     };
 
-    var height = 250;
+    var height = 160;
 
     var color = d3.scale.category10();
 

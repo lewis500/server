@@ -76,18 +76,10 @@
 	"buffers":
 	[
 		{
-			"file": "scripts/bar.js",
+			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 4028,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/DataService.js",
-			"settings":
-			{
-				"buffer_size": 6771,
+				"buffer_size": 5688,
 				"line_ending": "Unix"
 			}
 		},
@@ -95,15 +87,23 @@
 			"file": "scripts/controller.js",
 			"settings":
 			{
-				"buffer_size": 2251,
+				"buffer_size": 3342,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "scripts/lineChart2.js",
+			"file": "scripts/bar.js",
 			"settings":
 			{
-				"buffer_size": 2570,
+				"buffer_size": 3433,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/DataService.js",
+			"settings":
+			{
+				"buffer_size": 6945,
 				"line_ending": "Unix"
 			}
 		}
@@ -111,11 +111,23 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 306.0,
+		"height": 285.0,
 		"selected_items":
 		[
 			[
 				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"pre",
+				"Preferences: Settings - User"
+			],
+			[
+				"rett",
+				"HTMLPrettify"
+			],
+			[
+				"pret",
 				"HTMLPrettify"
 			],
 			[
@@ -125,18 +137,6 @@
 			[
 				"prettt",
 				"HTMLPrettify: Set Keyboard Shortcuts"
-			],
-			[
-				"pret",
-				"HTMLPrettify"
-			],
-			[
-				"rett",
-				"HTMLPrettify"
-			],
-			[
-				"pre",
-				"Preferences: Settings - User"
 			],
 			[
 				"pretty",
@@ -176,24 +176,27 @@
 	},
 	"file_history":
 	[
-		"/home/lewis/github/server/index.html",
-		"/home/lewis/github/server/styles/main.css",
-		"/home/lewis/github/server/tooltip.html",
-		"/home/lewis/github/server/todo server",
-		"/home/lewis/github/server/libraries/angular-slider.js",
 		"/home/lewis/github/server/scripts/DataService.js",
-		"/home/lewis/github/server/scripts/lineChart.js",
+		"/home/lewis/github/server/todo server",
+		"/home/lewis/github/server/scripts/lineChart4.js",
+		"/home/lewis/github/server/scripts/lineChart3.js",
 		"/home/lewis/github/server/scripts/lineChart2.js",
+		"/home/lewis/github/server/scripts/lineChart.js",
+		"/home/lewis/github/server/libraries/d3.v3.js",
+		"/home/lewis/github/server/libraries/angular-slider.js",
+		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/lewis/github/server/scripts/controller.js",
+		"/home/lewis/github/server/scripts/bar2.js",
+		"/home/lewis/github/server/scripts/bar.js",
+		"/home/lewis/github/server/styles/main.css",
+		"/home/lewis/github/server/index.html",
+		"/home/lewis/github/server/scripts/objects.js",
+		"/home/lewis/github/server/tooltip.html",
 		"/home/lewis/github/server/server.sublime-project",
 		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/Default (Linux).sublime-keymap",
-		"/home/lewis/github/server/scripts/bar.js",
-		"/home/lewis/github/server/scripts/objects.js",
 		"/home/lewis/github/server/libraries/ui-bootstrap-custom-tpls-0.10.0.js",
 		"/home/lewis/github/server/README.md",
 		"/home/lewis/github/server/libraries/sticker.js",
-		"/home/lewis/github/server/libraries/d3.v3.js",
-		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/lewis/github/server/libraries/buttons.js",
 		"/home/lewis/github/MFD/scripts/controller.js",
 		"/home/lewis/github/MFD/scripts/dataService.js",
@@ -302,6 +305,57 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"btn-primary",
+			"iscollapsed3",
+			"choose",
+			"width",
+			"domain",
+			"reset",
+			"vel",
+			"vel ",
+			"patcher",
+			"patch",
+			"transition",
+			"whichs",
+			"250",
+			"text",
+			"width",
+			"average",
+			"form",
+			"average",
+			"crimson",
+			"update",
+			"30",
+			"tolling",
+			"settolling",
+			"s.tolling",
+			"tolling",
+			"summary",
+			"reset",
+			"tolling",
+			"false",
+			"Left",
+			"Middle",
+			"Right",
+			"vickrey",
+			"Right",
+			"Middle",
+			"xt",
+			"30",
+			"drawpace",
+			"updatedata",
+			"scope",
+			"line",
+			"color",
+			"update",
+			"on",
+			"val",
+			"whichstatistic",
+			"on",
+			"info",
+			"summary",
+			"s.form",
+			"on",
 			"pause",
 			"range",
 			"width",
@@ -378,58 +432,7 @@
 			"setNext",
 			"setPrev",
 			"queueload",
-			"evalx",
-			"debugg",
-			"map",
-			"debugg",
-			"queue =",
-			"X =",
-			"queue ",
-			"push",
-			"cost =",
-			"aT",
-			"vel",
-			"x =",
-			"getX",
-			"xtn",
-			"getX",
-			"evalX",
-			"cost",
-			"choose",
-			"evalqueueload",
-			"line",
-			"getcumload",
-			"evalque",
-			"evalX",
-			"delta:",
-			"cumload",
-			"500",
-			"tick",
-			"cumload",
-			"500",
-			"1000",
-			"300",
-			"reset",
-			"evalqueueload",
-			"tick",
-			"getcumload",
-			"cumload",
-			"resize",
-			"width",
-			"hasresize",
-			"drawlines",
-			"chart",
-			"firing",
-			"tickevent",
-			"height",
-			"getcumload",
-			"5001",
-			"500",
-			"cars",
-			"getpatches",
-			"200",
-			"dataservice",
-			"queueload"
+			"evalx"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -437,6 +440,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"btn-danger",
+			"isCollapsed4",
+			"100",
+			"40",
 			"setPatch",
 			";",
 			"",
@@ -470,84 +477,115 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/bar.js",
+					"file": "index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4028,
+						"buffer_size": 5688,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2230,
-								2230
+								2624,
+								2624
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 694.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scripts/controller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3342,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								538,
+								538
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 980.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "scripts/DataService.js",
+					"buffer": 2,
+					"file": "scripts/bar.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6771,
+						"buffer_size": 3433,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4080,
-								4080
+								2459,
+								2459
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2106.0,
+						"translation.y": 390.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "scripts/controller.js",
+					"buffer": 3,
+					"file": "scripts/DataService.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2251,
+						"buffer_size": 6945,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								138,
+								138
 							]
 						],
 						"settings":
@@ -560,45 +598,14 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 3,
-					"file": "scripts/lineChart2.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2570,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1197,
-								1197
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 351.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -660,6 +667,66 @@
 				"scripts/DataService.js"
 			],
 			[
+				"controll",
+				"scripts/controller.js"
+			],
+			[
+				"bar",
+				"scripts/bar.js"
+			],
+			[
+				"todo",
+				"todo server"
+			],
+			[
+				"linech",
+				"scripts/lineChart4.js"
+			],
+			[
+				"linec",
+				"scripts/lineChart2.js"
+			],
+			[
+				"line",
+				"scripts/lineChart2.js"
+			],
+			[
+				"datas",
+				"scripts/DataService.js"
+			],
+			[
+				"in",
+				"index.html"
+			],
+			[
+				"linechart",
+				"scripts/lineChart2.js"
+			],
+			[
+				"ind",
+				"index.html"
+			],
+			[
+				"liencha",
+				"scripts/lineChart2.js"
+			],
+			[
+				"bar.js",
+				"scripts/bar.js"
+			],
+			[
+				"main",
+				"styles/main.css"
+			],
+			[
+				"contr",
+				"scripts/controller.js"
+			],
+			[
+				"obje",
+				"scripts/objects.js"
+			],
+			[
 				"inde",
 				"index.html"
 			],
@@ -676,40 +743,8 @@
 				"scripts/controller.js"
 			],
 			[
-				"controll",
-				"scripts/controller.js"
-			],
-			[
-				"ind",
-				"index.html"
-			],
-			[
-				"linech",
-				"scripts/lineChart2.js"
-			],
-			[
-				"linec",
-				"scripts/lineChart.js"
-			],
-			[
-				"contr",
-				"scripts/controller.js"
-			],
-			[
-				"bar.js",
-				"scripts/bar.js"
-			],
-			[
 				"rett",
 				"libraries/ui-bootstrap-custom-tpls-0.10.0.js"
-			],
-			[
-				"datas",
-				"scripts/DataService.js"
-			],
-			[
-				"todo",
-				"todo server"
 			],
 			[
 				"custom",
@@ -728,28 +763,12 @@
 				"tooltip"
 			],
 			[
-				"bar",
-				"scripts/bar.js"
-			],
-			[
 				"bar.j",
 				"scripts/bar.js"
 			],
 			[
-				"line",
-				"scripts/lineChart2.js"
-			],
-			[
-				"linechart",
-				"scripts/lineChart.js"
-			],
-			[
 				"index",
 				"index.html"
-			],
-			[
-				"obje",
-				"scripts/objects.js"
 			],
 			[
 				"obj",

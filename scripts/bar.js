@@ -10,7 +10,7 @@ app.directive('barChart', function() {
     var wishTime = 100;
 
     var width = 800 - margin.left - margin.right;
-    var height = 200 - margin.top - margin.bottom;
+    var height = 160 - margin.top - margin.bottom;
     var numFormat = d3.format(".2r");
 
     var y = d3.scale.linear()

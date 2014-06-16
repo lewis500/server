@@ -7,7 +7,7 @@ app.directive('lineChartThird', function() {
         left: 65
     };
 
-    var width = 800;
+    var width = 300;
     var height = 200;
     var y = d3.scale.linear().range([height, 0]);
     var x = d3.scale.linear().range([0, width]);
@@ -54,7 +54,7 @@ app.directive('lineChartThird', function() {
             function updateLine(newVal) {
                 if (!scope.historyData) return;
                 var data = scope.historyData;
-                var a = d3.min([60, data.length]);
+                var a = d3.min([40, data.length]);
                 data = data.slice(data.length - a);
                 var b = d3.extent(data, function(d) {
                     return d.val

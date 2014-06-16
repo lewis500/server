@@ -1,5 +1,5 @@
 app.directive('lineChartSecond', function() {
-    var width = 650;
+    var width = 300;
 
     var y = d3.scale.linear();
     var x = d3.scale.linear().domain([0, 200]).range([0, width])

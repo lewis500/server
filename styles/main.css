@@ -1,6 +1,7 @@
 body {
     font-family:'Open Sans', sans-serif;
     padding-bottom: 100px;
+    padding-top: 5px;
 }
 .bar {
     fill: steelblue;
@@ -21,9 +22,9 @@ body {
     stroke: none;
     fill:'crimson';
 }
-.barChart.x.axis text {
+/*.barChart.x.axis text {
     fill: none;
-}
+}*/
 .tip {
     color: white;
     background-color: #222;
@@ -38,4 +39,8 @@ body {
 }
 .tip table {
     margin-bottom: 0px;
+}
+
+.lineLabel{
+    font-size: 14px;
 }

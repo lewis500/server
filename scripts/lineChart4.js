@@ -1,4 +1,4 @@
-app.directive('lineChartSecond', function() {
+app.directive('lineChartFourth', function() {
     var width = 650;
 
     var y = d3.scale.linear();
@@ -29,7 +29,7 @@ app.directive('lineChartSecond', function() {
             return x(d.T);
         })
         .y(function(d) {
-            return y(d.X);
+            return y(d.vel);
         });
 
     return {
@@ -53,7 +53,7 @@ app.directive('lineChartSecond', function() {
 
             y.range([height, 0]);
 
-            y.domain([0, 150]);
+            y.domain([0, 1]);
             yAxis.scale(y);
             // render();
 
@@ -82,7 +82,7 @@ app.directive('lineChartSecond', function() {
                     .attr("y", 6)
                     .attr("dy", ".71em")
                     .style("text-anchor", "end")
-                    .text("Miles Traveled");
+                    .text("one over queue length");
 
                 var c = svg.append("path")
                     .datum(data)

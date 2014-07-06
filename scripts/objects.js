@@ -19,7 +19,7 @@ function tick() {
         d.reset();
     });
 
-    var sample = _.sample(cars, 20)
+    var sample = _.sample(cars, 20);
 
     sample.forEach(function(d) {
         d.choose(bigXT);
@@ -261,11 +261,9 @@ function runnerGen(fun, pace) {
 
 
 function cumProb(d) {
-
+    
     var p = sq(d) * m.acos(d / 2) + m.acos(1 - sq(d) / 2) - d / 2 * m.sqrt(4 - sq(d));
-
     return p / m.PI
-
 }
 
 function sq(d) {

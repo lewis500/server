@@ -76,34 +76,10 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "styles/main.css",
 			"settings":
 			{
-				"buffer_size": 5688,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/controller.js",
-			"settings":
-			{
-				"buffer_size": 3342,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/bar.js",
-			"settings":
-			{
-				"buffer_size": 3433,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/DataService.js",
-			"settings":
-			{
-				"buffer_size": 6945,
+				"buffer_size": 712,
 				"line_ending": "Unix"
 			}
 		}
@@ -155,7 +131,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 412.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -176,20 +152,23 @@
 	},
 	"file_history":
 	[
-		"/home/lewis/github/server/scripts/DataService.js",
 		"/home/lewis/github/server/todo server",
-		"/home/lewis/github/server/scripts/lineChart4.js",
-		"/home/lewis/github/server/scripts/lineChart3.js",
-		"/home/lewis/github/server/scripts/lineChart2.js",
 		"/home/lewis/github/server/scripts/lineChart.js",
+		"/home/lewis/github/server/scripts/lineChart2.js",
+		"/home/lewis/github/server/scripts/DataService.js",
+		"/home/lewis/Desktop/week",
+		"/home/lewis/Desktop/research",
+		"/home/lewis/Desktop/housing",
+		"/home/lewis/github/server/scripts/lineChart3.js",
+		"/home/lewis/github/server/scripts/lineChart4.js",
+		"/home/lewis/github/server/scripts/bar.js",
+		"/home/lewis/github/server/scripts/controller.js",
+		"/home/lewis/github/server/index.html",
 		"/home/lewis/github/server/libraries/d3.v3.js",
 		"/home/lewis/github/server/libraries/angular-slider.js",
 		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/lewis/github/server/scripts/controller.js",
 		"/home/lewis/github/server/scripts/bar2.js",
-		"/home/lewis/github/server/scripts/bar.js",
 		"/home/lewis/github/server/styles/main.css",
-		"/home/lewis/github/server/index.html",
 		"/home/lewis/github/server/scripts/objects.js",
 		"/home/lewis/github/server/tooltip.html",
 		"/home/lewis/github/server/server.sublime-project",
@@ -305,6 +284,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"/",
+			"pace",
+			"60",
+			"width",
+			"height",
 			"btn-primary",
 			"iscollapsed3",
 			"choose",
@@ -427,12 +411,7 @@
 			"set",
 			"getnext",
 			"getprev",
-			"prev",
-			"setPrev",
-			"setNext",
-			"setPrev",
-			"queueload",
-			"evalx"
+			"prev"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -477,121 +456,30 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "styles/main.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5688,
+						"buffer_size": 712,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2624,
-								2624
+								103,
+								103
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 694.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "scripts/controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3342,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								538,
-								538
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "scripts/bar.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3433,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2459,
-								2459
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 390.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "scripts/DataService.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6945,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								138,
-								138
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -601,11 +489,6 @@
 					"stack_index": 0,
 					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -626,18 +509,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -663,7 +539,7 @@
 		"selected_items":
 		[
 			[
-				"data",
+				"datas",
 				"scripts/DataService.js"
 			],
 			[
@@ -671,8 +547,24 @@
 				"scripts/controller.js"
 			],
 			[
+				"ind",
+				"index.html"
+			],
+			[
+				"line",
+				"scripts/lineChart2.js"
+			],
+			[
 				"bar",
 				"scripts/bar.js"
+			],
+			[
+				"main",
+				"styles/main.css"
+			],
+			[
+				"data",
+				"scripts/DataService.js"
 			],
 			[
 				"todo",
@@ -687,14 +579,6 @@
 				"scripts/lineChart2.js"
 			],
 			[
-				"line",
-				"scripts/lineChart2.js"
-			],
-			[
-				"datas",
-				"scripts/DataService.js"
-			],
-			[
 				"in",
 				"index.html"
 			],
@@ -703,20 +587,12 @@
 				"scripts/lineChart2.js"
 			],
 			[
-				"ind",
-				"index.html"
-			],
-			[
 				"liencha",
 				"scripts/lineChart2.js"
 			],
 			[
 				"bar.js",
 				"scripts/bar.js"
-			],
-			[
-				"main",
-				"styles/main.css"
 			],
 			[
 				"contr",
@@ -956,7 +832,7 @@
 		[
 			[
 				"",
-				"~/github/valet-analytics/valet.sublime-project"
+				"~/github/MFD/mfd.sublime-project"
 			]
 		],
 		"width": 380.0

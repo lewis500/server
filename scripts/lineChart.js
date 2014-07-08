@@ -1,10 +1,5 @@
 app.directive('lineChart', function() {
 
-    var width = 300;
-
-    var y = d3.scale.linear();
-    var x = d3.scale.linear().domain([0, 200]).range([0, width])
-
     var margin = {
         top: 20,
         right: 35,
@@ -13,9 +8,9 @@ app.directive('lineChart', function() {
     };
 
     var height = 250;
-
+    var y = d3.scale.linear().range([height, 0]).domain([0, 120]);
+    var x = d3.scale.linear().domain([0, 200]);
     var color = d3.scale.category10();
-
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
@@ -30,69 +25,79 @@ app.directive('lineChart', function() {
             return x(d.time);
         })
         .y(function(d) {
-            return y(d.getCum());
-        });
+            return y(d.cumServed);
+        })
+        .interpolate('basis');
+
+    var line2 = d3.svg.line()
+        .x(function(d) {
+            return x(d.time);
+        })
+        .y(function(d) {
+            return y(d.cumArr);
+        })
+        .interpolate('basis');
 
     return {
         restrict: 'A',
         link: function(scope, el, attr) {
-
             var svg = d3.select(el[0])
                 .append("svg")
-                .style('width', width + margin.left + margin.right)
-                .style("height", height + margin.top + margin.bottom)
-                .append("g")
+                .style('width', "100%")
+                .style("height", height + margin.top + margin.bottom);
+
+            var g = svg.append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            var myLine, drawn = false;
+            var gXAxis = g.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
 
-            scope.$on('drawEvent', updateData);
+            var gYAxis = g.append("g")
+                .attr("class", "y axis")
+                .call(yAxis)
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end")
+                .text("Cumulative miles arrived");
 
-            y.range([height, 0]);
+            var myLine = g.append("path")
+                .attr("class", "line")
+                .attr("stroke-width", "2px")
+                .attr("stroke", "crimson");
 
-            y.domain([0, 125]);
-            yAxis.scale(y);
-            // render();
+            var myLine2 = g.append("path")
+                .attr("class", "line")
+                .attr("stroke-width", "2px")
+                .attr("stroke", "steelblue");
 
-            function updateData() {
-                var newVal = scope.patches;
-                if (!drawn) drawFirstTime(newVal);
-                else updateLine(newVal)
-            }
+            scope.$on('drawEvent', update);
 
-            function updateLine(data) {
-                myLine.datum(data)
-                    .transition().duration(scope.tickPace)
+            $(window).on('resize', render);
+
+            render();
+
+            function render() {
+                var width = d3.select(el[0]).node().offsetWidth - margin.left - margin.right;
+                x.range([0, width]);
+                gXAxis.call(xAxis);
+            };
+
+            function update() {
+                myLine.datum(scope.patches)
+                    .transition()
+                    .duration(200)
                     .ease('linear')
                     .attr("d", line);
+
+                myLine2.datum(scope.patches)
+                    .transition()
+                    .duration(200)
+                    .ease('linear')
+                    .attr("d", line2);
             }
-
-            function drawFirstTime(data) {
-                drawn = true;
-
-                svg.append("g")
-                    .attr("class", "x axis")
-                    .attr("transform", "translate(0," + height + ")")
-                    .call(xAxis);
-
-                svg.append("g")
-                    .attr("class", "y axis")
-                    .call(yAxis)
-                    .append("text")
-                    .attr("transform", "rotate(-90)")
-                    .attr("y", 6)
-                    .attr("dy", ".71em")
-                    .style("text-anchor", "end")
-                    .text("Cumulative miles arrived");
-
-                myLine = svg.append("path")
-                    .datum(data)
-                    .attr("class", "line")
-                    .attr("d", line)
-                    .attr("stroke-width", "2px")
-                    .attr("stroke", "crimson");
-
-            } //end drawlines
 
         } //end link function
     }; //end the big return

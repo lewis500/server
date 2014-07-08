@@ -53,9 +53,8 @@ app.directive('lineChartSecond', function() {
 
             y.range([height, 0]);
 
-            y.domain([0, 150]);
+            y.domain([0, 300]);
             yAxis.scale(y);
-            // render();
 
             function render() {
                 svg.selectAll('*').remove();

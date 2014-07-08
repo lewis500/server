@@ -12,79 +12,28 @@
 </head>
 
 <!-- ============== BODY =================== -->
-
-<body ng-app="mainApp" ng-controller="mainCtrl">
-    <ng-include src="'tooltip.html'"></ng-include>
+<body ng-app="mainApp" ng-controller="mainCtrl as main">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <div ng-init="isCollapsed1 = true;">
-                    <button class="btn btn-primary" ng-click="isCollapsed1=!isCollapsed1" style="margin-bottom: 3px; width: 100%;">
-                        cumulative arrived diagram
-                    </button>
-                    <div collapse="isCollapsed1" class="tableDiv">
-                        <div line-chart></div>
-                    </div>
-                </div>
-                <div ng-init="isCollapsed2=true;">
-                    <button class="btn btn-primary" ng-click="isCollapsed2=!isCollapsed2" style="margin-bottom: 3px; width: 100%;">
-                        XT Diagram
-                    </button>
-                    <div collapse="isCollapsed2" class="tableDiv">
-                        <div line-chart-second></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div ng-init="isCollapsed3=true;">
-                    <button class="btn btn-primary" ng-click="isCollapsed3=!isCollapsed3" style="margin-bottom: 3px; width: 100%;">
-                        Velocity Diagram
-                    </button>
-                    <div collapse="isCollapsed3" class="tableDiv">
-                        <div line-chart-fourth></div>
-                    </div>
-                </div>
-                <div ng-init="isCollapsed4=true;">
-                    <button class="btn btn-primary" ng-click="isCollapsed4=!isCollapsed4" style="margin-bottom: 3px; width: 100%;">
-                        Statistics
-                    </button>
-                    <div collapse="isCollapsed4" class="tableDiv">
-                        <h4>{{whichStatistic}} -- total: {{summary}} -- moving average: {{form2(average)}}</h4>
-                        <div class="btn-group">
-                            <label class="btn btn-danger" ng-model="whichStatistic" btn-radio="'netCost'">net cost</label>
-                            <label class="btn btn-danger" ng-model="whichStatistic" btn-radio="'user'">user cost</label>
-                            <label class="btn btn-danger" ng-model="whichStatistic" btn-radio="'toll'">toll</label>
-                            <label class="btn btn-danger" ng-model="whichStatistic" btn-radio="'travel'">travel time</label>
-                            <label class="btn btn-danger" ng-model="whichStatistic" btn-radio="'SP'">schedule penalty</label>
-                            <label class="btn btn-danger" ng-model="whichStatistic" btn-radio="'aT'">arrival time</label>
-                            <label class="btn btn-danger" ng-model="whichStatistic" btn-radio="'dT'">departure time</label>
-                        </div>
-                        <div bar-chart>
-                            <h5>Cars as Bars...distance increasing</h5>
-                        </div>
-                        <div line-chart-third></div>
-                    </div>
-                </div>
+            <div class="col-sm-8">
+                <div line-chart></div>
             </div>
             <div class="col-sm-1">
-
                 <div class="btn-group-vertical">
                     <label class="btn btn-primary" ng-model="tolling" btn-radio="'none'">None</label>
                     <label class="btn btn-primary" ng-model="tolling" btn-radio="'vickrey'">Vickrey</label>
                     <label class="btn btn-primary" ng-model="tolling" btn-radio="'distance'">Distance-Based</label>
                 </div>
-                <br>
-                <!-- <button class="btn btn-med {{ tolling ? 'btn-success' : 'btn-warning' }}" ng-click="tolling = !tolling">{{tolling ? "Yes" : "No"}}</button> -->
-                <button class="btn btn-med {{ paused ? 'btn-success' : 'btn-warning' }}" ng-click="paused = !paused">{{paused ? "Play" : "Pause"}}</button>
+                <button class="btn btn-med {{ timer.paused ? 'btn-success' : 'btn-warning' }}" ng-click="timer.pause()">{{timer.paused ? "Play" : "Pause"}}</button>
             </div>
         </div>
     </div>
-
 </body>
 
 <!-- ============== LIBRARIES =================== -->
 <script src="libraries/angular.min.js"></script>
-<script src="libraries/underscore.min.js"></script>
+<script src='libraries/lodash.min.js'></script>
+<!-- <script src="libraries/underscore.min.js"></script> -->
 <script src="libraries/jquery-1.10.2.js" charset="utf-8"></script>
 <script src="libraries/d3.v3.min.js" charset="utf-8"></script>
 
@@ -112,9 +61,9 @@ app.run(['$rootScope', // inject the ParseAngular services made by our friends o
 <script src="scripts/DataService.js"></script>
 <script src="scripts/controller.js"></script>
 <script src="scripts/lineChart.js"></script>
-<script src="scripts/lineChart2.js"></script>
-<script src="scripts/lineChart3.js"></script>
-<script src="scripts/lineChart4.js"></script>
-<script src="scripts/bar.js"></script>
+<!-- <script src="scripts/lineChart2.js"></script> -->
+<!-- <script src="scripts/lineChart3.js"></script> -->
+<!-- <script src="scripts/lineChart4.js"></script> -->
+<!-- <script src="scripts/bar.js"></script> -->
 
 </html>

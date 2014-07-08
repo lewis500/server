@@ -1,271 +1,149 @@
 function tick() {
-
-    patches.forEach(function(d) {
-        d.serve();
-        d.evalX();
-    });
-
-    bigXT = patches
-        .map(function(d) {
-            var res = {
-                X: d.getX(),
-                T: d.time,
-                patch: d
-            };
-            return res;
-        })
-
-    patches.forEach(function(d) {
-        d.reset();
-    });
-
-    var sample = _.sample(cars, 20);
-
-    sample.forEach(function(d) {
-        d.choose(bigXT);
-    });
-
-    cars.forEach(function(d) {
-        d.reset();
-    });
-
+    _.invoke(patches, 'serve');
+    _.invoke(_.sample(cars, 1), 'choose');
+    _.invoke(patches, 'evalCum');
 }
 
-function patcher(time) {
-    var queue = [];
-    var next = false;
-    var prev = false;
-    var X = 0;
-    var vel = 0;
+function Patch(time) {
+    this.self = this;
+    this.time = time;
+    this.queue = [];
+    if (time == 0) return;
+    this.prev = patches[time - 1];
+    this.prev.next = this;
+}
 
-    function isEmpty() {
-        return queue.length == 0;
-    }
-
-    function reset() {
-        queue = [];
-        X = 0;
-        vel = 0;
-    }
-
-    function getX() {
-        return X;
-    }
-
-    function setNext(n) {
-        next = n;
-    }
-
-    function getNext() {
-        return next;
-    }
-
-    function getPrev() {
-        return prev;
-    }
-
-    function setPrev(n) {
-        prev = n;
-    }
+(function() {
+    _.extend(Patch.prototype, {
+        serve: serve,
+        evalCum: evalCum
+    });
 
     function serve() {
-        if (queue.length === 0) {
-            return;
+        var Q = this.queue;
+        if (Q.length > 0 && (this.next)) {
+            this.vel = findVel(Q.length);
+            var toPass = [];
+            Q.forEach(function(car) {
+                car.delLeft -= this.vel;
+                if (car.delLeft <= 0) {
+                    car.dT = this.time;
+                    car.delLeft = 0;
+                    car.evalCost();
+                } else toPass.push(car);
+            });
+            this.next.queue = toPass.concat(this.next.queue); //try push instead?
         }
-        var served = [];
-        var passed = [];
-        vel = 1 / queue.length;
-        queue.forEach(function(d) {
-            var diff = d.getDel() - vel;
-            if (diff <= 0) {
-                d.setDT(time);
-                d.setDel(0);
-                served.push(d);
-            } else {
-                d.setDel(diff);
-                passed.push(d);
-            }
-        });
-
-        if (next) next.receive(passed);
-    }
-
-    function receive(extras) {
-        queue = queue.concat(extras);
-    }
-
-    function getQueue() {
-        return queue;
-    }
-
-    function evalX() {
-        if (!prev) X = 0;
-        else X = (prev.getX() + vel);
-    }
-
-    return {
-        serve: serve,
-        receive: receive,
-        reset: reset,
-        getQueue: getQueue,
-        time: time,
-        getX: getX,
-        setNext: setNext,
-        setPrev: setPrev,
-        evalX: evalX,
-        getPrev: getPrev,
-        getNext: getNext
-    };
-}
-
-function Car(delta, index) {
-    var C = this;
-    C.index = index;
-    var delta = delta;
-    var delLeft = delta;
-    var aT = wishTime;
-    var dT = null;
-    var patch = patches[aT];
-
-    patch.getQueue().push(C);
-
-    function getPatch() {
-        return patch;
-    }
-
-    function setDT(newDT) {
-        dT = newDT;
+        this.X = this.prev ? 0 : this.prev.X + this.vel;
+        Q = [];
+        this.vel = findVel(0);
     }
 
     function reset() {
-        delLeft = delta;
+        this.X = 0;
+        this.vel = 0;
+        this.queue = [];
     }
 
-    function getA() {
-        return aT;
+    function evalCum() {
+        var queueLoad = d3.sum(queue, function(d) {
+            return d.del;
+        });
+        this.cumLoad = !this.prev ? 0 : this.prev.cumLoad + queueLoad;
     }
 
-    function getDel() {
-        return delLeft;
+    function findVel(qLength) {
+        return //code using qLength to find velocity
     }
 
-    function setDel(n) {
-        delLeft = n;
-    }
+})();
 
-    function getCost() {
-        return evalCost(aT, dT);
-    }
+function Car(delta, w) {
+    this.self = this;
+    this.w = w;
+    this.delta = delta;
+}
 
-    function evalCost(aT_p, dt_P) {
-        var queueTime = dT - aT;
-        var SD = (wishTime - dT);
-        return {
-            travel: queueTime * alpha,
-            SD: d3.max([beta * SD, -gamma * SD]),
-            getTotal: function() {
-                return this.travel + this.SD;
-            }
-        };
-    }
-
-    function choose(XT) {
-        var cost = evalCost(aT, dT).getTotal();
-        var XTn = _.clone(XT);
-
-        XTn.forEach(function(d) {
-            var could = _.find(XTn, function(v) {
-                v.T >= d.D + delta;
+(function() {
+    _.extend(Car.prototype, {
+        evalCost: function() {
+            ec.call(this.self);
+        },
+        choose: function() {
+            var cost = this.cost,
+                aT = this.aT;
+            patches.forEach(function(d, i, k) {
+                var pCost = ec.call({
+                    aT: d.T,
+                    dT: _.find(k.slice(i), function(v) {
+                        return v.X >= d.X + this.delta;
+                    }).time || k[k.length - 1].time;
+                });
+                if (pCost >= cost) return;
+                cost = pCost;
+                aT = d.time;
             });
-            d.D = (could) ? could.T : 0;
-        });
-
-        XTn.forEach(function(d) {
-            var pCost = evalCost(d.T, d.D).getTotal();
-            if (pCost >= cost) return;
-            cost = pCost;
-            aT = d.T;
-            patch = d.patch;
-        });
-
-        patch.getQueue().push(C);
-    }
-
-
-    C = _.extend(C, {
-        choose: choose,
-        getA: getA,
-        setDT: setDT,
-        getPatch: getPatch,
-        getDel: getDel,
-        setDel: setDel,
-        delta: delta,
-        reset: reset
+            this.aT = aT;
+            patches[aT].queue.push(this.self);
+            this.delfLeft = this.delta;
+        },
+        reset: function() {
+            this.aT = wishTime;
+            this.dT = 0;
+            this.travel = 0;
+            this.travel_cost = 0;
+            this.SP = 0;
+            this.SD = 0;
+            this.toll = 0;
+            this.total = 0;
+            this.delLeft = delta;
+            patches[this.aT].queue.push(this);
+        }
     });
 
-    return C;
-}
+    function ec() {
+        this.travel = (this.dT - this.aT);
+        this.travel_cost = alpha * this.travel;
+        this.SD = this.dT - wisthTime;
+        this.SP = penalizer(this.SD);
+        this.toll = evalToll(this.dT);
+        this.total = this.travel_cost + this.SP + this.toll;
+        return this.total;
 
-
-
-
-function runnerGen(fun, pace) {
-    var paused = true;
-
-    function setPace(newpace) {
-        pace = newpace;
-    };
-
-    function getPace() {
-        return pace
-    }
-
-    function pause(newVal) {
-        if (newVal !== undefined) paused = newVal;
-        else {
-            paused = !paused;
+        function penalizer(sd) {
+            return d3.max([beta * sd, -gamma * sd]);
         }
-        if (!paused) start();
-    };
 
-    function start() {
+        function evalToll(t) {
+            if (tolling === "none") return 0;
+            var phi = (tolling === "vickrey") ? cars[cars.length - 1].w : this.w;
+            return d3.max([(phi * beta * gamma) / ((beta + gamma)) - penalizer(wishTime - t), 0]);
+        }
+    }
+})();
 
-        var t = 0,
-            timeSinceCall = 0,
+function Runner(fun, pace) {
+    this.paused = true;
+    this.pace = pace;
+    this.fun = fun;
+}
+
+_.extend(Runner.prototype, {
+    pause: function(P) {
+        this.paused = (P !== undefined) ? P : !this.paused;
+        if (this.paused) this.start();
+    },
+    start: function() {
+        var since = 0,
             last = 0;
-
         d3.timer(function(elapsed) {
-            t = (elapsed - last);
-
-            //the tick part
-            timeSinceCall = timeSinceCall + t;
-            if (timeSinceCall >= pace) {
-                timeSinceCall = 0;
-                fun();
+            since += elapsed - last;
+            if (since >= this.pace) {
+                since = 0;
+                this.fun();
             }
-
             last = elapsed;
-
-            return paused;
+            return this.paused;
         });
-    };
-
-    return {
-        start: start,
-        pause: pause,
-        setPace: setPace,
-        getPace: getPace
-    };
-
-}
-
-
-function cumProb(d) {
-    
-    var p = sq(d) * m.acos(d / 2) + m.acos(1 - sq(d) / 2) - d / 2 * m.sqrt(4 - sq(d));
-    return p / m.PI
-}
-
-function sq(d) {
-    return m.pow(d, 2)
-}
+    }
+});

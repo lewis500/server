@@ -1,106 +1,121 @@
 app.factory('Universe', function() {
-
     return {
-        tolling: "none",
         patches: [],
         cars: [],
-        setTolling: function(v) {
-            console.log(v)
-            this.tolling = v;
-        },
         tick: function() {
+            _.invoke(this.patches, 'evalCum');
             _.invoke(this.patches, 'serve');
             _.invoke(this.patches, 'clearQueue');
-            // var a = _.sample(this.cars, 25);
-            // var b = _.max(this.cars, 'total');
-            // b.choose();
-            // var a = _.max(this.cars, 'total');
-            // a.choose();
-            _.invoke(_.sample(this.cars, 1), 'choose');
-            _.invoke(this.cars, 'place');
-            _.invoke(this.patches, 'evalCum');
-        },
-        reset: function() {
-            this.tolling = "none";
-            _.invoke(this.patches, 'reset');
-            _.invoke(this.cars, 'reset');
+            var s = _.sample(this.cars, 1)[0];
+            s.choose();
+            s.makeChoice();
             _.invoke(this.cars, 'place');
         }
     };
 });
 
 app.factory('Car', ['Universe',
-    function(UU) {
-        var wishTime = 100,
+    function(Universe) {
+        var wishTime = 250,
             alpha = 1,
             beta = 0.5,
-            gamma = 1.5;
+            gamma = 1.5,
+            z = beta * gamma / (beta + gamma),
+            maxQ = 0.80,
+            totalW = 149,
+            zVic = z * totalW / maxQ;
 
         _.extend(Car.prototype, {
             evalCost: function() {
-                ec.call(this);
+                ec.call(this.self, this.aT, this.dT);
+            },
+            evalToll: null,
+            setTolling: function(v) {
+                this.evalToll = (function() {
+                    switch (v) {
+                        case "none":
+                            return function(t) {
+                                return 0;
+                            };
+                            break;
+                        case "vickrey":
+                            return function(t) {
+                                return d3.max([0, zVic - penalizer(t)]);
+                            };
+                            break;
+                        default:
+                            return function(t) {
+                                return d3.max([0, this.phi - penalizer(t)]);
+                            };
+                            break;
+                    }
+                })();
             },
             choose: function() {
                 var cost = this.total,
                     aT = this.aT,
-                    delta = this.delta;
-                _.forEach(UU.patches, function(d, i, k) {
+                    delta = this.delta,
+                    phi = this.phi,
+                    evalToll = this.evalToll;
+
+                _.forEach(Universe.patches, function(d, i, k) {
                     var D = _.find(k.slice(i), function(v) {
-                        return v.X >= d.X + delta;
+                        return v.X > d.X + delta;
                     }) || k[k.length - 1];
                     var pCost = ec.call({
-                        aT: d.time,
-                        dT: D.time
-                    });
-                    if (pCost <= cost + .1) {
+                        evalToll: evalToll,
+                        phi: phi
+                    }, d.time, D.time);
+                    if (pCost < cost) {
                         cost = pCost;
                         aT = d.time;
                     }
                 });
-                this.aT = aT;
-                console.log(aT);
+                this.improvement = this.total - cost;
+                this.poss = aT;
             },
-            reset: function() {
-                this.aT = _.random(0, 140);
-                this.dT = 0;
-                this.travel = 0;
-                this.travel_cost = 0;
-                this.SP = 0;
-                this.SD = 0;
-                this.toll = 0;
-                this.total = 0;
-                this.delLeft = this.delta;
+            makeChoice: function() {
+                this.aT = this.poss;
             },
             place: function() {
-                UU.patches[this.self.aT].queue.push(this.self);
+                Universe.patches[this.aT].queue.push(this.self);
             }
         });
 
-        function ec() {
-            this.travel = (this.dT - this.aT);
+        function ec(aT, dT) {
+            this.travel = dT - aT;
             this.travel_cost = alpha * this.travel;
-            this.SD = wishTime - this.dT;
-            this.SP = penalizer(this.SD);
-            this.toll = evalToll(this.dT);
+            this.SD = wishTime - dT;
+            this.SP = penalizer(dT);
+            this.toll = this.evalToll(dT);
+            this.social = this.SP + this.travel_cost;
             this.total = this.travel_cost + this.SP + this.toll;
             return this.total;
+        }
 
-            function penalizer(sd) {
-                return d3.max([beta * sd, -gamma * sd]);
-            }
-
-            function evalToll(t) {
-                if (UU.tolling === "none") return 0;
-                var phi = (UU.tolling === "vickrey") ? 50 : this.w;
-                return d3.max([(phi * beta * gamma) / ((beta + gamma)) - penalizer(wishTime - t), 0]);
-            }
+        function penalizer(dT) {
+            var sd = wishTime - dT;
+            return d3.max([beta * sd, -gamma * sd]);
         }
 
         function Car(delta, w) {
-            this.self = this;
-            this.w = w;
-            this.delta = delta;
-            this.reset.call(this);
+            _.assign(this, {
+                self: this,
+                w: w,
+                delta: delta,
+                phi: z * w / maxQ,
+                aT: _.random(0, 400),
+                poss: null,
+                improvement: null,
+                dT: null,
+                travel: 0,
+                travel_cost: 0,
+                SP: 0,
+                SD: 0,
+                toll: 0,
+                delLeft: delta,
+                total: 0,
+            });
         }
 
         return Car;
@@ -108,81 +123,75 @@ app.factory('Car', ['Universe',
 ]);
 
 app.factory('Patch', ['Universe',
-    function(UU) {
+    function(Universe) {
 
         _.extend(Patch.prototype, {
             serve: serve,
-            evalCum: evalCum,
-            reset: reset,
-            clearQueue: clearQueue
+            evalCum: function() {
+                var queueLoad = d3.sum(this.queue, function(d) {
+                    return d.delta;
+                });
+                this.cumArr = queueLoad + (!this.prev ? 0 : this.prev.cumArr);
+                this.numArr = this.queue.length + (!this.prev ? 0 : this.prev.numArr);
+            },
+            clearQueue: function() {
+                this.queue = [];
+            },
+            receive: function(v) {
+                this.queue.push(v);
+            }
         });
 
         function serve() {
-            var Q = this.queue,
-                toPass = [];
+            var Q = this.queue;
             this.vel = findVel(Q.length);
-            this.cumServed = this.prev ? (this.prev.cumServed) : 0;
+            this.served = 0;
+            this.servedNum = 0;
             _.forEach(Q, function(car) {
                 car.delLeft = car.delLeft - this.vel;
                 if (car.delLeft <= 0 || !this.next) {
-                    this.cumServed += car.delta;
+                    this.served += car.delLeft;
+                    this.servedNum++;
                     car.dT = this.time;
-                    car.delLeft = car.delta; //
+                    car.delLeft = car.delta;
                     car.evalCost();
-                } else toPass.push(car);
+                } else {
+                    this.served += this.vel;
+                    this.next.receive(car);
+                }
             }, this);
-            if (this.next) this.next.queue = toPass.concat(this.next.queue); //try other ordering instead?
-            this.X = !this.prev ? 0 : this.prev.X + this.vel;
-        }
-
-        function clearQueue() {
-            this.queue = [];
-            this.vel = findVel(0);
-        }
-
-        function reset() {
-            this.X = 0;
-            this.cumServed = 0;
-            this.vel = findVel(0);
-            this.queue = [];
-        }
-
-        function evalCum() {
-            var queueLoad = d3.sum(this.queue, function(d) {
-                return d.delta;
-            });
-            this.cumArr = !this.prev ? 0 : this.prev.cumArr + queueLoad;
-        }
-
-        function findVel(qLength) {
-            // if(qLength ==0) return 1;
-            // return 1/qLength;
-            var a = 1,
-                b = 1 / 20;
-
-            function inner(l) {
-                return 1 - d3.max([0, d3.min([l - .05, .25])]) * (.4 / .25) - d3.max([0, d3.min([l - .3, .7])]) * (.6 / .7) + .02;
-            }
-            return a * inner(qLength * b);
+            this.cumServed = (this.prev ? this.prev.cumServed : 0) + this.served;
+            this.numServed = (this.prev ? this.prev.numServed : 0) + this.servedNum;
+            this.X = this.vel + (this.prev ? this.prev.X : 0);
         }
 
         function Patch(time) {
             this.self = this;
             this.time = time;
             this.next = null;
-            this.reset.call(this);
+            this.X = 0;
+            this.cumServed = 0;
+            this.vel = findVel(0);
+            this.queue = [];
         }
+
+        Universe.MFD = _.range(0, 30).map(function(k, i) {
+            return {
+                q: q(k),
+                k: k,
+                v: findVel(k)
+            };
+        });
 
         return Patch;
     }
 ]);
 
 app.factory('DataService', ['Universe', 'Car', 'Patch',
-    function(UU, Car, Patch) {
-        var numPatches = 200,
-            numCars = 100,
-            numClass = 100,
-            diameter = 4.3,
+    function(Universe, Car, Patch) {
+        var numPatches = 500,
+            numCars = 150,
+            numClass = 2000,
             timeRange = d3.range(0, numPatches);
 
         _.forEach(timeRange, function(time, i) {
@@ -192,52 +201,41 @@ app.factory('DataService', ['Universe', 'Car', 'Patch',
                 this.prev.next = newPatch;
             }
             this.prev = newPatch;
-            UU.patches.push(newPatch);
+            Universe.patches.push(newPatch);
         }, {
             prev: null
         });
 
-        var pop = d3.range(1, numClass + 1).map(function(v) {
-            var d = v / numClass * 2;
-            cp = cumProb(d),
-            w = cp * numCars,
-            p = this.lastW - w;
-            this.lastW = w;
-            return {
-                cumProb: cp,
-                w: w,
-                delta: d,
-                count: Math.round(p)
-            };
-        }, {
-            lastW: 0
+        var K = {
+            a: 0,
+            b: 0,
+            threshold: (1 / numCars),
+            w: 0,
+            g: 0
+        };
+
+        _.forEach(d3.range(120, numClass + 1), function(d) {
+            var e = d / numClass;
+            K.b += (prob(e) * 1 / numClass);
+            if (K.b - K.a < K.threshold) return;
+            K.a += K.threshold;
+            K.w += (2 * e);
+            Universe.cars.push(new Car(2 * e, K.w));
         });
 
-        pop.forEach(function(d) {
-            d3.range(d.count).map(function(v) {
-                var newCar = new Car(d.delta, d.w);
-                UU.cars.push(newCar);
-            });
-        });
-
-        UU.reset();
-
-        function cumProb(d) {
-            return d3.min([sq(d), sq(1)]) / (2 * sq(1)) + 0.5 * d3.max([0, 1 - sq(1 - d) / sq(1)]);
-        }
-
-        function sq(d) {
-            return Math.pow(d, 2)
+        function prob(d) {
+            return 4 * (.5 - Math.abs(.5 - d));
         }
 
     }
 ]);
 
-app.factory('TimeKeepers', function() {
+app.factory('Runner', function() {
+
     _.extend(Runner.prototype, {
         pause: function(P) {
-            this.self.paused = (P !== undefined) ? P : !this.self.paused;
-            if (!this.self.paused) this.start();
+            this.paused = (P !== undefined) ? P : !this.paused;
+            if (!this.paused) this.start();
         },
         start: function() {
             var since = 0,
@@ -259,40 +257,28 @@ app.factory('TimeKeepers', function() {
         this.paused = true;
         this.pace = pace;
         this.fun = fun;
-        this.self = this;
     }
 
-    //update the stepper!
-
-    function Stepper(fun, pace) {
-        var steps = 0;
-
-        function reset() {
-            steps = 0;
-        }
-
-        function step() {
-            steps++;
-            if (steps < pace) return;
-            steps = 0;
-            fun();
-        }
-
-        function setPace(newPace) {
-            pace = newPace;
-        }
-
-        return {
-            setPace: setPace,
-            step: step,
-            reset: reset
-        };
-
-    }
-
-    return {
-        Runner: Runner,
-        Stepper: Stepper
-    };
-
+    return Runner;
 });
+
+function ma(a, b) {
+    return d3.max([a, b]);
+}
+
+function mi(a, b) {
+    return d3.min([a, b]);
+}
+
+function q(u) {
+    var k = u / 2,
+        a = 1;
+    var g = a * mi(k, 2) + a / 2 * ma(mi(k, 5) - 2, 0) + 0 * ma(mi(8, k) - 5, 0) - a / 8 * ma(mi(12, k) - 8, 0) - a / 6 * ma(mi(k, 30) - 12, 0);
+    return ma(g, 0) / 3.50;
+}
+
+function findVel(u) {
+    var k = ma(.001, u);
+    // if (k == 0) return 1;
+    return q(k) / k;
+}

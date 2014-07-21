@@ -3,20 +3,35 @@
 
 <head>
     <meta charset="utf-8">
-
     <!-- ============== CSS ===================== -->
     <title>Simulation</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/main.css">
 </head>
-
 <!-- ============== BODY =================== -->
+
 <body ng-app="mainApp" ng-controller="mainCtrl as main">
     <div class="container">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-10">
                 <div line-chart></div>
+                <div toll-chart></div>
+                <div distance-chart></div>
+
+                <div bar-chart>
+                    <div class="btn-group">
+                        <label class="btn btn-danger" ng-model="measure" btn-radio="'social'">net cost</label>
+                        <label class="btn btn-danger" ng-model="measure" btn-radio="'total'">user cost</label>
+                        <label class="btn btn-danger" ng-model="measure" btn-radio="'toll'">toll</label>
+                        <label class="btn btn-danger" ng-model="measure" btn-radio="'travel'">travel time</label>
+                        <label class="btn btn-danger" ng-model="measure" btn-radio="'SP'">schedule penalty</label>
+                        <label class="btn btn-danger" ng-model="measure" btn-radio="'aT'">arrival time</label>
+                        <label class="btn btn-danger" ng-model="measure" btn-radio="'dT'">departure time</label>
+                    </div>
+                </div>
+                <div mfd-chart></div>
+                <!-- <div vel-chart></div> -->
             </div>
             <div class="col-sm-1">
                 <div class="btn-group-vertical">
@@ -30,40 +45,34 @@
     </div>
 </body>
 
+<div class="tip col-lg-4">
+    <div class="col-lg-6" ng-repeat="(key, val) in info">
+        {{key}} : {{val | number: 2}}
+    </div>
+</div>
+
 <!-- ============== LIBRARIES =================== -->
 <script src="libraries/angular.min.js"></script>
 <script src='libraries/lodash.min.js'></script>
-<!-- <script src="libraries/underscore.min.js"></script> -->
 <script src="libraries/jquery-1.10.2.js" charset="utf-8"></script>
 <script src="libraries/d3.v3.min.js" charset="utf-8"></script>
-
 <script type="text/javascript" src="libraries/angular-slider.js"></script>
 <script src="libraries/buttons.js"></script>
 <script type="text/javascript" src="libraries/ui-bootstrap-custom-tpls-0.10.0.js"></script>
 
-
 <!-- ============== SCRIPTS =================== -->
 <script type="text/javascript">
-var app = angular.module('mainApp', ['ui.bootstrap', 'ui.slider']);
-
-app.run(['$rootScope', // inject the ParseAngular services made by our friends on the internet
-    function($rootScope) {
-
-        window.onresize = function() { // Browser onresize event
-            $rootScope.$broadcast('windowResize');
-        };
-
-    }
-]);
+var app = angular.module('mainApp', ['ui.bootstrap']);
 </script>
 
 <!-- ============== MY STUFF =================== -->
 <script src="scripts/DataService.js"></script>
 <script src="scripts/controller.js"></script>
 <script src="scripts/lineChart.js"></script>
-<!-- <script src="scripts/lineChart2.js"></script> -->
-<!-- <script src="scripts/lineChart3.js"></script> -->
-<!-- <script src="scripts/lineChart4.js"></script> -->
-<!-- <script src="scripts/bar.js"></script> -->
+<script src="scripts/bar.js"></script>
+<script src="scripts/MFD.js"></script>
+<script src="scripts/velChart.js"></script>
+<script src="scripts/tollChart.js"></script>
+<script src="scripts/distance.js"></script>
 
 </html>

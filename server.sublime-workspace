@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"find",
+				"findVel"
+			],
+			[
+				"l",
+				"last"
+			],
+			[
+				"num",
+				"numPatches"
+			],
+			[
+				"tick",
+				"tickEvent"
+			],
+			[
+				"del",
+				"delLeft"
+			],
+			[
 				"eval",
 				"evalToll"
 			],
@@ -18,10 +38,6 @@
 			[
 				"queue",
 				"queueTime"
-			],
-			[
-				"del",
-				"deltaLeft"
 			],
 			[
 				"selec",
@@ -64,10 +80,6 @@
 				"function"
 			],
 			[
-				"num",
-				"numCars"
-			],
-			[
 				"con",
 				"controller	AngularJS"
 			]
@@ -76,10 +88,26 @@
 	"buffers":
 	[
 		{
-			"file": "styles/main.css",
+			"file": "scripts/MFD.js",
 			"settings":
 			{
-				"buffer_size": 712,
+				"buffer_size": 2364,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/DataService.js",
+			"settings":
+			{
+				"buffer_size": 9813,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 4063,
 				"line_ending": "Unix"
 			}
 		}
@@ -87,7 +115,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 285.0,
+		"height": 306.0,
 		"selected_items":
 		[
 			[
@@ -95,15 +123,23 @@
 				"HTMLPrettify"
 			],
 			[
+				"pret",
+				"HTMLPrettify"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
 				"pre",
 				"Preferences: Settings - User"
 			],
 			[
 				"rett",
-				"HTMLPrettify"
-			],
-			[
-				"pret",
 				"HTMLPrettify"
 			],
 			[
@@ -125,13 +161,9 @@
 			[
 				"snippet",
 				"Snippet: function(d, i) { return d; }"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			]
 		],
-		"width": 575.0
+		"width": 530.0
 	},
 	"console":
 	{
@@ -152,29 +184,38 @@
 	},
 	"file_history":
 	[
-		"/home/lewis/github/server/todo server",
 		"/home/lewis/github/server/scripts/lineChart.js",
-		"/home/lewis/github/server/scripts/lineChart2.js",
-		"/home/lewis/github/server/scripts/DataService.js",
-		"/home/lewis/Desktop/week",
-		"/home/lewis/Desktop/research",
-		"/home/lewis/Desktop/housing",
-		"/home/lewis/github/server/scripts/lineChart3.js",
-		"/home/lewis/github/server/scripts/lineChart4.js",
-		"/home/lewis/github/server/scripts/bar.js",
-		"/home/lewis/github/server/scripts/controller.js",
-		"/home/lewis/github/server/index.html",
-		"/home/lewis/github/server/libraries/d3.v3.js",
-		"/home/lewis/github/server/libraries/angular-slider.js",
-		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/lewis/github/server/scripts/bar2.js",
-		"/home/lewis/github/server/styles/main.css",
-		"/home/lewis/github/server/scripts/objects.js",
-		"/home/lewis/github/server/tooltip.html",
-		"/home/lewis/github/server/server.sublime-project",
-		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/Default (Linux).sublime-keymap",
 		"/home/lewis/github/server/libraries/ui-bootstrap-custom-tpls-0.10.0.js",
 		"/home/lewis/github/server/README.md",
+		"/home/lewis/github/server/libraries/angular-slider.js",
+		"/home/lewis/github/server/scripts/tollChart.js",
+		"/home/lewis/github/server/scripts/controller.js",
+		"/home/lewis/github/server/tooltip.html",
+		"/home/lewis/github/server/libraries/angular.min.js",
+		"/home/lewis/github/server/scripts/dsold.js",
+		"/home/lewis/github/server/scripts/bar.js",
+		"/home/lewis/github/server/index.html",
+		"/home/lewis/github/server/scripts/DataService.js",
+		"/home/lewis/Desktop/week",
+		"/home/lewis/github/server/libraries/queue.min.js",
+		"/home/lewis/github/server/todo server",
+		"/home/lewis/github/server/scripts/MFD.js",
+		"/home/lewis/github/server/styles/main.css",
+		"/home/lewis/github/server/scripts/objects.js",
+		"/home/lewis/github/server/scripts/lineChart2.js",
+		"/home/lewis/github/server/server.sublime-project",
+		"/home/lewis/github/server/libraries/jquery.min.js",
+		"/home/lewis/github/server/libraries/lodash.min.js",
+		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/lewis/github/server/scripts/lineChart3.js",
+		"/home/lewis/github/server/scripts/lineChart4.js",
+		"/home/lewis/github/server/old.html",
+		"/home/lewis/Documents/test/test.js",
+		"/home/lewis/Desktop/research",
+		"/home/lewis/Desktop/housing",
+		"/home/lewis/github/server/libraries/d3.v3.js",
+		"/home/lewis/github/server/scripts/bar2.js",
+		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/Default (Linux).sublime-keymap",
 		"/home/lewis/github/server/libraries/sticker.js",
 		"/home/lewis/github/server/libraries/buttons.js",
 		"/home/lewis/github/MFD/scripts/controller.js",
@@ -284,134 +325,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"/",
-			"pace",
-			"60",
-			"width",
-			"height",
-			"btn-primary",
-			"iscollapsed3",
-			"choose",
-			"width",
+			"this.phi",
+			"q(",
+			"maxq",
+			"50",
+			"this.w",
+			"400",
 			"domain",
-			"reset",
-			"vel",
-			"vel ",
-			"patcher",
-			"patch",
-			"transition",
-			"whichs",
-			"250",
-			"text",
-			"width",
-			"average",
-			"form",
-			"average",
-			"crimson",
-			"update",
-			"30",
-			"tolling",
-			"settolling",
-			"s.tolling",
-			"tolling",
-			"summary",
-			"reset",
-			"tolling",
-			"false",
-			"Left",
-			"Middle",
-			"Right",
-			"vickrey",
-			"Right",
-			"Middle",
-			"xt",
-			"30",
-			"drawpace",
-			"updatedata",
-			"scope",
-			"line",
-			"color",
-			"update",
-			"on",
-			"val",
-			"whichstatistic",
-			"on",
-			"info",
-			"summary",
-			"s.form",
-			"on",
-			"pause",
+			"wisht",
+			".w",
 			"range",
-			"width",
-			"firing",
-			"width",
-			"range",
-			"evaltoll",
-			"true",
-			"paused",
-			"jquery",
-			"switchTolling",
-			"toll",
-			"jquery",
-			"info",
-			"form",
-			"for",
-			"form",
-			"max",
-			"info",
-			"key",
-			"dT",
-			"reset",
-			"tick",
-			"car",
-			"car(",
-			"cost =",
-			"getAt",
-			"evaltoll",
-			"stroke",
+			"numpatches",
 			"200",
-			"transform",
-			"aT =",
-			"rangeroun",
-			".map",
-			"reset",
-			"patches",
-			"Car(",
-			".sum",
-			".delta",
-			"100",
-			"patches",
-			"drawLines",
-			"choose",
-			"receive",
-			"getqueue",
-			"isempty",
-			"push",
-			"getqueue",
-			"evalX",
-			"get",
-			"evalcum",
-			"getCumLoad",
-			"patcher",
-			"subtractdel",
-			"setDel",
-			"diff",
-			"var",
-			"Car(",
-			"erve()",
-			"evalqueueload",
-			"getcumload",
-			"250",
+			"150",
+			"wishtime",
+			"wishti",
+			"wish",
+			".phi",
+			"wish",
+			"wishtime",
+			"400",
+			"maxq",
+			".call(",
+			"evaltoll",
+			"span",
+			"tr",
+			"findvel",
+			"this.vel",
 			"time",
+			"mouseo",
+			"ma(",
+			"0.5",
+			"evaltoll",
+			"maxq",
+			"penalizer",
+			"penalty",
+			"penaliz",
+			"penalt",
+			"this.travel",
+			"cum",
+			"evaltoll",
+			"this.queuele",
+			">",
+			">=",
+			"evaltoll",
+			"findvel",
+			"max",
+			"findvel",
+			"this.vel",
+			"patches",
+			".patch",
+			"140",
+			"mouseover",
+			".5",
+			"choose",
+			"evalcum",
+			".vel",
+			"this.vel =",
+			"clearqueue",
+			"max",
+			"this.phi",
+			"findvel",
+			"patch",
+			"new patch",
+			"findvel",
+			"max",
+			"cum",
+			".travel",
+			">",
+			"evaltoll",
+			".total",
+			"improvement",
+			"evaltoll",
+			"maxq",
+			"makechoice",
+			"/",
+			"this.phi",
+			"4.98",
+			"4.6",
+			"findvel",
+			"findvel(0",
+			"servednum",
+			"cum",
+			"num",
+			"numserved",
+			"4.75",
+			"/ 5",
+			"findvel",
+			"4.339",
+			"4.3",
+			"qFun",
+			"findvel",
+			"4.3",
+			"4.5",
+			"1.02",
+			"cumserved",
+			"makechoice",
+			"evalcum",
+			"evalcost",
+			"this.dt",
+			"servedHere",
+			"99",
+			".call",
+			"this.evaltoll",
+			"this.eval",
+			"evaltoll",
+			"penalizer",
+			"penalty",
+			"penalizer",
+			"foreach",
+			"tolling",
+			"settoll",
+			"ec",
+			"ce(",
+			"toll(",
+			"evalcost",
+			"TH",
+			"evalcost",
+			".val",
+			"drawn",
+			"scope.",
+			"wishtime",
+			"clearqueue",
 			"reset",
-			"getqueue",
-			"next",
-			"prev",
-			"getprev",
-			"set",
-			"getnext",
-			"getprev",
-			"prev"
+			"TH(",
+			"s.",
+			"var",
+			"max",
+			"this.improve"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -419,6 +460,17 @@
 		"regex": false,
 		"replace_history":
 		[
+			"num",
+			"3",
+			"4.98",
+			"4.75",
+			"/4.6",
+			"5",
+			"4.339",
+			"4.3",
+			"4.5",
+			"ϕ.",
+			"cumArr",
 			"btn-danger",
 			"isCollapsed4",
 			"100",
@@ -456,37 +508,97 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "styles/main.css",
+					"file": "scripts/MFD.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 712,
+						"buffer_size": 2364,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								103,
-								103
+								929,
+								929
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 312.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scripts/DataService.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9813,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3508,
+								3508
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1344.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4063,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3260,
+								3260
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 161.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -539,32 +651,44 @@
 		"selected_items":
 		[
 			[
-				"datas",
-				"scripts/DataService.js"
+				"line",
+				"scripts/lineChart.js"
 			],
 			[
 				"controll",
 				"scripts/controller.js"
 			],
 			[
+				"toll",
+				"scripts/tollChart.js"
+			],
+			[
+				"angul",
+				"libraries/angular.min.js"
+			],
+			[
+				"data",
+				"scripts/DataService.js"
+			],
+			[
 				"ind",
 				"index.html"
 			],
 			[
-				"line",
-				"scripts/lineChart2.js"
+				"mfd",
+				"scripts/MFD.js"
 			],
 			[
 				"bar",
 				"scripts/bar.js"
 			],
 			[
-				"main",
-				"styles/main.css"
+				"lin",
+				"scripts/lineChart.js"
 			],
 			[
-				"data",
-				"scripts/DataService.js"
+				"too",
+				"tooltip.html"
 			],
 			[
 				"todo",
@@ -572,15 +696,63 @@
 			],
 			[
 				"linech",
-				"scripts/lineChart4.js"
+				"scripts/lineChart.js"
 			],
 			[
 				"linec",
-				"scripts/lineChart2.js"
+				"scripts/lineChart.js"
+			],
+			[
+				"datas",
+				"scripts/DataService.js"
+			],
+			[
+				"cotnroll",
+				"scripts/controller.js"
 			],
 			[
 				"in",
 				"index.html"
+			],
+			[
+				"tooltip",
+				"tooltip.html"
+			],
+			[
+				"contr",
+				"scripts/controller.js"
+			],
+			[
+				"contoll",
+				"scripts/controller.js"
+			],
+			[
+				"ds",
+				"scripts/dsold.js"
+			],
+			[
+				"linechart.js",
+				"scripts/lineChart.js"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"obj",
+				"scripts/objects.js"
+			],
+			[
+				"object",
+				"scripts/objects.js"
+			],
+			[
+				"linechart2",
+				"scripts/lineChart2.js"
+			],
+			[
+				"main",
+				"styles/main.css"
 			],
 			[
 				"linechart",
@@ -595,16 +767,8 @@
 				"scripts/bar.js"
 			],
 			[
-				"contr",
-				"scripts/controller.js"
-			],
-			[
 				"obje",
 				"scripts/objects.js"
-			],
-			[
-				"inde",
-				"index.html"
 			],
 			[
 				"dataser",
@@ -635,10 +799,6 @@
 				"scripts/controller.js"
 			],
 			[
-				"tooltip",
-				"tooltip"
-			],
-			[
 				"bar.j",
 				"scripts/bar.js"
 			],
@@ -647,20 +807,12 @@
 				"index.html"
 			],
 			[
-				"obj",
-				"scripts/objects.js"
-			],
-			[
 				"objects",
 				"scripts/objects.js"
 			],
 			[
 				"contro",
 				"scripts/controller.js"
-			],
-			[
-				"object",
-				"scripts/objects.js"
 			],
 			[
 				"example.js",
@@ -831,8 +983,12 @@
 		"selected_items":
 		[
 			[
+				"val",
+				"~/github/valet-analytics/valet.sublime-project"
+			],
+			[
 				"",
-				"~/github/MFD/mfd.sublime-project"
+				"~/github/server/server.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -852,7 +1008,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 248.0,
+	"side_bar_width": 144.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -1,41 +1,38 @@
-app.controller('mainCtrl', ['$scope', 'DataService', 'TimeKeepers', 'Universe',
-    function(s, DS, TK, UU) {
+app.controller('mainCtrl', ['$scope', 'DataService', 'Runner', 'Universe', 'Car',
+    function(s, DS, Runner, Universe, Car) {
         var TH = _.throttle(function() {
             s.$emit('drawEvent');
-        }, 500)
+        }, 500);
 
-        s.timer = new TK.Runner(tickFun, 50);
+        s.timer = new Runner(tickFun, 50);
 
-        _.extend(this, {
-            tolling: UU.tolling
+        s.tolling = "none";
+
+        s.$watch('tolling', function(v) {
+            Car.prototype.setTolling(v);
         });
 
-        s.tolling = UU.tolling;
+        s.tolledGuy = null;
 
-        s.$watch('tolling', function() {
-            UU.setTolling(s.tolling);
-            s.safeApply();
-        });
-
-        s.safeApply = function(fn) {
-            var phase = this.$root.$$phase;
-            if (phase == '$apply' || phase == '$digest') {
-                if (fn && (typeof(fn) === 'function')) {
-                    fn();
-                }
-            } else {
-                this.$apply(fn);
-            }
-        };
-
-        function tickFun() {
-            UU.tick();
-            s.cars = UU.cars;
-            s.patches = UU.patches;
-            TH();
+        s.changeToll = function(d) {
+            s.tolledGuy = d;
+            s.$broadcast('tollEvent');
         }
 
-        tickFun();
+        s.measure = "SP";
+        s.info;
+
+        s.updater = function(v) {
+            s.info = v;
+            // s.$apply();
+        }
+
+        function tickFun() {
+            Universe.tick();
+            s.cars = Universe.cars;
+            s.patches = Universe.patches;
+            TH();
+        }
 
     } //end of cotnroller
 ]); //end of
@@ -43,4 +40,5 @@ app.controller('mainCtrl', ['$scope', 'DataService', 'TimeKeepers', 'Universe',
 
 setTimeout(function() {
     m = angular.element(document.body).injector();
+    c = m.get('Universe');
 }, 2500);

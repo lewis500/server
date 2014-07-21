@@ -1,6 +1,7 @@
-app.directive('lineChart', function() {
+app.directive('tollChart', function() {
 
     return function(scope, el, attr) {
+        var tip = d3.select(".tip");
 
         var margin = {
             top: 20,
@@ -10,7 +11,7 @@ app.directive('lineChart', function() {
         };
 
         var height = 250;
-        var y = d3.scale.linear().range([height, 0]).domain([0, 310]);
+        var y = d3.scale.linear().range([height, 0]).domain([0, 100]);
         var x = d3.scale.linear().domain([0, 500]);
         var color = d3.scale.category10();
         var xAxis = d3.svg.axis()
@@ -27,20 +28,9 @@ app.directive('lineChart', function() {
                 return x(d.time);
             })
             .y(function(d) {
-                return y(d.numServed);
-            })
-            .interpolate('basis');
+                return y(d.toll);
+            });
 
-        var line2 = d3.svg.line()
-            .x(function(d) {
-                return x(d.time);
-            })
-            .y(function(d) {
-                return y(d.numArr);
-            })
-            .interpolate('basis');
-
-        var tip = d3.select(".tip");
 
         var svg = d3.select(el[0])
             .append("svg")
@@ -57,19 +47,13 @@ app.directive('lineChart', function() {
             })
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-        var reverse;
-
-        bg.on('mousemove', mousemove)
-            .on('mouseout', mouseoutFunc);
+        // bg.on('mousemove', mousemove)
+        //     .on('mouseout', mouseoutFunc);
 
         function mousemove() {
-            // debugger;
 
             var u = _.find(scope.patches, function(v) {
                 var e = x.invert(d3.mouse(this)[0]);
-                // debugger;
-                // if (!e) debugger;
                 return v.time >= e;
             }, this);
 
@@ -104,13 +88,9 @@ app.directive('lineChart', function() {
             .attr("stroke-width", "2px")
             .attr("stroke", "crimson");
 
-        var myLine2 = g.append("path")
-            .attr("class", "line")
-            .attr("stroke-width", "2px")
-            .attr("stroke", "steelblue");
         var drawn;
 
-        scope.$on('drawEvent', update);
+        scope.$on('tollEvent', update);
 
         $(window).on('resize', render);
 
@@ -122,22 +102,20 @@ app.directive('lineChart', function() {
             gXAxis.call(xAxis);
             bg.attr("width", width);
             if (drawn) update();
-            // update();
         }
 
         function update() {
             drawn = true;
-            myLine.datum(scope.patches)
+            var data = _.range(1, 400).map(function(d) {
+                return {
+                    time: d,
+                    toll: scope.tolledGuy.evalToll(d)
+                };
+            });
+            myLine.datum(data)
                 .transition()
-                // .duration(200)
                 .ease('linear')
                 .attr("d", line);
-
-            myLine2.datum(scope.patches)
-                .transition()
-                // .duration(200)
-                .ease('linear')
-                .attr("d", line2);
         }
 
     }; //end the big return

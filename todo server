@@ -1,7 +1,3 @@
 TO DO
-add departure curve
-collect history statistics
-make option to use vickrey toll, our toll, or none
-
-
-put transitions on the line diagrams
++give a massive penalty if someone goes all the way to the end;
++get aggregate stats

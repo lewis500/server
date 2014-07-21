@@ -2,7 +2,7 @@
     <table class='table'>
       <tr ng-repeat="(key, val) in info">
         <td>{{key}}</td>
-        <td>{{form(val)}}</td>
+        <td>{{val | number:2}}</td>
       </tr>
     </table>
 </div>

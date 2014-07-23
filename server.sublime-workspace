@@ -88,26 +88,10 @@
 	"buffers":
 	[
 		{
-			"file": "scripts/MFD.js",
+			"file": "todo server",
 			"settings":
 			{
-				"buffer_size": 2364,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/DataService.js",
-			"settings":
-			{
-				"buffer_size": 9813,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 4063,
+				"buffer_size": 91,
 				"line_ending": "Unix"
 			}
 		}
@@ -115,12 +99,16 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 306.0,
+		"height": 369.0,
 		"selected_items":
 		[
 			[
 				"prett",
 				"HTMLPrettify"
+			],
+			[
+				"pett",
+				"Preferences: Settings - Default"
 			],
 			[
 				"pret",
@@ -184,32 +172,38 @@
 	},
 	"file_history":
 	[
-		"/home/lewis/github/server/scripts/lineChart.js",
-		"/home/lewis/github/server/libraries/ui-bootstrap-custom-tpls-0.10.0.js",
-		"/home/lewis/github/server/README.md",
-		"/home/lewis/github/server/libraries/angular-slider.js",
-		"/home/lewis/github/server/scripts/tollChart.js",
-		"/home/lewis/github/server/scripts/controller.js",
-		"/home/lewis/github/server/tooltip.html",
-		"/home/lewis/github/server/libraries/angular.min.js",
-		"/home/lewis/github/server/scripts/dsold.js",
-		"/home/lewis/github/server/scripts/bar.js",
-		"/home/lewis/github/server/index.html",
 		"/home/lewis/github/server/scripts/DataService.js",
-		"/home/lewis/Desktop/week",
-		"/home/lewis/github/server/libraries/queue.min.js",
+		"/home/lewis/Desktop/plans/week",
+		"/home/lewis/github/server/old.html",
+		"/home/lewis/github/server/styles/main.css",
+		"/home/lewis/github/server/tooltip.html",
+		"/home/lewis/github/server/scripts/tollChart.js",
+		"/home/lewis/github/server/index.html",
+		"/home/lewis/github/server/scripts/lineChart.js",
+		"/home/lewis/github/server/scripts/bar.js",
+		"/home/lewis/github/server/scripts/controller.js",
+		"/home/lewis/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/lewis/github/server/todo server",
 		"/home/lewis/github/server/scripts/MFD.js",
-		"/home/lewis/github/server/styles/main.css",
+		"/home/lewis/github/server/scripts/velChart.js",
+		"/home/lewis/github/server/libraries/angular-slider.js",
+		"/home/lewis/github/server/scripts/distance.js",
+		"/home/lewis/github/server/scripts/dsold.js",
+		"/home/lewis/github/server/libraries/underscore.min.js",
+		"/home/lewis/github/server/server.sublime-project",
+		"/home/lewis/Desktop/plans/reasons",
+		"/home/lewis/github/server/libraries/ui-bootstrap-custom-tpls-0.10.0.js",
+		"/home/lewis/github/server/README.md",
+		"/home/lewis/github/server/libraries/angular.min.js",
+		"/home/lewis/Desktop/week",
+		"/home/lewis/github/server/libraries/queue.min.js",
 		"/home/lewis/github/server/scripts/objects.js",
 		"/home/lewis/github/server/scripts/lineChart2.js",
-		"/home/lewis/github/server/server.sublime-project",
 		"/home/lewis/github/server/libraries/jquery.min.js",
 		"/home/lewis/github/server/libraries/lodash.min.js",
 		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/lewis/github/server/scripts/lineChart3.js",
 		"/home/lewis/github/server/scripts/lineChart4.js",
-		"/home/lewis/github/server/old.html",
 		"/home/lewis/Documents/test/test.js",
 		"/home/lewis/Desktop/research",
 		"/home/lewis/Desktop/housing",
@@ -305,9 +299,7 @@
 		"/home/lewis/github/MFD/README.md",
 		"/home/lewis/github/MFD/scripts/carold.js",
 		"/home/lewis/github/MFD/scripts/car2.js",
-		"/home/lewis/github/MFD/LICENSE",
-		"/home/lewis/github/MFD/scripts/carwithbounce.js",
-		"/home/lewis/Documents/housing/housing graphs.ipynb"
+		"/home/lewis/github/MFD/LICENSE"
 	],
 	"find":
 	{
@@ -325,6 +317,54 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"receive",
+			"find",
+			"push",
+			"wishtime",
+			"250",
+			"149",
+			"max",
+			"phi =",
+			".phi",
+			".phi =",
+			"tip",
+			"apply",
+			"drawevent",
+			"tolling",
+			"toll",
+			"mouseover",
+			"click",
+			"tolling",
+			"main.",
+			"tolling",
+			"tolledguy",
+			"on",
+			"tolledguy",
+			"UU",
+			"300",
+			"max",
+			"numpatches",
+			"maxq",
+			"300",
+			"maxq",
+			"300",
+			"mfd",
+			"queuele",
+			"300",
+			"diame",
+			"300",
+			"numclass",
+			"range",
+			"cars.push",
+			"tollchar",
+			"universe.",
+			"settolling",
+			"tollevent",
+			"changetoll",
+			"reset",
+			"self",
+			"UU",
+			"diam",
 			"this.phi",
 			"q(",
 			"maxq",
@@ -404,55 +444,7 @@
 			"4.98",
 			"4.6",
 			"findvel",
-			"findvel(0",
-			"servednum",
-			"cum",
-			"num",
-			"numserved",
-			"4.75",
-			"/ 5",
-			"findvel",
-			"4.339",
-			"4.3",
-			"qFun",
-			"findvel",
-			"4.3",
-			"4.5",
-			"1.02",
-			"cumserved",
-			"makechoice",
-			"evalcum",
-			"evalcost",
-			"this.dt",
-			"servedHere",
-			"99",
-			".call",
-			"this.evaltoll",
-			"this.eval",
-			"evaltoll",
-			"penalizer",
-			"penalty",
-			"penalizer",
-			"foreach",
-			"tolling",
-			"settoll",
-			"ec",
-			"ce(",
-			"toll(",
-			"evalcost",
-			"TH",
-			"evalcost",
-			".val",
-			"drawn",
-			"scope.",
-			"wishtime",
-			"clearqueue",
-			"reset",
-			"TH(",
-			"s.",
-			"var",
-			"max",
-			"this.improve"
+			"findvel(0"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -460,6 +452,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"Universe",
 			"num",
 			"3",
 			"4.98",
@@ -508,97 +501,35 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/MFD.js",
+					"file": "todo server",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2364,
+						"buffer_size": 91,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								929,
-								929
+								91,
+								91
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 312.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "scripts/DataService.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9813,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3508,
-								3508
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1344.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4063,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3260,
-								3260
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 161.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -651,8 +582,28 @@
 		"selected_items":
 		[
 			[
+				"datas",
+				"scripts/DataService.js"
+			],
+			[
+				"todo",
+				"todo server"
+			],
+			[
+				"ind",
+				"index.html"
+			],
+			[
+				"bar",
+				"scripts/bar.js"
+			],
+			[
 				"line",
 				"scripts/lineChart.js"
+			],
+			[
+				"data",
+				"scripts/DataService.js"
 			],
 			[
 				"controll",
@@ -663,24 +614,20 @@
 				"scripts/tollChart.js"
 			],
 			[
-				"angul",
-				"libraries/angular.min.js"
-			],
-			[
-				"data",
-				"scripts/DataService.js"
-			],
-			[
-				"ind",
-				"index.html"
-			],
-			[
 				"mfd",
 				"scripts/MFD.js"
 			],
 			[
-				"bar",
-				"scripts/bar.js"
+				"velch",
+				"scripts/velChart.js"
+			],
+			[
+				"in",
+				"index.html"
+			],
+			[
+				"angul",
+				"libraries/angular.min.js"
 			],
 			[
 				"lin",
@@ -691,10 +638,6 @@
 				"tooltip.html"
 			],
 			[
-				"todo",
-				"todo server"
-			],
-			[
 				"linech",
 				"scripts/lineChart.js"
 			],
@@ -703,16 +646,8 @@
 				"scripts/lineChart.js"
 			],
 			[
-				"datas",
-				"scripts/DataService.js"
-			],
-			[
 				"cotnroll",
 				"scripts/controller.js"
-			],
-			[
-				"in",
-				"index.html"
 			],
 			[
 				"tooltip",

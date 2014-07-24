@@ -1,4 +1,4 @@
-app.directive('lineChart', function() {
+app.directive('xtChart', function() {
 
     return function(scope, el, attr) {
 
@@ -27,16 +27,7 @@ app.directive('lineChart', function() {
                 return x(d.time);
             })
             .y(function(d) {
-                return y(d.numServed);
-            })
-            .interpolate('basis');
-
-        var line2 = d3.svg.line()
-            .x(function(d) {
-                return x(d.time);
-            })
-            .y(function(d) {
-                return y(d.numArr);
+                return y(d.x);
             })
             .interpolate('basis');
 
@@ -62,15 +53,19 @@ app.directive('lineChart', function() {
             .on('mouseout', mouseoutFunc);
 
         function mousemove() {
+            // debugger;
 
             var u = _.find(scope.patches, function(v) {
                 var e = x.invert(d3.mouse(this)[0]);
+                // debugger;
+                // if (!e) debugger;
                 return v.time >= e;
             }, this);
 
             scope.$apply(function() {
                 scope.info = u;
             });
+
             tip.style("opacity", .9)
                 .style("left", (d3.event.pageX) + "px")
                 .style("top", (d3.event.pageY - 150) + "px");
@@ -117,23 +112,21 @@ app.directive('lineChart', function() {
             gXAxis.call(xAxis);
             bg.attr("width", width);
             if (drawn) update();
+            // update();
         }
 
         function update() {
+
+            var data = scope.XT;
+
+            
+
             drawn = true;
             myLine.datum(scope.patches)
                 .transition()
-                // .duration(200)
                 .ease('linear')
                 .attr("d", line);
-
-            myLine2.datum(scope.patches)
-                .transition()
-                // .duration(200)
-                .ease('linear')
-                .attr("d", line2);
         }
 
     }; //end the big return
-
 }); //end directive definition

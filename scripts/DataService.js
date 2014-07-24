@@ -2,10 +2,23 @@ app.factory('Universe', function() {
     return {
         patches: [],
         cars: [],
+        XT: [],
+        XTMap: {},
         tick: function() {
             _.invoke(this.patches, 'evalCum');
             _.invoke(this.patches, 'serve');
-            _.invoke(this.patches, 'clearQueue');
+            var lastOne = this.patches[this.patches.length - 1];
+            this.XTMap = (function(g) {
+                var e = {};
+                _.range(1, 500).forEach(function(d) {
+                    var f = d / 10;
+                    var u = _.find(g, function(v) {
+                        return v.X >= f;
+                    }) || lastOne;
+                    e[f] = u.time;
+                }, this);
+                return e;
+            })(this.patches);
             var s = _.sample(this.cars, 1)[0];
             s.choose();
             s.makeChoice();
@@ -31,41 +44,38 @@ app.factory('Car', ['Universe',
             },
             evalToll: null,
             setTolling: function(v) {
-                this.evalToll = (function() {
-                    switch (v) {
-                        case "none":
-                            return function(t) {
-                                return 0;
-                            };
-                            break;
-                        case "vickrey":
-                            return function(t) {
-                                return d3.max([0, zVic - penalizer(t)]);
-                            };
-                            break;
-                        default:
-                            return function(t) {
-                                return d3.max([0, this.phi - penalizer(t)]);
-                            };
-                            break;
-                    }
-                })();
+                switch (v) {
+                    case "none":
+                        this.evalToll = function(t) {
+                            return 0;
+                        };
+                        break;
+                    case "vickrey":
+                        this.evalToll = function(t) {
+                            return d3.max([0, zVic - penalizer(t)]);
+                        };
+                        break;
+                    default:
+                        this.evalToll = function(t) {
+                            return d3.max([0, this.phi - penalizer(t)]);
+                        };
+                        break;
+                }
             },
             choose: function() {
                 var cost = this.total,
                     aT = this.aT,
                     delta = this.delta,
-                    phi = this.phi,
-                    evalToll = this.evalToll;
+                    evaluator = _.bind(ec, {
+                        evalToll: this.evalToll,
+                        phi: this.phi
+                    });
 
                 _.forEach(Universe.patches, function(d, i, k) {
                     var D = _.find(k.slice(i), function(v) {
                         return v.X > d.X + delta;
                     }) || k[k.length - 1];
-                    var pCost = ec.call({
-                        evalToll: evalToll,
-                        phi: phi
-                    }, d.time, D.time);
+                    var pCost = evaluator(d.time, D.time);
                     if (pCost < cost) {
                         cost = pCost;
                         aT = d.time;
@@ -126,7 +136,29 @@ app.factory('Patch', ['Universe',
     function(Universe) {
 
         _.extend(Patch.prototype, {
-            serve: serve,
+            serve: function() {
+                var Q = this.queue;
+                this.vel = findVel(Q.length);
+                this.served = 0;
+                this.servedNum = 0;
+                _.forEach(Q, function(car) {
+                    car.delLeft = car.delLeft - this.vel;
+                    if (car.delLeft <= 0 || !this.next) {
+                        this.served += car.delLeft;
+                        this.servedNum++;
+                        car.dT = this.time;
+                        car.delLeft = car.delta;
+                        car.evalCost();
+                    } else {
+                        this.served += this.vel;
+                        this.next.receive(car);
+                    }
+                }, this);
+                this.cumServed = (this.prev ? this.prev.cumServed : 0) + this.served;
+                this.numServed = (this.prev ? this.prev.numServed : 0) + this.servedNum;
+                this.X = this.vel + (this.prev ? this.prev.X : 0);
+                this.queue = [];
+            },
             evalCum: function() {
                 var queueLoad = d3.sum(this.queue, function(d) {
                     return d.delta;
@@ -134,45 +166,21 @@ app.factory('Patch', ['Universe',
                 this.cumArr = queueLoad + (!this.prev ? 0 : this.prev.cumArr);
                 this.numArr = this.queue.length + (!this.prev ? 0 : this.prev.numArr);
             },
-            clearQueue: function() {
-                this.queue = [];
-            },
             receive: function(v) {
                 this.queue.push(v);
             }
         });
 
-        function serve() {
-            var Q = this.queue;
-            this.vel = findVel(Q.length);
-            this.served = 0;
-            this.servedNum = 0;
-            _.forEach(Q, function(car) {
-                car.delLeft = car.delLeft - this.vel;
-                if (car.delLeft <= 0 || !this.next) {
-                    this.served += car.delLeft;
-                    this.servedNum++;
-                    car.dT = this.time;
-                    car.delLeft = car.delta;
-                    car.evalCost();
-                } else {
-                    this.served += this.vel;
-                    this.next.receive(car);
-                }
-            }, this);
-            this.cumServed = (this.prev ? this.prev.cumServed : 0) + this.served;
-            this.numServed = (this.prev ? this.prev.numServed : 0) + this.servedNum;
-            this.X = this.vel + (this.prev ? this.prev.X : 0);
-        }
-
         function Patch(time) {
-            this.self = this;
-            this.time = time;
-            this.next = null;
-            this.X = 0;
-            this.cumServed = 0;
-            this.vel = findVel(0);
-            this.queue = [];
+            _.assign(this, {
+                self: this,
+                time: time,
+                X: 0,
+                next: null,
+                cumServed: 0,
+                vel: findVel(0),
+                queue: []
+            });
         }
 
         Universe.MFD = _.range(0, 30).map(function(k, i) {
@@ -206,26 +214,22 @@ app.factory('DataService', ['Universe', 'Car', 'Patch',
             prev: null
         });
 
-        var K = {
+        _.forEach(d3.range(120, numClass + 1), function(d) {
+            var e = d / numClass;
+            this.b += (prob(e) * 1 / numClass);
+            if (this.b - this.a < this.threshold) return;
+            this.a += this.threshold;
+            this.w += (2 * e);
+            Universe.cars.push(new Car(2 * e, this.w));
+        }, {
             a: 0,
             b: 0,
             threshold: (1 / numCars),
             w: 0,
             g: 0
-        };
-
-        _.forEach(d3.range(120, numClass + 1), function(d) {
-            var e = d / numClass;
-            K.b += (prob(e) * 1 / numClass);
-            if (K.b - K.a < K.threshold) return;
-            K.a += K.threshold;
-            K.w += (2 * e);
-            Universe.cars.push(new Car(2 * e, K.w));
         });
 
-        function prob(d) {
-            return 4 * (.5 - Math.abs(.5 - d));
-        }
+
 
     }
 ]);
@@ -279,6 +283,10 @@ function q(u) {
 
 function findVel(u) {
     var k = ma(.001, u);
-    // if (k == 0) return 1;
     return q(k) / k;
+}
+
+
+function prob(d) {
+    return 4 * (.5 - Math.abs(.5 - d));
 }

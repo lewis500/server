@@ -1,36 +1,35 @@
-app.controller('mainCtrl', ['$scope', 'DataService', 'Runner', 'Universe', 'Car',
-    function(s, DS, Runner, Universe, Car) {
+app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
+    function($scope, Runner, $Uni, Car) {
         var TH = _.throttle(function() {
-            s.$emit('drawEvent');
+            $scope.$emit('drawEvent');
         }, 500);
 
-        s.timer = new Runner(tickFun, 50);
+        $scope.timer = new Runner(tickFun, 50);
 
-        s.tolling = "none";
+        $scope.tolling = "none";
 
-        s.$watch('tolling', function(v) {
+        $scope.$watch('tolling', function(v) {
             Car.prototype.setTolling(v);
         });
 
-        s.tolledGuy = null;
+        $scope.tolledGuy = null;
 
-        s.changeToll = function(d) {
-            s.tolledGuy = d;
-            s.$broadcast('tollEvent');
+        $scope.changeToll = function(d) {
+            $scope.tolledGuy = d;
+            $scope.$broadcast('tollEvent');
         }
 
-        s.measure = "SP";
-        s.info;
+        $scope.measure = "SP";
+        $scope.info;
 
-        s.updater = function(v) {
-            s.info = v;
-            // s.$apply();
+        $scope.updater = function(v) {
+            $scope.info = v;
         }
 
         function tickFun() {
-            Universe.tick();
-            s.cars = Universe.cars;
-            s.patches = Universe.patches;
+            $Uni.tick();
+            $scope.cars = $Uni.cars;
+            $scope.patches = $Uni.patches;
             TH();
         }
 
@@ -40,5 +39,5 @@ app.controller('mainCtrl', ['$scope', 'DataService', 'Runner', 'Universe', 'Car'
 
 setTimeout(function() {
     m = angular.element(document.body).injector();
-    c = m.get('Universe');
+    c = m.get('$Uni');
 }, 2500);

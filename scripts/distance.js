@@ -9,8 +9,17 @@ app.directive('distanceChart', ['Universe',
                 },
                 height = 250;
 
-            var y = d3.scale.linear().range([height, 0]).domain([0, 50]);
-            var x = d3.scale.linear().domain([0, 2]);
+            var rawData = _.pluck(Universe.cars, 'delta');
+
+            var x = d3.scale.linear().domain(d3.extent(rawData));
+
+            var data = d3.layout.histogram()
+                .bins(8)
+                (rawData);
+
+            var y = d3.scale.linear().range([height, 0]).domain([0, d3.max(data, function(d) {
+                return d.y;
+            })]);
 
             var xAxis = d3.svg.axis()
                 .scale(x)
@@ -36,14 +45,6 @@ app.directive('distanceChart', ['Universe',
                 .attr("class", "y axis")
                 .call(yAxis);
 
-            var rawData = Universe.cars.map(function(d) {
-                return d.delta;
-            });
-
-            var data = d3.layout.histogram()
-                .bins(x.ticks(20))
-                (rawData);
-
             var bar = g.selectAll(".bar")
                 .data(data)
                 .enter().append("g")
@@ -65,11 +66,10 @@ app.directive('distanceChart', ['Universe',
                     return "translate(" + x(d.x) + "," + y(d.y) + ")";
                 });
 
-                rect.attr("width", x(data[0].dx) - 1)
+                rect.attr("width", x(data[0].dx + data[0].x) - x(data[0].x) - 5)
                     .attr("height", function(d) {
                         return height - y(d.y);
                     });
-
             }
 
         }; //end the big return

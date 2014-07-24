@@ -1,6 +1,7 @@
-app.directive('mfdChart', ['Universe',
-    function(U) {
+app.directive('mfdChart', ['$Uni',
+    function($Uni) {
         return function(scope, el, attr) {
+            var measure = 'q';
             var margin = {
                 top: 20,
                 right: 35,
@@ -9,25 +10,30 @@ app.directive('mfdChart', ['Universe',
             };
 
             var height = 250;
-            var y = d3.scale.linear().range([height, 0]).domain([0, d3.max(U.MFD, function(d) {
-                return d.q;
-            })]);            
-            var x = d3.scale.linear().domain([0, 30])
+            var y = d3.scale.linear().range([height, 0]).domain([0, d3.max($Uni.MFD, function(d) {
+                return d[measure];
+            })]);
+            var x = d3.scale.linear().domain([0, d3.max($Uni.MFD, function(d) {
+                return d.k;
+            })])
             var color = d3.scale.category10();
             var xAxis = d3.svg.axis()
                 .scale(x)
-                .orient("bottom").ticks(20)
+                .orient("bottom")
+                .tickFormat(d3.format('s'))
+
 
             var yAxis = d3.svg.axis()
                 .scale(y)
-                .orient("left");
+                .orient("left")
+                .tickFormat(d3.format('s'))
 
             var line = d3.svg.line()
                 .x(function(d) {
                     return x(d.k);
                 })
                 .y(function(d) {
-                    return y(d.q);
+                    return y(d[measure]);
                 })
 
             var svg = d3.select(el[0])
@@ -50,10 +56,10 @@ app.directive('mfdChart', ['Universe',
                 .attr("y", 6)
                 .attr("dy", ".71em")
                 .style("text-anchor", "end")
-                .text("Cumulative miles arrived");
+                // .text("Cumulative miles arrived");
 
             var myLine = g.append("path")
-                .datum(U.MFD)
+                .datum($Uni.MFD)
                 .attr("d", line)
                 .attr("class", "line")
                 .attr("stroke-width", "2px")

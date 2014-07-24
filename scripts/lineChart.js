@@ -1,7 +1,6 @@
 app.directive('lineChart', function() {
 
     return function(scope, el, attr) {
-
         var margin = {
             top: 20,
             right: 35,
@@ -10,8 +9,8 @@ app.directive('lineChart', function() {
         };
 
         var height = 250;
-        var y = d3.scale.linear().range([height, 0]).domain([0, 310]);
-        var x = d3.scale.linear().domain([0, 500]);
+        var y = d3.scale.linear().range([height, 0]).domain([0, 2e3]);
+        var x = d3.scale.linear().domain([0, 200]);
         var color = d3.scale.category10();
         var xAxis = d3.svg.axis()
             .scale(x)
@@ -123,14 +122,14 @@ app.directive('lineChart', function() {
             drawn = true;
             myLine.datum(scope.patches)
                 .transition()
-                // .duration(200)
-                .ease('linear')
+            // .duration(200)
+            .ease('linear')
                 .attr("d", line);
 
             myLine2.datum(scope.patches)
                 .transition()
-                // .duration(200)
-                .ease('linear')
+            // .duration(200)
+            .ease('linear')
                 .attr("d", line2);
         }
 

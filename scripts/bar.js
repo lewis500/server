@@ -64,7 +64,7 @@ app.directive('barChart', ['$Uni',
             scope.$on('drawEvent', draw);
 
             var everyfive = _.range(0, $Uni.cars.length).filter(function(d) {
-                return d % 25 == 0;
+                return d % 75 == 0;
             });
 
             function draw() {

@@ -7,12 +7,12 @@ app.factory('$Uni', function() {
     return {
         patches: [],
         cars: [],
-        wishTime: 100,
+        wishTime: 120,
         alpha: alpha,
         z: z,
-        rescale: 35,
+        rescale: 14,
         numPatches: 200,
-        maxQ: 30,
+        maxQ: 75,
         penalizer: function(dT) {
             var sd = this.wishTime - dT;
             return d3.max([beta * sd, -gamma * sd]);
@@ -43,8 +43,8 @@ app.factory('$Uni', function() {
         tick: function() {
             _.invoke(this.patches, 'evalCum');
             _.invoke(this.patches, 'serve');
-            this.makeXT();
-            var s = _.sample(this.cars, 4);
+            // this.makeXT();
+            var s = _.sample(this.cars, 10);
             _.invoke(s, 'choose');
             _.invoke(s, 'makeChoice');
             _.invoke(this.cars, 'place');
@@ -95,14 +95,26 @@ app.factory('Car', ['$Uni',
 
                 // });
 
-                _.forEach($Uni.XT, function(d, i, k) {
-                    var D = k[i + numTicks] || lastOne;
-                    var pCost = evaluator(d.t, D.t);
+                _.forEach($Uni.patches, function(d, i, k) {
+                    var D = _.find(k.slice(i), function(v) {
+                        return v.X > d.X + delta;
+                    }) || k[k.length - 1];
+                    var pCost = evaluator(d.time, D.time);
                     if (pCost < cost) {
                         cost = pCost;
-                        aT = d.t;
+                        aT = d.time;
                     }
                 });
+
+                // _.forEach($Uni.XT, function(d, i, k) {
+                //     var D = k[i + numTicks] || lastOne;
+                //     var pCost = evaluator(d.t, D.t);
+                //     if (pCost < cost) {
+                //         cost = pCost;
+                //         aT = d.t;
+                //     }
+                // });
+
                 this.improvement = this.total - cost;
                 this.poss = aT;
             },
@@ -130,7 +142,7 @@ app.factory('Car', ['$Uni',
                 index: $Uni.cars.length,
                 delta: delta,
                 phi: $Uni.z * w / $Uni.maxQ,
-                aT: _.random($Uni.numPatches * .3, $Uni.numPatches * .8),
+                aT: _.random($Uni.numPatches * .1, $Uni.numPatches * .8),
                 poss: null,
                 improvement: null,
                 dT: null,
@@ -273,5 +285,12 @@ function linspace(a, b, precision) {
     b = b * c;
     return d3.range(a, b).map(function(d) {
         return d * precision;
+    });
+}
+
+function linspace2(a, b, n) {
+    var Q = (b - a) / n;
+    return _.range(0, n + 1).map(function(d) {
+        return a + d * Q;
     });
 }

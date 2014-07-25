@@ -26,7 +26,7 @@ app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
         function recalcit() {
             $scope.summary = _.reduce($Uni.cars, function(a, b) {
                 return a + b[$scope.measure];
-            }, 0);
+            }, 0) * $Uni.rescale / 1000;
             $scope.safeApply();
         }
 

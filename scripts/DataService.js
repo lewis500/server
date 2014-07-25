@@ -25,9 +25,8 @@ app.factory('$Uni', function() {
             var bounds = d3.extent(this.patches, function(d) {
                 return d.X;
             });
-
+            // debugger;
             var lastOne = this.patches[this.patches.length - 1];
-
             _.forEach(linspace(bounds[0], bounds[1], this.xPrecision), function(x) {
                 var u = _.find(this.patches, function(v) {
                     return v.X >= x;
@@ -39,14 +38,13 @@ app.factory('$Uni', function() {
                     patch: u
                 });
             }, this);
-
-            this.XTMap = _.indexBy(this.XT, 'x');
+            // this.XTMap = _.indexBy(this.XT, 'x');
         },
         tick: function() {
             _.invoke(this.patches, 'evalCum');
             _.invoke(this.patches, 'serve');
             this.makeXT();
-            var s = _.sample(this.cars, 5);
+            var s = _.sample(this.cars, 4);
             _.invoke(s, 'choose');
             _.invoke(s, 'makeChoice');
             _.invoke(this.cars, 'place');
@@ -79,8 +77,6 @@ app.factory('Car', ['$Uni',
                         };
                         break;
                 }
-                console.log(scheme)
-                // console.log(this.evalToll);
             },
             choose: function() {
                 var cost = this.total,
@@ -90,15 +86,21 @@ app.factory('Car', ['$Uni',
                         evalToll: this.evalToll,
                         phi: this.phi
                     });
+                var lastOne = $Uni.XT[$Uni.XT.length - 1];
+                var numTicks = Math.round(delta / $Uni.xPrecision);
 
-                _.forEach($Uni.patches, function(d, i, k) {
-                    var D = _.find(k.slice(i), function(v) {
-                        return v.X > d.X + delta;
-                    }) || k[k.length - 1];
-                    var pCost = evaluator(d.time, D.time);
+                // _.forEach($Uni.patches, function(d,i,k){
+                //   var D = $Uni.XTMap[d.X +]
+
+
+                // });
+
+                _.forEach($Uni.XT, function(d, i, k) {
+                    var D = k[i + numTicks] || lastOne;
+                    var pCost = evaluator(d.t, D.t);
                     if (pCost < cost) {
                         cost = pCost;
-                        aT = d.time;
+                        aT = d.t;
                     }
                 });
                 this.improvement = this.total - cost;
@@ -150,6 +152,7 @@ app.factory('Patch', ['$Uni',
             serve: function() {
                 var Q = this.queue;
                 this.vel = findVel($Uni.rescale * Q.length);
+                // if(this.vel == 0 ) debugger;
                 this.served = 0;
                 this.servedNum = 0;
                 _.forEach(Q, function(car) {
@@ -260,7 +263,8 @@ function q(k) {
 }
 
 function findVel(u) {
-    return q(u) / ma(.001, u) * 1.0 / 60;
+    u = ma(u, .01)
+    return q(u) / u * 1.0 / 60;
 }
 
 function linspace(a, b, precision) {

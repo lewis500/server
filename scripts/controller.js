@@ -1,12 +1,13 @@
 app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
     function($scope, Runner, $Uni, Car) {
         var TH = _.throttle(function() {
+            recalcit();
             $scope.$emit('drawEvent');
-        }, 500);
+        }, 1000);
 
         $scope.timer = new Runner(tickFun, 50);
 
-        $scope.tolling = "none";
+        $scope.tolling = "vickrey";
 
         $scope.$watch('tolling', function(v) {
             Car.prototype.setTolling(v);
@@ -22,6 +23,17 @@ app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
         $scope.measure = "SP";
         $scope.info;
 
+        function recalcit() {
+            $scope.summary = _.reduce($Uni.cars, function(a, b) {
+                return a + b[$scope.measure];
+            }, 0);
+            $scope.safeApply();
+        }
+
+        $scope.$watch('measure', recalcit);
+
+        $scope.summary = 0;
+
         $scope.updater = function(v) {
             $scope.info = v;
         }
@@ -32,6 +44,26 @@ app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
             $scope.patches = $Uni.patches;
             TH();
         }
+
+        $scope.safeApply = function(fn) {
+
+            var phase = this.$root.$$phase;
+
+            if (phase == '$apply' || phase == '$digest') {
+
+                if (fn && (typeof(fn) === 'function')) {
+
+                    fn();
+
+                }
+
+            } else {
+
+                this.$apply(fn);
+
+            }
+
+        };
 
     } //end of cotnroller
 ]); //end of

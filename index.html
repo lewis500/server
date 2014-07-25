@@ -18,8 +18,8 @@
                 <div line-chart></div>
                 <!-- <div toll-chart></div> -->
                 <!-- <div distance-chart></div> -->
-
-                                <div bar-chart>
+                <h3>{{summary | number: 1}}</h3>
+                <div bar-chart>
                     <div class="btn-group">
                         <label class="btn btn-danger" ng-model="measure" btn-radio="'social'">net cost</label>
                         <label class="btn btn-danger" ng-model="measure" btn-radio="'total'">user cost</label>
@@ -65,7 +65,7 @@ var app = angular.module('mainApp', ['ui.bootstrap']);
 
 app.run(['$Uni', 'Car', 'Patch',
     function($Uni, Car, Patch) {
-        _.forEach(d3.range(0,$Uni.numPatches), function(time, i) {
+        _.forEach(d3.range(0, $Uni.numPatches), function(time, i) {
             var newPatch = new Patch(time);
             if (this.prev) {
                 newPatch.prev = this.prev;
@@ -79,10 +79,13 @@ app.run(['$Uni', 'Car', 'Patch',
 
         _.forEach(linspace(1, 3, .001), function(d) {
             this.w += d;
-            $Uni.cars.push(new Car(d, this.w));
+            var newCar = new Car(d, this.w);
+            newCar.place();
+            $Uni.cars.push(newCar);
         }, {
             w: 0
         });
+
 
         $Uni.phiVickrey = $Uni.cars[$Uni.cars.length - 1].phi;
     }

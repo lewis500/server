@@ -9,10 +9,11 @@ app.factory('$Uni', function() {
         cars: [],
         wishTime: 120,
         alpha: alpha,
+        hasFired: false,
         z: z,
         rescale: 14,
         numPatches: 200,
-        maxQ: 80,
+        maxQ: 78,
         penalizer: function(dT) {
             var sd = this.wishTime - dT;
             return d3.max([beta * sd, -gamma * sd]);
@@ -77,7 +78,7 @@ app.factory('Car', ['$Uni',
                 }
             },
             choose: function() {
-                var cost = this.total,
+                var cost = this.user,
                     aT = this.aT,
                     delta = this.delta,
                     evaluator = _.bind(ec, {
@@ -97,8 +98,7 @@ app.factory('Car', ['$Uni',
                         aT = d.time;
                     }
                 });
-
-                this.improvement = this.total - cost;
+                this.improvement = this.user - cost;
                 this.poss = aT;
             },
             makeChoice: function() {
@@ -114,8 +114,8 @@ app.factory('Car', ['$Uni',
             this.SP = $Uni.patches[dT].penalty;
             this.toll = this.evalToll(dT);
             this.social = this.SP + this.travel_cost;
-            this.total = this.travel_cost + this.SP + this.toll;
-            return this.total;
+            this.user = this.travel_cost + this.SP + this.toll;
+            return this.user;
         }
 
         function Car(delta, w) {
@@ -133,7 +133,7 @@ app.factory('Car', ['$Uni',
                 SP: 0,
                 toll: 0,
                 delLeft: delta,
-                total: 0,
+                user: 0,
             });
         }
         return Car;
@@ -199,16 +199,46 @@ app.factory('Patch', ['$Uni',
                 penalty: $Uni.penalizer(time)
             });
         }
-
-        $Uni.MFD = _.range(1, 16e3, 500).map(function(k, i) {
-            return {
-                q: q(k) / 60 / $Uni.rescale,
-                k: k / $Uni.rescale,
-                v: findVel(k)
-            };
-        });
-
         return Patch;
+    }
+]);
+
+app.factory('$starter', ['$Uni', 'Car', 'Patch',
+    function($Uni, Car, Patch) {
+        return function() {
+            _.forEach(d3.range(0, $Uni.numPatches), function(time, i) {
+                var newPatch = new Patch(time);
+                if (this.prev) {
+                    newPatch.prev = this.prev;
+                    this.prev.next = newPatch;
+                }
+                this.prev = newPatch;
+                $Uni.patches.push(newPatch);
+            }, {
+                prev: null
+            });
+
+            _.forEach(linspace2(1, 3, 5000), function(d) {
+                this.w += d;
+                var newCar = new Car(d, this.w);
+                newCar.place();
+                $Uni.cars.push(newCar);
+            }, {
+                w: 0
+            });
+
+            $Uni.phiVickrey = $Uni.cars[$Uni.cars.length - 1].phi;
+
+            $Uni.MFD = _.range(1, 16e3, 500).map(function(k, i) {
+                return {
+                    q: q(k) / 60 / $Uni.rescale,
+                    k: k / $Uni.rescale,
+                    v: findVel(k)
+                };
+            });
+
+            $Uni.hasFired = true;
+        };
     }
 ]);
 

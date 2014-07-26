@@ -21,7 +21,6 @@ app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
         }
 
         $scope.measure = "SP";
-        $scope.info;
 
         function recalcit() {
             $scope.summary = _.reduce($Uni.cars, function(a, b) {
@@ -34,9 +33,7 @@ app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
 
         $scope.summary = 0;
 
-        $scope.updater = function(v) {
-            $scope.info = v;
-        }
+
 
         function tickFun() {
             $Uni.tick();
@@ -46,30 +43,28 @@ app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
         }
 
         $scope.safeApply = function(fn) {
-
             var phase = this.$root.$$phase;
-
             if (phase == '$apply' || phase == '$digest') {
-
                 if (fn && (typeof(fn) === 'function')) {
-
                     fn();
-
                 }
-
             } else {
-
                 this.$apply(fn);
-
             }
-
         };
 
     } //end of cotnroller
 ]); //end of
 
-
 setTimeout(function() {
     m = angular.element(document.body).injector();
     c = m.get('$Uni');
 }, 2500);
+
+app.controller('paramCtrl', ['$Uni', '$scope', '$starter',
+    function($Uni, $scope, $starter) {
+        $scope.uni = $Uni;
+        $scope.starter = $starter;
+        this.info;
+    }
+]);

@@ -43,7 +43,7 @@ app.directive('barChart', ['$Uni',
             function mouseoverFunc(d) {
 
                 scope.$apply(function() {
-                    scope.updater(d);
+                    scope.param.info = d;
                 });
                 tip.style("opacity", .9)
                     .style("left", (d3.event.pageX) + "px")

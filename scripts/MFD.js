@@ -8,8 +8,8 @@ app.directive('mfdChart', ['$Uni',
                 bottom: 30,
                 left: 45
             };
-
             var height = 250;
+
             var y = d3.scale.linear().range([height, 0]).domain([0, d3.max($Uni.MFD, function(d) {
                 return d[measure];
             })]);

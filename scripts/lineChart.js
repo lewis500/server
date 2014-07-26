@@ -69,7 +69,7 @@ app.directive('lineChart', ['$Uni',
                 }, this);
 
                 scope.$apply(function() {
-                    scope.info = u;
+                    scope.param.info = u;
                 });
                 tip.style("opacity", .9)
                     .style("left", (d3.event.pageX) + "px")

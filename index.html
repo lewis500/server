@@ -11,26 +11,24 @@
 </head>
 <!-- ============== BODY =================== -->
 
-<body ng-app="mainApp" ng-controller="mainCtrl as main">
-    <div class="container">
-        <div class="row">
+<body ng-app="mainApp">
+    <div class="container" ng-controller="paramCtrl as param">
+        <div class="row" ng-include="'partials/inputs.html'"></div>
+        <div class="row" ng-if="uni.hasFired" ng-controller="mainCtrl as main">
             <div class="col-xs-10">
                 <div line-chart></div>
                 <div toll-chart></div>
-                <!-- <div distance-chart></div> -->
                 <h3 style="margin-left:150px">{{summary | number: 0}}</h3>
                 <div bar-chart>
                     <div class="btn-group">
-                        <label class="btn btn-danger" ng-model="measure" btn-radio="'social'">net cost</label>
+                        <label class="btn btn-danger" ng-model="measure" btn-radio="'social'">social cost</label>
                         <label class="btn btn-danger" ng-model="measure" btn-radio="'total'">user cost</label>
                         <label class="btn btn-danger" ng-model="measure" btn-radio="'toll'">toll</label>
                         <label class="btn btn-danger" ng-model="measure" btn-radio="'SP'">schedule penalty</label>
-                        <label class="btn btn-danger" ng-model="measure" btn-radio="'aT'">arrival time</label>
-                        <label class="btn btn-danger" ng-model="measure" btn-radio="'dT'">departure time</label>
+                        <label class="btn btn-danger" ng-model="measure" btn-radio="'travel_cost'">travel cost</label>
                     </div>
                 </div>
                 <div mfd-chart></div>
-                <!-- <div vel-chart></div> -->
             </div>
             <div class="col-xs-1">
                 <div class="btn-group-vertical">
@@ -41,14 +39,16 @@
                 <button class="btn btn-med {{ timer.paused ? 'btn-success' : 'btn-warning' }}" ng-click="timer.pause()">{{timer.paused ? "Play" : "Pause"}}</button>
             </div>
         </div>
+
+        <div class="tip col-lg-4">
+            <div class="col-lg-6" ng-repeat="(key, val) in param.info">
+                {{key}} : {{val | number: 2}}
+            </div>
+        </div>
     </div>
 </body>
 
-<div class="tip col-lg-4">
-    <div class="col-lg-6" ng-repeat="(key, val) in info">
-        {{key}} : {{val | number: 2}}
-    </div>
-</div>
+
 
 <!-- ============== LIBRARIES =================== -->
 <script src="libraries/angular.min.js"></script>
@@ -59,36 +59,9 @@
 <script src="libraries/buttons.js"></script>
 <script type="text/javascript" src="libraries/ui-bootstrap-custom-tpls-0.10.0.js"></script>
 
-<!-- ============== SCRIPTS =================== -->
+<!-- ============== SCRIPTS ====r=============== -->
 <script type="text/javascript">
 var app = angular.module('mainApp', ['ui.bootstrap']);
-
-app.run(['$Uni', 'Car', 'Patch',
-    function($Uni, Car, Patch) {
-        _.forEach(d3.range(0, $Uni.numPatches), function(time, i) {
-            var newPatch = new Patch(time);
-            if (this.prev) {
-                newPatch.prev = this.prev;
-                this.prev.next = newPatch;
-            }
-            this.prev = newPatch;
-            $Uni.patches.push(newPatch);
-        }, {
-            prev: null
-        });
-
-        _.forEach(linspace2(1, 3, 5000), function(d) {
-            this.w += d;
-            var newCar = new Car(d, this.w);
-            newCar.place();
-            $Uni.cars.push(newCar);
-        }, {
-            w: 0
-        });
-
-        $Uni.phiVickrey = $Uni.cars[$Uni.cars.length - 1].phi;
-    }
-]);
 </script>
 
 <!-- ============== MY STUFF =================== -->

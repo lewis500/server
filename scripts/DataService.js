@@ -2,18 +2,20 @@ app.factory('$Uni', function() {
     var alpha = 1,
         beta = 0.75,
         gamma = 1.5,
-        z = beta * gamma / (beta + gamma);
+        z = beta * gamma / (beta + gamma),
+        timeScale = 1;
 
     return {
         patches: [],
         cars: [],
-        wishTime: 120,
+        wishTime: 120 * timeScale,
         alpha: alpha,
         hasFired: false,
         z: z,
+        timeScale: timeScale,
         rescale: 14,
         numPatches: 200,
-        maxQ: 78,
+        maxQ: 90,
         penalizer: function(dT) {
             var sd = this.wishTime - dT;
             return d3.max([beta * sd, -gamma * sd]);
@@ -21,6 +23,10 @@ app.factory('$Uni', function() {
         XT: [],
         XTMap: {},
         xPrecision: .25,
+        findVel: function(u) {
+            u = ma(u, .01)
+            return q(u) / u * 1.0 / 60 / timeScale;
+        },
         makeXT: function() {
             this.XT = [];
             var bounds = d3.extent(this.patches, function(d) {
@@ -57,6 +63,9 @@ app.factory('Car', ['$Uni',
         _.extend(Car.prototype, {
             evalCost: function() {
                 ec.call(this.self, this.aT, this.dT);
+            },
+            setPhi: function() {
+                this.phi = $Uni.z * this.w / $Uni.maxQ
             },
             setTolling: function(scheme) {
                 switch (scheme) {
@@ -124,7 +133,7 @@ app.factory('Car', ['$Uni',
                 w: w,
                 index: $Uni.cars.length,
                 delta: delta,
-                phi: $Uni.z * w / $Uni.maxQ,
+                phi: null,
                 aT: _.random($Uni.numPatches * .1, $Uni.numPatches * .8),
                 poss: null,
                 improvement: null,
@@ -135,6 +144,7 @@ app.factory('Car', ['$Uni',
                 delLeft: delta,
                 user: 0,
             });
+            this.setPhi();
         }
         return Car;
     }
@@ -147,7 +157,7 @@ app.factory('Patch', ['$Uni',
             serve: function() {
                 var Q = this.queue;
                 this.queueLength = Q.length;
-                this.vel = findVel($Uni.rescale * Q.length);
+                this.vel = $Uni.findVel($Uni.rescale * Q.length);
                 this.served = 0;
                 this.servedNum = 0;
                 _.forEach(Q, function(car) {
@@ -194,7 +204,7 @@ app.factory('Patch', ['$Uni',
                 numArr: 0,
                 servedNum: 0,
                 served: 0,
-                vel: findVel(0),
+                vel: $Uni.findVel(0),
                 queue: [],
                 penalty: $Uni.penalizer(time)
             });
@@ -231,9 +241,9 @@ app.factory('$starter', ['$Uni', 'Car', 'Patch',
 
             $Uni.MFD = _.range(1, 16e3, 500).map(function(k, i) {
                 return {
-                    q: q(k) / 60 / $Uni.rescale,
+                    q: q(k) / 60 / $Uni.rescale / $Uni.timeScale,
                     k: k / $Uni.rescale,
-                    v: findVel(k)
+                    v: $Uni.findVel(k)
                 };
             });
 
@@ -289,10 +299,7 @@ function q(k) {
     return (ma(g, 0) * 2.3);
 }
 
-function findVel(u) {
-    u = ma(u, .01)
-    return q(u) / u * 1.0 / 60;
-}
+
 
 function linspace(a, b, precision) {
     var c = 1.0 / precision;

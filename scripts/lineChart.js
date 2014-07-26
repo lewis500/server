@@ -4,7 +4,7 @@ app.directive('lineChart', ['$Uni',
         return function(scope, el, attr) {
             var margin = {
                 top: 20,
-                right: 35,
+                right: 15,
                 bottom: 30,
                 left: 45
             };

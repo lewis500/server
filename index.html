@@ -11,18 +11,26 @@
 </head>
 <!-- ============== BODY =================== -->
 
-<body ng-app="mainApp">
-    <div class="container" ng-controller="paramCtrl as param">
-        <div class="row" ng-include="'partials/inputs.html'"></div>
-        <div class="row" ng-if="uni.hasFired" ng-controller="mainCtrl as main">
-            <div class="col-xs-10">
-                <div line-chart></div>
-                <div toll-chart></div>
-                <h3 style="margin-left:150px">{{summary | number: 0}}</h3>
-                <div bar-chart>
+<body ng-app="mainApp" ng-controller="paramCtrl as param">
+    <div class="col-xs-12" ng-include="'partials/inputs.html'"></div>
+    <div class="col-xs-12" ng-if="uni.hasFired" ng-controller="mainCtrl as main">
+        <div class="col-xs-10">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div line-chart></div>
+                </div>
+                <div class="col-xs-6">
+                    <div toll-chart></div>
+                </div>
+            </div>
+            <div class="row">
+                <div bar-chart class="col-xs-10">
+                    <div>
+                        <span ng-repeat="(key, val) in measures" style="padding: 8px;">{{key}} : {{val / 1000 | number: 0}}</span>
+                    </div>
                     <div class="btn-group">
                         <label class="btn btn-danger" ng-model="measure" btn-radio="'social'">social cost</label>
-                        <label class="btn btn-danger" ng-model="measure" btn-radio="'total'">user cost</label>
+                        <label class="btn btn-danger" ng-model="measure" btn-radio="'user'">user cost</label>
                         <label class="btn btn-danger" ng-model="measure" btn-radio="'toll'">toll</label>
                         <label class="btn btn-danger" ng-model="measure" btn-radio="'SP'">schedule penalty</label>
                         <label class="btn btn-danger" ng-model="measure" btn-radio="'travel_cost'">travel cost</label>
@@ -30,21 +38,22 @@
                 </div>
                 <div mfd-chart></div>
             </div>
-            <div class="col-xs-1">
-                <div class="btn-group-vertical">
-                    <label class="btn btn-primary" ng-model="tolling" btn-radio="'none'">None</label>
-                    <label class="btn btn-primary" ng-model="tolling" btn-radio="'vickrey'">Vickrey</label>
-                    <label class="btn btn-primary" ng-model="tolling" btn-radio="'distance'">Distance-Based</label>
-                </div>
-                <button class="btn btn-med {{ timer.paused ? 'btn-success' : 'btn-warning' }}" ng-click="timer.pause()">{{timer.paused ? "Play" : "Pause"}}</button>
-            </div>
         </div>
+        <div class="col-xs-2">
+            <div class="btn-group-vertical">
+                <label class="btn btn-primary" ng-model="tolling" btn-radio="'none'">None</label>
+                <label class="btn btn-primary" ng-model="tolling" btn-radio="'vickrey'">Vickrey</label>
+                <label class="btn btn-primary" ng-model="tolling" btn-radio="'distance'">Distance-Based</label>
+            </div>
+            <button class="btn btn-med {{ timer.paused ? 'btn-success' : 'btn-warning' }}" ng-click="timer.pause()">{{timer.paused ? "Play" : "Pause"}}</button>
+        </div>
+    </div>
 
-        <div class="tip col-lg-4">
-            <div class="col-lg-6" ng-repeat="(key, val) in param.info">
-                {{key}} : {{val | number: 2}}
-            </div>
+    <div class="tip col-lg-4">
+        <div class="col-lg-6" ng-repeat="(key, val) in param.info">
+            {{key}} : {{val | number: 2}}
         </div>
+    </div>
     </div>
 </body>
 

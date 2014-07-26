@@ -5,7 +5,7 @@ app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
             $scope.$emit('drawEvent');
         }, 1000);
 
-        $scope.timer = new Runner(tickFun, 50);
+        $scope.timer = new Runner(tickFun, 10);
 
         $scope.tolling = "vickrey";
 
@@ -17,7 +17,7 @@ app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
 
         $scope.changeToll = function(d) {
             $scope.tolledGuy = d;
-            $scope.$broadcast('tollEvent');
+            $scope.$emit('tollEvent');
         }
 
         $scope.measure = "SP";

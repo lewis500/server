@@ -12,7 +12,7 @@ app.factory('$Uni', function() {
         z: z,
         rescale: 14,
         numPatches: 200,
-        maxQ: 75,
+        maxQ: 80,
         penalizer: function(dT) {
             var sd = this.wishTime - dT;
             return d3.max([beta * sd, -gamma * sd]);
@@ -25,7 +25,6 @@ app.factory('$Uni', function() {
             var bounds = d3.extent(this.patches, function(d) {
                 return d.X;
             });
-            // debugger;
             var lastOne = this.patches[this.patches.length - 1];
             _.forEach(linspace(bounds[0], bounds[1], this.xPrecision), function(x) {
                 var u = _.find(this.patches, function(v) {
@@ -38,7 +37,6 @@ app.factory('$Uni', function() {
                     patch: u
                 });
             }, this);
-            // this.XTMap = _.indexBy(this.XT, 'x');
         },
         tick: function() {
             _.invoke(this.patches, 'evalCum');
@@ -89,12 +87,6 @@ app.factory('Car', ['$Uni',
                 var lastOne = $Uni.XT[$Uni.XT.length - 1];
                 var numTicks = Math.round(delta / $Uni.xPrecision);
 
-                // _.forEach($Uni.patches, function(d,i,k){
-                //   var D = $Uni.XTMap[d.X +]
-
-
-                // });
-
                 _.forEach($Uni.patches, function(d, i, k) {
                     var D = _.find(k.slice(i), function(v) {
                         return v.X > d.X + delta;
@@ -105,15 +97,6 @@ app.factory('Car', ['$Uni',
                         aT = d.time;
                     }
                 });
-
-                // _.forEach($Uni.XT, function(d, i, k) {
-                //     var D = k[i + numTicks] || lastOne;
-                //     var pCost = evaluator(d.t, D.t);
-                //     if (pCost < cost) {
-                //         cost = pCost;
-                //         aT = d.t;
-                //     }
-                // });
 
                 this.improvement = this.total - cost;
                 this.poss = aT;
@@ -163,14 +146,15 @@ app.factory('Patch', ['$Uni',
         _.extend(Patch.prototype, {
             serve: function() {
                 var Q = this.queue;
+                this.queueLength = Q.length;
                 this.vel = findVel($Uni.rescale * Q.length);
-                // if(this.vel == 0 ) debugger;
                 this.served = 0;
                 this.servedNum = 0;
                 _.forEach(Q, function(car) {
                     car.delLeft += (-this.vel);
                     if (car.delLeft <= 0 || !this.next) {
-                        this.served += car.delLeft;
+                        // this.served += car.delLeft;
+                        this.served += this.vel;
                         this.servedNum++;
                         car.dT = this.time;
                         car.delLeft = car.delta;
@@ -205,6 +189,7 @@ app.factory('Patch', ['$Uni',
                 next: null,
                 cumServed: 0,
                 numServed: 0,
+                queueLength: 0,
                 cumArr: 0,
                 numArr: 0,
                 servedNum: 0,

@@ -11,7 +11,7 @@ app.directive('lineChart', ['$Uni',
 
             var height = 250;
             var y = d3.scale.linear().range([height, 0]).domain([0, $Uni.cars.length]);
-            var x = d3.scale.linear().domain([0, 200]);
+            var x = d3.scale.linear().domain([0, $Uni.numPatches]);
             var color = d3.scale.category10();
             var xAxis = d3.svg.axis()
                 .scale(x)

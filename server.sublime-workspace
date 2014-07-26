@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"pre",
+				"xPrecision"
+			],
+			[
 				"set",
 				"setPhiVickrey"
 			],
@@ -95,30 +99,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 3588,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/DataService.js",
-			"settings":
-			{
-				"buffer_size": 8483,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "todo server",
-			"settings":
-			{
-				"buffer_size": 300,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -200,23 +180,25 @@
 	},
 	"file_history":
 	[
-		"/home/lewis/github/server/scripts/distance.js",
-		"/home/lewis/github/server/tooltip.html",
-		"/home/lewis/github/server/scripts/DataService.js",
-		"/home/lewis/github/server/scripts/controller.js",
-		"/home/lewis/github/server/scripts/XT.js",
-		"/home/lewis/github/server/scripts/lineChart.js",
-		"/home/lewis/github/server/todo server",
 		"/home/lewis/github/server/scripts/MFD.js",
-		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/lewis/Desktop/plans/week",
-		"/home/lewis/github/server/old.html",
-		"/home/lewis/github/server/styles/main.css",
-		"/home/lewis/github/server/scripts/tollChart.js",
+		"/home/lewis/github/server/scripts/controller.js",
+		"/home/lewis/github/server/scripts/DataService.js",
 		"/home/lewis/github/server/index.html",
+		"/home/lewis/Desktop/plans/finances",
+		"/home/lewis/Desktop/plans/week",
+		"/home/lewis/github/server/scripts/lineChart.js",
 		"/home/lewis/github/server/scripts/bar.js",
-		"/home/lewis/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/lewis/github/server/styles/main.css",
+		"/home/lewis/github/server/scripts/distance.js",
+		"/home/lewis/github/server/scripts/bar2.js",
+		"/home/lewis/github/server/scripts/tollChart.js",
 		"/home/lewis/github/server/scripts/velChart.js",
+		"/home/lewis/github/server/todo server",
+		"/home/lewis/github/server/tooltip.html",
+		"/home/lewis/github/server/scripts/XT.js",
+		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/lewis/github/server/old.html",
+		"/home/lewis/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/lewis/github/server/libraries/angular-slider.js",
 		"/home/lewis/github/server/scripts/dsold.js",
 		"/home/lewis/github/server/libraries/underscore.min.js",
@@ -237,7 +219,6 @@
 		"/home/lewis/Desktop/research",
 		"/home/lewis/Desktop/housing",
 		"/home/lewis/github/server/libraries/d3.v3.js",
-		"/home/lewis/github/server/scripts/bar2.js",
 		"/home/lewis/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/Default (Linux).sublime-keymap",
 		"/home/lewis/github/server/libraries/sticker.js",
 		"/home/lewis/github/server/libraries/buttons.js",
@@ -326,8 +307,7 @@
 		"/home/lewis/github/MFD/libraries/angular.min.js",
 		"/home/lewis/github/MFD/indexprev.html",
 		"/home/lewis/github/MFD/README.md",
-		"/home/lewis/github/MFD/scripts/carold.js",
-		"/home/lewis/github/MFD/scripts/car2.js"
+		"/home/lewis/github/MFD/scripts/carold.js"
 	],
 	"find":
 	{
@@ -345,6 +325,101 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"function c",
+			"summary",
+			"range",
+			"rescale",
+			"range",
+			"maxq",
+			"xtmap",
+			"choose",
+			"draw",
+			"div",
+			"newMeasure",
+			"measure",
+			"choose",
+			"none",
+			"debu",
+			"aT",
+			"aT:",
+			"XT",
+			"findvel",
+			"serve",
+			"car(",
+			"place",
+			"serve",
+			"choose",
+			"dT",
+			"extent",
+			"30",
+			"500",
+			"q(",
+			"patches",
+			"mfd",
+			"90",
+			"vickrey",
+			"phivick",
+			"axis",
+			"bartch",
+			".phi",
+			"phivickre",
+			"domain",
+			"bar",
+			"penalty",
+			"range",
+			"200",
+			"sample",
+			"datas",
+			"range",
+			"evaluator",
+			"sd",
+			"distance",
+			"phivick",
+			"phivickr",
+			"phivick",
+			"phivic",
+			"set",
+			"maxq",
+			"z",
+			"patches",
+			"gamma",
+			"s.",
+			"Universe",
+			"penali",
+			"penaliz",
+			"penalizer",
+			"gamma",
+			"dataservice",
+			"Uni",
+			"U.",
+			"Universe",
+			"penalizer",
+			"patch(",
+			"new patch",
+			"q(",
+			"mfd",
+			"distance",
+			"bar",
+			"car(",
+			"domain",
+			"place",
+			"car(",
+			"new car",
+			"sample",
+			"150",
+			"numcars",
+			"numclass",
+			"findvel",
+			"* 30",
+			".q",
+			".v",
+			"findvel",
+			"range",
+			".q",
+			"range",
+			"yaxis",
+			"universe",
+			"datas",
 			"width",
 			"rect",
 			".next",
@@ -377,102 +452,7 @@
 			".phi",
 			".phi =",
 			"tip",
-			"apply",
-			"drawevent",
-			"tolling",
-			"toll",
-			"mouseover",
-			"click",
-			"tolling",
-			"main.",
-			"tolling",
-			"tolledguy",
-			"on",
-			"tolledguy",
-			"UU",
-			"300",
-			"max",
-			"numpatches",
-			"maxq",
-			"300",
-			"maxq",
-			"300",
-			"mfd",
-			"queuele",
-			"300",
-			"diame",
-			"300",
-			"numclass",
-			"range",
-			"cars.push",
-			"tollchar",
-			"universe.",
-			"settolling",
-			"tollevent",
-			"changetoll",
-			"reset",
-			"self",
-			"UU",
-			"diam",
-			"this.phi",
-			"q(",
-			"maxq",
-			"50",
-			"this.w",
-			"400",
-			"domain",
-			"wisht",
-			".w",
-			"range",
-			"numpatches",
-			"200",
-			"150",
-			"wishtime",
-			"wishti",
-			"wish",
-			".phi",
-			"wish",
-			"wishtime",
-			"400",
-			"maxq",
-			".call(",
-			"evaltoll",
-			"span",
-			"tr",
-			"findvel",
-			"this.vel",
-			"time",
-			"mouseo",
-			"ma(",
-			"0.5",
-			"evaltoll",
-			"maxq",
-			"penalizer",
-			"penalty",
-			"penaliz",
-			"penalt",
-			"this.travel",
-			"cum",
-			"evaltoll",
-			"this.queuele",
-			">",
-			">=",
-			"evaltoll",
-			"findvel",
-			"max",
-			"findvel",
-			"this.vel",
-			"patches",
-			".patch",
-			"140",
-			"mouseover",
-			".5",
-			"choose",
-			"evalcum",
-			".vel",
-			"this.vel =",
-			"clearqueue",
-			"max"
+			"apply"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -480,6 +460,13 @@
 		"regex": false,
 		"replace_history":
 		[
+			"$scope.",
+			"$Uni",
+			"Uni.",
+			"Uni",
+			".v",
+			".q",
+			".v",
 			"R",
 			"Universe",
 			"num",
@@ -530,97 +517,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3588,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "scripts/DataService.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8483,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4524,
-								4524
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2531.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "todo server",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 300,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								135,
-								135
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -671,16 +569,60 @@
 		"selected_items":
 		[
 			[
+				"ind",
+				"index.html"
+			],
+			[
+				"data",
+				"scripts/DataService.js"
+			],
+			[
+				"mfd",
+				"scripts/MFD.js"
+			],
+			[
+				"da",
+				"scripts/DataService.js"
+			],
+			[
+				"bar",
+				"scripts/bar.js"
+			],
+			[
+				"controll",
+				"scripts/controller.js"
+			],
+			[
+				"control",
+				"scripts/controller.js"
+			],
+			[
+				"line",
+				"scripts/lineChart.js"
+			],
+			[
+				"main",
+				"styles/main.css"
+			],
+			[
+				"bar.js",
+				"scripts/bar.js"
+			],
+			[
+				"bar2",
+				"scripts/bar2.js"
+			],
+			[
+				"cars",
+				"scripts/bar.js"
+			],
+			[
 				"di",
 				"scripts/distance.js"
 			],
 			[
 				"todo",
 				"todo server"
-			],
-			[
-				"data",
-				"scripts/DataService.js"
 			],
 			[
 				"linech",
@@ -691,28 +633,8 @@
 				"scripts/XT.js"
 			],
 			[
-				"line",
-				"scripts/lineChart.js"
-			],
-			[
-				"controll",
-				"scripts/controller.js"
-			],
-			[
-				"mfd",
-				"scripts/MFD.js"
-			],
-			[
 				"datas",
 				"scripts/DataService.js"
-			],
-			[
-				"ind",
-				"index.html"
-			],
-			[
-				"bar",
-				"scripts/bar.js"
 			],
 			[
 				"toll",
@@ -783,20 +705,12 @@
 				"scripts/lineChart2.js"
 			],
 			[
-				"main",
-				"styles/main.css"
-			],
-			[
 				"linechart",
 				"scripts/lineChart2.js"
 			],
 			[
 				"liencha",
 				"scripts/lineChart2.js"
-			],
-			[
-				"bar.js",
-				"scripts/bar.js"
 			],
 			[
 				"obje",
@@ -825,10 +739,6 @@
 			[
 				".css",
 				"styles/main.css"
-			],
-			[
-				"control",
-				"scripts/controller.js"
 			],
 			[
 				"bar.j",
@@ -1040,7 +950,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 144.0,
+	"side_bar_width": 259.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

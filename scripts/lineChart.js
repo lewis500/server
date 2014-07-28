@@ -6,11 +6,12 @@ app.directive('lineChart', ['$Uni',
                 top: 20,
                 right: 15,
                 bottom: 30,
-                left: 45
+                left: 35
             };
 
             var height = 250;
             var y = d3.scale.linear().range([height, 0]).domain([0, $Uni.cars.length]);
+            var y2 = d3.scale.linear().range([height, 0]).domain([0, .37]);
             var x = d3.scale.linear().domain([0, $Uni.numPatches]);
             var color = d3.scale.category10();
             var xAxis = d3.svg.axis()
@@ -20,7 +21,8 @@ app.directive('lineChart', ['$Uni',
 
             var yAxis = d3.svg.axis()
                 .scale(y)
-                .orient("left");
+                .orient("left")
+                .tickFormat(d3.format('s'))
 
             var line = d3.svg.line()
                 .x(function(d) {
@@ -37,6 +39,15 @@ app.directive('lineChart', ['$Uni',
                 })
                 .y(function(d) {
                     return y(d.numArr);
+                })
+                .interpolate('basis');
+
+            var line3 = d3.svg.line()
+                .x(function(d) {
+                    return x(d.time);
+                })
+                .y(function(d) {
+                    return y2(d.vel);
                 })
                 .interpolate('basis');
 
@@ -103,6 +114,12 @@ app.directive('lineChart', ['$Uni',
                 .attr("class", "line")
                 .attr("stroke-width", "2px")
                 .attr("stroke", "steelblue");
+
+            var myLine3 = g.append("path")
+                .attr("class", "line")
+                .attr("stroke-width", "2px")
+                .attr("stroke", "purple");
+
             var drawn;
 
             scope.$on('drawEvent', update);
@@ -123,15 +140,19 @@ app.directive('lineChart', ['$Uni',
                 drawn = true;
                 myLine.datum(scope.patches)
                     .transition()
-                // .duration(200)
                 .ease('linear')
                     .attr("d", line);
 
                 myLine2.datum(scope.patches)
                     .transition()
-                // .duration(200)
                 .ease('linear')
                     .attr("d", line2);
+
+                myLine3.datum(scope.patches)
+                    .transition()
+                .ease('linear')
+                    .attr("d", line3);
+
             }
 
         }; //end the big return

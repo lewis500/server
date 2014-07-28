@@ -7,28 +7,26 @@ app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
             $scope.$emit('drawEvent');
         }, 1000);
 
-        $scope.timer = new Runner(tickFun, 10);
+        $scope.timer = new Runner(tickFun, 5);
         $scope.tolling = "vickrey";
         $scope.measures = {
+            SP: 0,
             user: 0,
             travel_cost: 0,
             toll: 0,
-            social: 0,
-            SP: 0
+            social: 0
         };
-        
+
         $scope.$watch('tolling', function(v) {
             Car.prototype.setTolling(v);
         });
-        
+
         $scope.$watch('uni.maxQ', function() {
             if ($Uni.cars.length == 0) return;
             _.invoke($Uni.cars, 'setPhi');
             $Uni.phiVickrey = $Uni.cars[$Uni.cars.length - 1].phi;
             $scope.$emit('tollEvent');
         });
-
-
 
         $scope.changeToll = function(d) {
             $scope.tolledGuy = d;
@@ -41,11 +39,17 @@ app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
             var k = {};
             _.forEach($Uni.cars, function(car, i) {
                 _.forEach($scope.measures, function(val, key) {
-                    if (!k.hasOwnProperty(key)) k[key] = 0;
+                    if (!k.hasOwnProperty(key) && car.hasOwnProperty(key)) k[key] = 0;
                     else k[key] += car[key];
                 });
             });
             $scope.measures = k;
+            $scope.first = _.findIndex($Uni.patches, function(d) {
+                return d.servedNum > 0;
+            });
+            $scope.last = _.findLastIndex($Uni.patches, function(d) {
+                return d.servedNum > 0;
+            });
             $scope.safeApply();
         }
 
@@ -80,7 +84,6 @@ app.controller('paramCtrl', ['$Uni', '$scope', '$starter',
         $scope.uni = $Uni;
         $scope.starter = $starter;
         this.info;
-
 
     }
 ]);

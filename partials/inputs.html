@@ -1,5 +1,9 @@
-maximum Flow <input type="number" name="input" ng-model="uni.maxQ" min="10" max="105" > <br>
-<button class="btn btn-success" ng-click="starter()" ng-if="!uni.hasFired">Start!</button> <br>
+<div class="input-group">maximum Flow
+<input type="number" name="input" ng-model="uni.maxQ" min="10" max="150"></div>
+<div class="input-group">sample size<input type="number" name="input" ng-model="uni.sampleSize" min="1" max="50"></div>
+
+<button class="btn btn-success" ng-click="starter()" ng-if="!uni.hasFired">Start!</button>
+<br>
 
 <!-- 
 <input type="number" name="input" ng-model="param.maxQ" min="50" max="205" required> -->

@@ -1,21 +1,22 @@
 app.factory('$Uni', function() {
-    var alpha = 1,
-        beta = 0.75,
-        gamma = 1.5,
+    var alpha = 20 / 60,
+        beta = alpha / 2,
+        gamma = alpha * 2,
         z = beta * gamma / (beta + gamma),
         timeScale = 1;
 
     return {
         patches: [],
         cars: [],
-        wishTime: 120 * timeScale,
+        wishTime: 180 * timeScale,
         alpha: alpha,
+        sampleSize: 20,
         hasFired: false,
         z: z,
         timeScale: timeScale,
-        rescale: 14,
-        numPatches: 200,
-        maxQ: 90,
+        rescale: 13,
+        numPatches: 250 * timeScale,
+        maxQ: 97 / timeScale,
         penalizer: function(dT) {
             var sd = this.wishTime - dT;
             return d3.max([beta * sd, -gamma * sd]);
@@ -49,7 +50,7 @@ app.factory('$Uni', function() {
             _.invoke(this.patches, 'evalCum');
             _.invoke(this.patches, 'serve');
             // this.makeXT();
-            var s = _.sample(this.cars, 10);
+            var s = _.sample(this.cars, this.sampleSize);
             _.invoke(s, 'choose');
             _.invoke(s, 'makeChoice');
             _.invoke(this.cars, 'place');
@@ -114,7 +115,9 @@ app.factory('Car', ['$Uni',
                 this.aT = this.poss;
             },
             place: function() {
-                $Uni.patches[this.aT].queue.push(this.self);
+                var thePatch = $Uni.patches[this.aT]
+                thePatch.receive(this.self);
+                thePatch.originals++;
             }
         });
 
@@ -134,7 +137,7 @@ app.factory('Car', ['$Uni',
                 index: $Uni.cars.length,
                 delta: delta,
                 phi: null,
-                aT: _.random($Uni.numPatches * .1, $Uni.numPatches * .8),
+                aT: Math.round(_.random($Uni.numPatches * .2, $Uni.numPatches * .7)),
                 poss: null,
                 improvement: null,
                 dT: null,
@@ -163,8 +166,8 @@ app.factory('Patch', ['$Uni',
                 _.forEach(Q, function(car) {
                     car.delLeft += (-this.vel);
                     if (car.delLeft <= 0 || !this.next) {
-                        // this.served += car.delLeft;
-                        this.served += this.vel;
+                        this.served += car.delLeft;
+                        // this.served += this.vel;
                         this.servedNum++;
                         car.dT = this.time;
                         car.delLeft = car.delta;
@@ -183,6 +186,7 @@ app.factory('Patch', ['$Uni',
                 var queueLoad = d3.sum(this.queue, function(d) {
                     return d.delta;
                 });
+                this.originals = 0;
                 this.cumArr = queueLoad + (!this.prev ? 0 : this.prev.cumArr);
                 this.numArr = this.queue.length + (!this.prev ? 0 : this.prev.numArr);
             },
@@ -206,6 +210,7 @@ app.factory('Patch', ['$Uni',
                 served: 0,
                 vel: $Uni.findVel(0),
                 queue: [],
+                originals: 0,
                 penalty: $Uni.penalizer(time)
             });
         }
@@ -228,7 +233,7 @@ app.factory('$starter', ['$Uni', 'Car', 'Patch',
                 prev: null
             });
 
-            _.forEach(linspace2(1, 3, 5000), function(d) {
+            _.forEach(linspace2(1.3, 3.3, 5000), function(d) {
                 this.w += d;
                 var newCar = new Car(d, this.w);
                 newCar.place();

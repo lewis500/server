@@ -8,11 +8,11 @@ app.directive('tollChart', ['$Uni',
                 top: 20,
                 right: 35,
                 bottom: 30,
-                left: 45
+                left: 35
             };
 
             var height = 250;
-            var y = d3.scale.linear().range([height, 0]).domain([0, 100]);
+            var y = d3.scale.linear().range([height, 0]).domain([0, $Uni.phiVickrey]);
             var x = d3.scale.linear().domain([0, $Uni.patches.length]);
             var color = d3.scale.category10();
             var xAxis = d3.svg.axis()

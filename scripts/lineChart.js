@@ -11,7 +11,7 @@ app.directive('lineChart', ['$Uni',
 
             var height = 250;
             var y = d3.scale.linear().range([height, 0]).domain([0, $Uni.cars.length]);
-            var y2 = d3.scale.linear().range([height, 0]).domain([0, .37]);
+            var y2 = d3.scale.linear().range([height, 0]).domain([0, .37 / $Uni.timeScale]);
             var x = d3.scale.linear().domain([0, $Uni.numPatches]);
             var color = d3.scale.category10();
             var xAxis = d3.svg.axis()
@@ -140,17 +140,17 @@ app.directive('lineChart', ['$Uni',
                 drawn = true;
                 myLine.datum(scope.patches)
                     .transition()
-                .ease('linear')
+                    .ease('linear')
                     .attr("d", line);
 
                 myLine2.datum(scope.patches)
                     .transition()
-                .ease('linear')
+                    .ease('linear')
                     .attr("d", line2);
 
                 myLine3.datum(scope.patches)
                     .transition()
-                .ease('linear')
+                    .ease('linear')
                     .attr("d", line3);
 
             }

@@ -1,10 +1,10 @@
 TO DO
 
-+get aggregate stats
-+turn agg stats into real values
-
-
-+add up aggregates
++insert text into lyx document
++print out lyx document and make marks
++figures:
+	-XT diagram
+	-carlos' FIFO-defying example
 +draw an xt diagram
 
 
@@ -13,15 +13,14 @@ TO DO
 OUR MODEL
 
 MFD AND PARAMETERS:
-Our physical parameters are grounded in those from Yokahama, Japan. The MFD is taken by scaling the NEF given in Daganzo, Gayah and Gonzales (2012) by the average trip length of 2.3 km. See Figure XXX. The maximum capacity of this network is 75,000 veh-km/hr. Trip lengths distributed uniformly between 1.3 and 3.3 km. For our rush to last 2 hours at maximum capacity, we choose a population size of 65,000 vehicles footnote[to make the problem tractable on a computer, vehicles were grouped into 5,000 bins of 13]. At each time, the velocity of the network is found by dividing the flow by the accumulation.
+Our physical parameters are grounded in those from Yokahama, Japan. The MFD is taken by scaling the NEF given in Daganzo, Gayah and Gonzales (2012) by the average trip length of 2.3 km. See Figure XXX. The maximum capacity of this network is 33,000 veh/hr or, by little's formula, 75,000 veh-km/hr. For our simulation, trip lengths are distributed uniformly between 1.3 and 3.3 km. For simplicity we decided to make the rush hour 2 hours at maximum capacity, and so we choose a population size of 65,000 vehicles footnote[to make the problem tractable on a computer, vehicles were grouped into 5,000 bins of 13]. At each time, the velocity of the network is found by dividing flow, which depends on accumulation, by the accumulation.
 
 We use a travel time value of alpha=$20/hr or $.33 / min. The earliness penalty is 0.5 of travel cost, and the lateness twice travel cost. So we have alpha=$20, beta = $10, gamma = $40.
-
 
 There are n "driver" agents, each endowed with a trip length property. There are m "minute" objects which represent the discrete pieces into which the rush is divided. The model runs in 'days.' The operations of a day can be divided into two stages: physics and deciding. In the physics stage, traffic plays out, drivers are assigned departure times, and aggregates are evaluated. In the deciding stage, drivers use information from the physics stage to make a choice about when to arrive the next day. Convergence occurs when drivers stop choosing to change arrival times.
 
 Physics:
-Time proceeds sequentially, minute-by-minute. A given minute is actived with a 'queue' holding all drivers in the network when the minute starts. Each driver possesses a 'km traveled today' property; it will be zero for those arriving in this minute and positive for those who arrived earlier. Velocity (km/minute) is calculated as a function of the number of drivers in queue, using a rescaling of the MFD formula given in CITATION. The velocity is added to each driver's 'km traveled today' up to the amount of the driver's trip length. If a driver has traveled its trip length, then it is 'served,' and it evaluates its costs for this day. Otherwise, the driver is added to the queue of the next minute. The next minute is activated when all drivers have been served or passed on.
+Time proceeds sequentially, minute-by-minute. A given minute is activated with a 'queue' holding all drivers in the network when the minute starts. Each driver possesses a 'km traveled today' property; it will be zero for those arriving in this minute and positive for those who arrived earlier. Velocity (km/minute) is calculated as a function of the number of drivers in queue, using a rescaling of the MFD formula given in CITATION. The velocity is added to each driver's 'km traveled today' up to the amount of the driver's trip length. If a driver has traveled its trip length, then it is 'served,' and it evaluates its costs for this day. Otherwise, the driver is added to the queue of the next minute. The next minute is activated when all drivers have been served or passed on.
 
 Deciding:
 First, consider a hypothetical driver which cruises around the city for the whole day without ever reaching a destination or leaving the network. Integrating the velocity property of each minute will give the one-dimensional trajectory of this cruiser---the distance it has traveled by each point in time. Now, suppose the cruiser's trajectory is known to all drivers.

@@ -246,9 +246,9 @@ app.factory('$starter', ['$Uni', 'Car', 'Patch',
 
             $Uni.MFD = _.range(1, 16e3, 500).map(function(k, i) {
                 return {
-                    q: q(k) / 60 / $Uni.rescale / $Uni.timeScale,
-                    k: k / $Uni.rescale,
-                    v: $Uni.findVel(k)
+                    q: q(k) / $Uni.timeScale,
+                    k: k ,
+                    v: $Uni.findVel(k) * 60
                 };
             });
 

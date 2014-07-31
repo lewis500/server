@@ -100,18 +100,10 @@
 	"buffers":
 	[
 		{
-			"file": "todo server",
-			"settings":
-			{
-				"buffer_size": 3423,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "scripts/DataService.js",
 			"settings":
 			{
-				"buffer_size": 9607,
+				"buffer_size": 9788,
 				"line_ending": "Unix"
 			}
 		}
@@ -119,7 +111,7 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 348.0,
+		"height": 369.0,
 		"selected_items":
 		[
 			[
@@ -179,7 +171,7 @@
 				"Snippet: function(d, i) { return d; }"
 			]
 		],
-		"width": 575.0
+		"width": 530.0
 	},
 	"console":
 	{
@@ -200,22 +192,23 @@
 	},
 	"file_history":
 	[
-		"/home/lewis/Desktop/plans/week",
-		"/home/lewis/github/server/tooltip.html",
-		"/home/lewis/github/server/todo server",
 		"/home/lewis/github/server/scripts/controller.js",
-		"/home/lewis/github/server/index.html",
-		"/home/lewis/github/server/partials/inputs.html",
+		"/home/lewis/github/server/scripts/MFD.js",
+		"/home/lewis/github/server/libraries/angular-slider.js",
+		"/home/lewis/github/server/todo server",
+		"/home/lewis/github/server/tooltip.html",
 		"/home/lewis/github/server/scripts/DataService.js",
-		"/home/lewis/github/server/partials/table.html",
-		"/home/lewis/github/server/libraries/ui-bootstrap-custom-tpls-0.10.0.js",
+		"/home/lewis/github/server/server.sublime-project",
 		"/home/lewis/github/server/scripts/tollChart.js",
 		"/home/lewis/github/server/scripts/lineChart.js",
+		"/home/lewis/github/server/partials/inputs.html",
+		"/home/lewis/github/server/index.html",
+		"/home/lewis/Desktop/plans/week",
+		"/home/lewis/github/server/partials/table.html",
+		"/home/lewis/github/server/libraries/ui-bootstrap-custom-tpls-0.10.0.js",
 		"/home/lewis/github/server/styles/main.css",
 		"/home/lewis/github/server/scripts/bar.js",
 		"/home/lewis/github/server/scripts/bar2.js",
-		"/home/lewis/github/server/server.sublime-project",
-		"/home/lewis/github/server/scripts/MFD.js",
 		"/home/lewis/github/server/libraries/sticker.js",
 		"/home/lewis/Desktop/plans/finances",
 		"/home/lewis/github/server/scripts/distance.js",
@@ -224,7 +217,6 @@
 		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/lewis/github/server/old.html",
 		"/home/lewis/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-		"/home/lewis/github/server/libraries/angular-slider.js",
 		"/home/lewis/github/server/scripts/dsold.js",
 		"/home/lewis/github/server/libraries/underscore.min.js",
 		"/home/lewis/Desktop/plans/reasons",
@@ -345,6 +337,30 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"q(",
+			"rescale",
+			"makechoice",
+			"place",
+			"evalcum",
+			"originals",
+			"place",
+			"place(",
+			"place",
+			"yaxis",
+			"myline",
+			"mylne",
+			"y2",
+			"myline3",
+			".patches",
+			"line3",
+			".25",
+			"lastf",
+			"last",
+			"numpatches",
+			"emit",
+			"time:",
+			"div",
+			"alpha",
 			"car",
 			"vehicle",
 			"interval",
@@ -448,31 +464,7 @@
 			"phivic",
 			"set",
 			"maxq",
-			"z",
-			"patches",
-			"gamma",
-			"s.",
-			"Universe",
-			"penali",
-			"penaliz",
-			"penalizer",
-			"gamma",
-			"dataservice",
-			"Uni",
-			"U.",
-			"Universe",
-			"penalizer",
-			"patch(",
-			"new patch",
-			"q(",
-			"mfd",
-			"distance",
-			"bar",
-			"car(",
-			"domain",
-			"place",
-			"car(",
-			"new car"
+			"z"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -547,47 +539,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "todo server",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3423,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								103,
-								103
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 90.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "scripts/DataService.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9607,
+						"buffer_size": 9788,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8040,
-								8040
+								8337,
+								8337
 							]
 						],
 						"settings":
@@ -597,10 +561,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3296.0,
+						"translation.y": 3371.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -657,11 +621,39 @@
 				"scripts/DataService.js"
 			],
 			[
+				"controll",
+				"scripts/controller.js"
+			],
+			[
+				"mfd",
+				"scripts/MFD.js"
+			],
+			[
+				"datas",
+				"scripts/DataService.js"
+			],
+			[
 				"todo",
 				"todo server"
 			],
 			[
-				"inpu",
+				"server",
+				"server.sublime-project"
+			],
+			[
+				"line",
+				"scripts/lineChart.js"
+			],
+			[
+				"toll",
+				"scripts/tollChart.js"
+			],
+			[
+				"inp",
+				"partials/inputs.html"
+			],
+			[
+				"input",
 				"partials/inputs.html"
 			],
 			[
@@ -669,32 +661,28 @@
 				"index.html"
 			],
 			[
-				"controll",
+				"linech",
+				"scripts/lineChart.js"
+			],
+			[
+				"contorll",
 				"scripts/controller.js"
 			],
 			[
-				"inp",
-				"partials/inputs.html"
+				"cotnroll",
+				"scripts/controller.js"
 			],
 			[
 				"in",
 				"index.html"
 			],
 			[
-				"datas",
-				"scripts/DataService.js"
+				"inpu",
+				"partials/inputs.html"
 			],
 			[
 				"con",
 				"scripts/controller.js"
-			],
-			[
-				"toll",
-				"scripts/tollChart.js"
-			],
-			[
-				"line",
-				"scripts/lineChart.js"
 			],
 			[
 				"bar.js",
@@ -703,18 +691,6 @@
 			[
 				"bar",
 				"scripts/bar2.js"
-			],
-			[
-				"contorll",
-				"scripts/controller.js"
-			],
-			[
-				"input",
-				"partials/inputs.html"
-			],
-			[
-				"mfd",
-				"scripts/MFD.js"
 			],
 			[
 				"main",
@@ -749,10 +725,6 @@
 				"scripts/distance.js"
 			],
 			[
-				"linech",
-				"scripts/lineChart.js"
-			],
-			[
 				"xt",
 				"scripts/XT.js"
 			],
@@ -775,10 +747,6 @@
 			[
 				"linec",
 				"scripts/lineChart.js"
-			],
-			[
-				"cotnroll",
-				"scripts/controller.js"
 			],
 			[
 				"tooltip",

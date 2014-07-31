@@ -40,7 +40,7 @@ app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
             _.forEach($Uni.cars, function(car, i) {
                 _.forEach($scope.measures, function(val, key) {
                     if (!k.hasOwnProperty(key) && car.hasOwnProperty(key)) k[key] = 0;
-                    else k[key] += car[key];
+                    else k[key] += car[key] * $Uni.rescale;
                 });
             });
             $scope.measures = k;

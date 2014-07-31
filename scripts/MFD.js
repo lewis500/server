@@ -1,7 +1,7 @@
 app.directive('mfdChart', ['$Uni',
     function($Uni) {
         return function(scope, el, attr) {
-            var measure = 'q';
+            var measure = 'v';
             var margin = {
                 top: 20,
                 right: 35,

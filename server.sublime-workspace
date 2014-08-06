@@ -100,10 +100,34 @@
 	"buffers":
 	[
 		{
+			"file": "scripts/controller.js",
+			"settings":
+			{
+				"buffer_size": 2582,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "scripts/DataService.js",
 			"settings":
 			{
-				"buffer_size": 9788,
+				"buffer_size": 9813,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 4352,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "partials/inputs.html",
+			"settings":
+			{
+				"buffer_size": 525,
 				"line_ending": "Unix"
 			}
 		}
@@ -192,15 +216,17 @@
 	},
 	"file_history":
 	[
-		"/home/lewis/github/server/scripts/controller.js",
-		"/home/lewis/github/server/scripts/MFD.js",
-		"/home/lewis/github/server/libraries/angular-slider.js",
 		"/home/lewis/github/server/todo server",
 		"/home/lewis/github/server/tooltip.html",
+		"/home/lewis/github/server/scripts/lineChart.js",
+		"/home/lewis/github/server/libraries/underscore.min.js",
 		"/home/lewis/github/server/scripts/DataService.js",
 		"/home/lewis/github/server/server.sublime-project",
+		"/home/lewis/github/server/README.md",
+		"/home/lewis/github/server/scripts/MFD.js",
+		"/home/lewis/github/server/scripts/controller.js",
+		"/home/lewis/github/server/libraries/angular-slider.js",
 		"/home/lewis/github/server/scripts/tollChart.js",
-		"/home/lewis/github/server/scripts/lineChart.js",
 		"/home/lewis/github/server/partials/inputs.html",
 		"/home/lewis/github/server/index.html",
 		"/home/lewis/Desktop/plans/week",
@@ -218,9 +244,7 @@
 		"/home/lewis/github/server/old.html",
 		"/home/lewis/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/lewis/github/server/scripts/dsold.js",
-		"/home/lewis/github/server/libraries/underscore.min.js",
 		"/home/lewis/Desktop/plans/reasons",
-		"/home/lewis/github/server/README.md",
 		"/home/lewis/github/server/libraries/angular.min.js",
 		"/home/lewis/Desktop/week",
 		"/home/lewis/github/server/libraries/queue.min.js",
@@ -337,6 +361,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"max",
+			"q(",
+			"timescale",
+			"setphi",
+			"1000",
+			"rescal",
+			"rescale",
+			"timescal",
+			"timescale",
+			"get",
 			"q(",
 			"rescale",
 			"makechoice",
@@ -454,17 +488,7 @@
 			"200",
 			"sample",
 			"datas",
-			"range",
-			"evaluator",
-			"sd",
-			"distance",
-			"phivick",
-			"phivickr",
-			"phivick",
-			"phivic",
-			"set",
-			"maxq",
-			"z"
+			"range"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -534,37 +558,125 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/DataService.js",
+					"file": "scripts/controller.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9788,
+						"buffer_size": 2582,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8337,
-								8337
+								409,
+								409
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scripts/DataService.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9813,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32,
+								32
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								556,
+								556
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3371.0,
+						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "partials/inputs.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 525,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								109,
+								109
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -617,12 +729,24 @@
 		"selected_items":
 		[
 			[
-				"data",
-				"scripts/DataService.js"
+				"inp",
+				"partials/inputs.html"
+			],
+			[
+				"ind",
+				"index.html"
 			],
 			[
 				"controll",
 				"scripts/controller.js"
+			],
+			[
+				"todo",
+				"todo server"
+			],
+			[
+				"data",
+				"scripts/DataService.js"
 			],
 			[
 				"mfd",
@@ -631,10 +755,6 @@
 			[
 				"datas",
 				"scripts/DataService.js"
-			],
-			[
-				"todo",
-				"todo server"
 			],
 			[
 				"server",
@@ -649,16 +769,8 @@
 				"scripts/tollChart.js"
 			],
 			[
-				"inp",
-				"partials/inputs.html"
-			],
-			[
 				"input",
 				"partials/inputs.html"
-			],
-			[
-				"ind",
-				"index.html"
 			],
 			[
 				"linech",
@@ -1005,6 +1117,10 @@
 				"~/github/valet-analytics/valet.sublime-project"
 			],
 			[
+				"anal",
+				"~/github/valet-analytics/valet.sublime-project"
+			],
+			[
 				"val",
 				"~/github/valet-analytics/valet.sublime-project"
 			]
@@ -1026,7 +1142,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 207.0,
+	"side_bar_width": 101.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

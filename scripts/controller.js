@@ -1,6 +1,6 @@
 app.controller('mainCtrl', ['$scope', 'Runner', '$Uni', 'Car',
     function($scope, Runner, $Uni, Car) {
-        $scope.tolledGuy = $Uni.cars[$Uni.cars.length - 5];
+        $scope.tolledGuy = $Uni.cars[$Uni.cars.length - 1];
         console.log($scope.tolledGuy);
         var TH = _.throttle(function() {
             recalcit();

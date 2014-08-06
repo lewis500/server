@@ -3,20 +3,21 @@ app.factory('$Uni', function() {
         beta = alpha / 2,
         gamma = alpha * 2,
         z = beta * gamma / (beta + gamma),
-        timeScale = 1;
+        timeScale = 1,
+        demandScale = 1;
 
     return {
         patches: [],
         cars: [],
-        wishTime: 180 * timeScale,
+        wishTime: 150 * timeScale * demandScale,
         alpha: alpha,
         sampleSize: 20,
         hasFired: false,
         z: z,
         timeScale: timeScale,
-        rescale: 13,
-        numPatches: 250 * timeScale,
-        maxQ: 97 / timeScale,
+        rescale: 13 * demandScale,
+        numPatches: 200 * timeScale * demandScale,
+        maxQ: 97.6 / timeScale / demandScale,
         penalizer: function(dT) {
             var sd = this.wishTime - dT;
             return d3.max([beta * sd, -gamma * sd]);
@@ -25,7 +26,7 @@ app.factory('$Uni', function() {
         XTMap: {},
         xPrecision: .25,
         findVel: function(u) {
-            u = ma(u, .01)
+            u = ma(u, .01);
             return q(u) / u * 1.0 / 60 / timeScale;
         },
         makeXT: function() {
@@ -137,7 +138,7 @@ app.factory('Car', ['$Uni',
                 index: $Uni.cars.length,
                 delta: delta,
                 phi: null,
-                aT: Math.round(_.random($Uni.numPatches * .2, $Uni.numPatches * .7)),
+                aT: Math.round(_.random($Uni.numPatches * .1, $Uni.numPatches * .9)),
                 poss: null,
                 improvement: null,
                 dT: null,
@@ -233,7 +234,7 @@ app.factory('$starter', ['$Uni', 'Car', 'Patch',
                 prev: null
             });
 
-            _.forEach(linspace2(1.3, 3.3, 5000), function(d) {
+            _.forEach(linspace2(0.8, 3.8, 5000), function(d) {
                 this.w += d;
                 var newCar = new Car(d, this.w);
                 newCar.place();
@@ -247,7 +248,7 @@ app.factory('$starter', ['$Uni', 'Car', 'Patch',
             $Uni.MFD = _.range(1, 16e3, 500).map(function(k, i) {
                 return {
                     q: q(k) / $Uni.timeScale,
-                    k: k ,
+                    k: k,
                     v: $Uni.findVel(k) * 60
                 };
             });

@@ -24,28 +24,9 @@ app.factory('$Uni', function() {
         },
         XT: [],
         XTMap: {},
-        xPrecision: .25,
         findVel: function(u) {
             u = ma(u, .01);
             return q(u) / u * 1.0 / 60 / timeScale;
-        },
-        makeXT: function() {
-            this.XT = [];
-            var bounds = d3.extent(this.patches, function(d) {
-                return d.X;
-            });
-            var lastOne = this.patches[this.patches.length - 1];
-            _.forEach(linspace(bounds[0], bounds[1], this.xPrecision), function(x) {
-                var u = _.find(this.patches, function(v) {
-                    return v.X >= x;
-                }) || lastOne;
-
-                this.XT.push({
-                    x: x,
-                    t: u.time,
-                    patch: u
-                });
-            }, this);
         },
         tick: function() {
             _.invoke(this.patches, 'evalCum');
@@ -233,8 +214,8 @@ app.factory('$starter', ['$Uni', 'Car', 'Patch',
             }, {
                 prev: null
             });
-
-            _.forEach(linspace2(0.8, 3.8, 5000), function(d) {
+//1.3,3.3
+            _.forEach(linspace2(1.3,3.3, 5000), function(d) {
                 this.w += d;
                 var newCar = new Car(d, this.w);
                 newCar.place();

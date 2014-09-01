@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"wish",
+				"wishTime"
+			],
+			[
 				"pre",
 				"xPrecision"
 			],
@@ -111,7 +115,23 @@
 			"file": "scripts/DataService.js",
 			"settings":
 			{
-				"buffer_size": 9244,
+				"buffer_size": 9757,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 4352,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/bar.js",
+			"settings":
+			{
+				"buffer_size": 3908,
 				"line_ending": "Unix"
 			}
 		}
@@ -200,14 +220,17 @@
 	},
 	"file_history":
 	[
+		"/home/lewis/Desktop/plans/agency",
 		"/home/lewis/Desktop/plans/week",
+		"/home/lewis/github/server/tooltip.html",
+		"/home/lewis/github/server/libraries/jquery-ui-1.10.4.custom.min.js",
+		"/home/lewis/github/server/libraries/jquery.min.js",
 		"/home/lewis/github/server/scripts/DataService.js",
 		"/home/lewis/github/server/scripts/controller.js",
 		"/home/lewis/github/server/scripts/distance.js",
 		"/home/lewis/github/server/partials/inputs.html",
 		"/home/lewis/github/server/index.html",
 		"/home/lewis/github/server/todo server",
-		"/home/lewis/github/server/tooltip.html",
 		"/home/lewis/github/server/scripts/lineChart.js",
 		"/home/lewis/github/server/libraries/underscore.min.js",
 		"/home/lewis/github/server/server.sublime-project",
@@ -234,7 +257,6 @@
 		"/home/lewis/github/server/libraries/queue.min.js",
 		"/home/lewis/github/server/scripts/objects.js",
 		"/home/lewis/github/server/scripts/lineChart2.js",
-		"/home/lewis/github/server/libraries/jquery.min.js",
 		"/home/lewis/github/server/libraries/lodash.min.js",
 		"/home/lewis/github/server/scripts/lineChart3.js",
 		"/home/lewis/github/server/scripts/lineChart4.js",
@@ -325,9 +347,7 @@
 		"/home/lewis/github/MFD/styles/jquery-ui.css",
 		"/home/lewis/github/MFD/libraries/jquery.min.js",
 		"/home/lewis/github/MFD/scripts/draw.js",
-		"/home/lewis/github/MFD/libraries/buttons.js",
-		"/home/lewis/github/MFD/libraries/angular.min.js",
-		"/home/lewis/github/MFD/indexprev.html"
+		"/home/lewis/github/MFD/libraries/buttons.js"
 	],
 	"find":
 	{
@@ -345,6 +365,44 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"liberals",
+			"commercials",
+			"SQUEAKING",
+			"the",
+			"now",
+			"goal",
+			"force",
+			"inclusive",
+			"authorities",
+			"bar",
+			"wish:",
+			"wish",
+			"wishtime",
+			"this.pena",
+			"penalizer",
+			"numticks",
+			"lastone",
+			"penalizer",
+			"penalty",
+			"penalizer",
+			"choose",
+			"wishtime",
+			"penalizer",
+			"penalty",
+			"penalizer",
+			"penali",
+			"call",
+			"ec(",
+			".penalizer",
+			"penalizer",
+			"gamma",
+			"penalizer",
+			"ec",
+			"evalcost",
+			"penalizer",
+			"numpatches",
+			"wish",
+			"car(",
 			".3",
 			".8",
 			"13",
@@ -434,45 +492,7 @@
 			"maxq",
 			"sm",
 			"maxq",
-			"function c",
-			"summary",
-			"range",
-			"rescale",
-			"range",
-			"maxq",
-			"xtmap",
-			"choose",
-			"draw",
-			"div",
-			"newMeasure",
-			"measure",
-			"choose",
-			"none",
-			"debu",
-			"aT",
-			"aT:",
-			"XT",
-			"findvel",
-			"serve",
-			"car(",
-			"place",
-			"serve",
-			"choose",
-			"dT",
-			"extent",
-			"30",
-			"500",
-			"q(",
-			"patches",
-			"mfd",
-			"90",
-			"vickrey",
-			"phivick",
-			"axis",
-			"bartch",
-			".phi",
-			"phivickre",
-			"domain"
+			"function c"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -558,8 +578,8 @@
 						"selection":
 						[
 							[
-								325,
-								325
+								477,
+								477
 							]
 						],
 						"settings":
@@ -581,15 +601,75 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9244,
+						"buffer_size": 9757,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7256,
-								7256
+								4852,
+								4852
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1487.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1013,
+								1016
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 18.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "scripts/bar.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3908,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -599,7 +679,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2936.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -655,12 +735,20 @@
 		"selected_items":
 		[
 			[
-				"controll",
-				"scripts/controller.js"
+				"bar.js",
+				"scripts/bar.js"
+			],
+			[
+				"ind",
+				"index.html"
 			],
 			[
 				"data",
 				"scripts/DataService.js"
+			],
+			[
+				"controll",
+				"scripts/controller.js"
 			],
 			[
 				"contr",
@@ -669,10 +757,6 @@
 			[
 				"inp",
 				"partials/inputs.html"
-			],
-			[
-				"ind",
-				"index.html"
 			],
 			[
 				"todo",
@@ -725,10 +809,6 @@
 			[
 				"con",
 				"scripts/controller.js"
-			],
-			[
-				"bar.js",
-				"scripts/bar.js"
 			],
 			[
 				"bar",
@@ -1039,12 +1119,12 @@
 		"selected_items":
 		[
 			[
-				"",
-				"~/github/economics-plot/econPlot.sublime-project"
-			],
-			[
 				"anal",
 				"~/github/valet-analytics/valet.sublime-project"
+			],
+			[
+				"",
+				"~/github/economics-plot/econPlot.sublime-project"
 			],
 			[
 				"val",

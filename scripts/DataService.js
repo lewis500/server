@@ -9,10 +9,12 @@ app.factory('$Uni', function() {
     return {
         patches: [],
         cars: [],
-        wishTime: 150 * timeScale * demandScale,
+        wishTime: 130 * timeScale * demandScale,
         alpha: alpha,
         sampleSize: 20,
         hasFired: false,
+        beta: beta,
+        gamma: gamma,
         z: z,
         timeScale: timeScale,
         rescale: 13 * demandScale,
@@ -75,10 +77,10 @@ app.factory('Car', ['$Uni',
                     delta = this.delta,
                     evaluator = _.bind(ec, {
                         evalToll: this.evalToll,
-                        phi: this.phi
+                        phi: this.phi,
+                        wish: this.wish,
+                        penalizer: this.penalizer
                     });
-                var lastOne = $Uni.XT[$Uni.XT.length - 1];
-                var numTicks = Math.round(delta / $Uni.xPrecision);
 
                 _.forEach($Uni.patches, function(d, i, k) {
                     var D = _.find(k.slice(i), function(v) {
@@ -100,15 +102,22 @@ app.factory('Car', ['$Uni',
                 var thePatch = $Uni.patches[this.aT]
                 thePatch.receive(this.self);
                 thePatch.originals++;
+            },
+            penalizer: function(dT) {
+                var sd = this.wish - dT;
+                return d3.max([$Uni.beta * sd, -$Uni.gamma * sd]);
             }
         });
 
         function ec(aT, dT) {
+            // debugger;
+            // debugger;
             this.travel_cost = $Uni.alpha * (dT - aT);
-            this.SP = $Uni.patches[dT].penalty;
+            this.SP = this.penalizer(dT);
             this.toll = this.evalToll(dT);
             this.social = this.SP + this.travel_cost;
             this.user = this.travel_cost + this.SP + this.toll;
+
             return this.user;
         }
 
@@ -128,7 +137,10 @@ app.factory('Car', ['$Uni',
                 toll: 0,
                 delLeft: delta,
                 user: 0,
+                wish: $Uni.wishTime + Math.round(_.random(-$Uni.numPatches * .1, $Uni.beta * $Uni.numPatches * .1)),
             });
+            var amt = $Uni.numPatches * 0.1;
+            this.wish = $Uni.wishTime + Math.round(_.random(-amt * $Uni.gamma, amt * $Uni.beta) / ($Uni.beta + $Uni.gamma));
             this.setPhi();
         }
         return Car;
@@ -214,8 +226,8 @@ app.factory('$starter', ['$Uni', 'Car', 'Patch',
             }, {
                 prev: null
             });
-//1.3,3.3
-            _.forEach(linspace2(1.3,3.3, 5000), function(d) {
+            //1.3,3.3
+            _.forEach(linspace2(1.3, 3.3, 5000), function(d) {
                 this.w += d;
                 var newCar = new Car(d, this.w);
                 newCar.place();

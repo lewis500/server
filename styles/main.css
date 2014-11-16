@@ -1,7 +1,8 @@
 body {
-    font-family:'Open Sans', sans-serif;
+    font-family:'Arial', sans-serif;
     padding-bottom: 100px;
     padding-top: 5px;
+    font-size: 15px;
 }
 .bar {
     fill: steelblue;
@@ -17,6 +18,8 @@ body {
 .line {
     fill: none;
     stroke-width: 2px;
+      /*shape-rendering: crispEdges;*/
+
 }
 .scatterDot circle {
     stroke: none;

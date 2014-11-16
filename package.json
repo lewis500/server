@@ -1,0 +1,24 @@
+{
+  "name": "simulatin",
+  "version": "0.0.0",
+  "description": "simulation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lewis500/server"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lewis500/server/issues"
+  },
+  "homepage": "https://github.com/lewis500/server",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bower-install": "^1.6.0",
+    "grunt-include-source": "^0.4.1"
+  }
+}

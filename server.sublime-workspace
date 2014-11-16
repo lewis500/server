@@ -103,38 +103,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "scripts/controller.js",
-			"settings":
-			{
-				"buffer_size": 2582,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/DataService.js",
-			"settings":
-			{
-				"buffer_size": 9757,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 4352,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/bar.js",
-			"settings":
-			{
-				"buffer_size": 3908,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -147,11 +115,11 @@
 				"HTMLPrettify"
 			],
 			[
-				"Prett",
-				"HTMLPrettify"
+				"pret",
+				"Preferences: Package Control Settings – User"
 			],
 			[
-				"pret",
+				"Prett",
 				"HTMLPrettify"
 			],
 			[
@@ -218,37 +186,45 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/home/lewis/github/server",
+		"/home/lewis/github/server/scripts"
+	],
 	"file_history":
 	[
+		"/home/lewis/github/server/scripts/controller.js",
+		"/home/lewis/github/server/scripts/DataService.js",
+		"/home/lewis/github/server/scripts/lineChart.js",
+		"/home/lewis/github/server/index.html",
+		"/home/lewis/Desktop/plans/strive",
+		"/home/lewis/github/server/styles/main.css",
+		"/home/lewis/github/server/libraries/angular-slider.js",
+		"/home/lewis/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
+		"/home/lewis/github/server/scripts/bar.js",
+		"/home/lewis/github/server/todo server",
+		"/home/lewis/Papers/bottleneck.bib",
+		"/home/lewis/github/server/tooltip.html",
+		"/home/lewis/github/server/scripts/MFD.js",
+		"/home/lewis/github/server/old.html",
 		"/home/lewis/Desktop/plans/agency",
 		"/home/lewis/Desktop/plans/week",
-		"/home/lewis/github/server/tooltip.html",
 		"/home/lewis/github/server/libraries/jquery-ui-1.10.4.custom.min.js",
 		"/home/lewis/github/server/libraries/jquery.min.js",
-		"/home/lewis/github/server/scripts/DataService.js",
-		"/home/lewis/github/server/scripts/controller.js",
 		"/home/lewis/github/server/scripts/distance.js",
 		"/home/lewis/github/server/partials/inputs.html",
-		"/home/lewis/github/server/index.html",
-		"/home/lewis/github/server/todo server",
-		"/home/lewis/github/server/scripts/lineChart.js",
 		"/home/lewis/github/server/libraries/underscore.min.js",
 		"/home/lewis/github/server/server.sublime-project",
 		"/home/lewis/github/server/README.md",
-		"/home/lewis/github/server/scripts/MFD.js",
-		"/home/lewis/github/server/libraries/angular-slider.js",
 		"/home/lewis/github/server/scripts/tollChart.js",
 		"/home/lewis/github/server/partials/table.html",
 		"/home/lewis/github/server/libraries/ui-bootstrap-custom-tpls-0.10.0.js",
-		"/home/lewis/github/server/styles/main.css",
-		"/home/lewis/github/server/scripts/bar.js",
 		"/home/lewis/github/server/scripts/bar2.js",
 		"/home/lewis/github/server/libraries/sticker.js",
 		"/home/lewis/Desktop/plans/finances",
 		"/home/lewis/github/server/scripts/velChart.js",
 		"/home/lewis/github/server/scripts/XT.js",
 		"/home/lewis/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-		"/home/lewis/github/server/old.html",
 		"/home/lewis/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/lewis/github/server/scripts/dsold.js",
 		"/home/lewis/Desktop/plans/reasons",
@@ -344,10 +320,7 @@
 		"/home/lewis/github/MFD/mfd.sublime-project",
 		"/home/lewis/github/MFD/todo.txt",
 		"/home/lewis/github/MFD/libraries/angular-slider.js",
-		"/home/lewis/github/MFD/styles/jquery-ui.css",
-		"/home/lewis/github/MFD/libraries/jquery.min.js",
-		"/home/lewis/github/MFD/scripts/draw.js",
-		"/home/lewis/github/MFD/libraries/buttons.js"
+		"/home/lewis/github/MFD/styles/jquery-ui.css"
 	],
 	"find":
 	{
@@ -365,6 +338,41 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"transform",
+			"130",
+			"black",
+			"wish",
+			"vel",
+			"timex",
+			"time",
+			"d3.svg.line",
+			"line3",
+			"wishtime",
+			"rescale",
+			"cost",
+			"alpha",
+			"rescale",
+			"50",
+			"y2",
+			"queuelength",
+			"line3",
+			"2013",
+			"axislabel",
+			"size",
+			"font-size",
+			"crimson",
+			"steelblue",
+			"width =",
+			"myline3",
+			"y2",
+			"numser",
+			"numserved",
+			"y2",
+			"domain",
+			"numserved",
+			"y(",
+			"tickformat",
+			"format",
 			"liberals",
 			"commercials",
 			"SQUEAKING",
@@ -457,42 +465,7 @@
 			"key2",
 			"120",
 			"numpatches",
-			"findVel",
-			"findvel",
-			"findVel",
-			"findvel",
-			"120",
-			"findvel",
-			"numpatches",
-			"mouseove",
-			"mouseover\\",
-			".info",
-			"info",
-			"updater",
-			"starter",
-			"q(k",
-			"total",
-			"maxq",
-			"num",
-			"choose",
-			"mfd",
-			"200",
-			"findvel",
-			"rescale",
-			"maxq",
-			"evaltoll",
-			"maxq",
-			"evaltoll",
-			"maxq",
-			"100",
-			"scope",
-			"tollch",
-			".phi",
-			"phivick",
-			"maxq",
-			"sm",
-			"maxq",
-			"function c"
+			"findVel"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -562,129 +535,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "scripts/controller.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2582,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								477,
-								477
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "scripts/DataService.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 9757,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4852,
-								4852
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1487.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4352,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1013,
-								1016
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 18.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "scripts/bar.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3908,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -735,20 +587,56 @@
 		"selected_items":
 		[
 			[
-				"bar.js",
-				"scripts/bar.js"
+				"controll",
+				"scripts/controller.js"
+			],
+			[
+				"style",
+				"styles/main.css"
 			],
 			[
 				"ind",
 				"index.html"
 			],
 			[
-				"data",
+				"style.",
+				"styles/main.css"
+			],
+			[
+				"line",
+				"scripts/lineChart.js"
+			],
+			[
+				"datas",
 				"scripts/DataService.js"
 			],
 			[
-				"controll",
-				"scripts/controller.js"
+				"linech",
+				"scripts/lineChart.js"
+			],
+			[
+				"todo",
+				"todo server"
+			],
+			[
+				"main.css",
+				"styles/main.css"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"main.",
+				"styles/main.css"
+			],
+			[
+				"bar.js",
+				"scripts/bar.js"
+			],
+			[
+				"data",
+				"scripts/DataService.js"
 			],
 			[
 				"contr",
@@ -759,24 +647,12 @@
 				"partials/inputs.html"
 			],
 			[
-				"todo",
-				"todo server"
-			],
-			[
 				"mfd",
 				"scripts/MFD.js"
 			],
 			[
-				"datas",
-				"scripts/DataService.js"
-			],
-			[
 				"server",
 				"server.sublime-project"
-			],
-			[
-				"line",
-				"scripts/lineChart.js"
 			],
 			[
 				"toll",
@@ -785,10 +661,6 @@
 			[
 				"input",
 				"partials/inputs.html"
-			],
-			[
-				"linech",
-				"scripts/lineChart.js"
 			],
 			[
 				"contorll",
@@ -887,10 +759,6 @@
 				"scripts/lineChart.js"
 			],
 			[
-				"inde",
-				"index.html"
-			],
-			[
 				"obj",
 				"scripts/objects.js"
 			],
@@ -917,10 +785,6 @@
 			[
 				"dataser",
 				"scripts/DataService.js"
-			],
-			[
-				"style",
-				"styles/main.css"
 			],
 			[
 				"rett",
@@ -1141,6 +1005,7 @@
 		],
 		"width": 392.0
 	},
+	"selected_group": 0,
 	"settings":
 	{
 	},

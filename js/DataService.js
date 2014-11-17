@@ -6,6 +6,8 @@ app.factory('$Uni', function() {
     timeScale = 1,
     demandScale = 1;
 
+
+
   return {
     patches: [],
     cars: [],
@@ -27,7 +29,9 @@ app.factory('$Uni', function() {
     XT: [],
     XTMap: {},
     findVel: function(u) {
-      return 30.8 * Math.exp(-u * 1.405e-4) / 60;
+      if (u <= 12000) return 30.8 * Math.exp(-u * 1.405e-4) / 60;
+      var v1 = 30.8 * Math.exp(-12000 * 1.405e-4) / 60;
+      return v1 - (u - 12000) * 7.1e-4 / 60;
     },
     tick: function() {
       _.invoke(this.patches, 'evalCum');
@@ -135,14 +139,14 @@ app.factory('Car',
         user: 0,
         wish: $Uni.wishTime,
       });
-      var amt = $Uni.numPatches * 0.1;
+      // var amt = $Uni.numPatches * 0.1;
       // this.wish = $Uni.wishTime + Math.round(_.random(-amt * $Uni.gamma, amt * $Uni.beta) / ($Uni.beta + $Uni.gamma));
       this.setPhi();
     }
     return Car;
   });
 
-app.factory('Patch', ['$Uni',
+app.factory('Patch',
   function($Uni) {
 
     _.extend(Patch.prototype, {
@@ -204,8 +208,7 @@ app.factory('Patch', ['$Uni',
       });
     }
     return Patch;
-  }
-]);
+  });
 
 app.factory('$starter',
   function($Uni, Car, Patch) {
@@ -222,7 +225,7 @@ app.factory('$starter',
         prev: null
       });
       //1.3,3.3
-      _.forEach(linspace2(1.3, 3.3, 5000), function(d) {
+      _.forEach(linspace2(.8, 3.8, 5000), function(d) {
         this.w += d;
         var newCar = new Car(d, this.w);
         newCar.place();
@@ -237,14 +240,6 @@ app.factory('$starter',
         });
 
       $Uni.phiVickrey = $Uni.cars[$Uni.cars.length - 1].phi;
-
-      $Uni.MFD = _.range(1, 16e3, 500).map(function(k, i) {
-        return {
-          q: q(k) / $Uni.timeScale,
-          k: k,
-          v: $Uni.findVel(k) * 60
-        };
-      });
 
       $Uni.hasFired = true;
     };
